@@ -8,6 +8,8 @@ import torch
 import torch.nn.functional as F
 from .ponder import load_model, forward, embeddings, hidden
 from .data import chunks
+from .masked import forward as masked_forward
+from .diagnose import sequential as masked_sequential
 
 @torch.no_grad()
 def sequential(model, x):
@@ -34,19 +36,41 @@ def main():
     p.add_argument("--checkpoint", required=True)
     p.add_argument("--mode", choices=["vanilla","ponder"], required=True)
     p.add_argument("--split", default="validation", choices=["validation"])
+    p.add_argument("--mask", choices=["D0", "D1", "D2"])
     a = p.parse_args()
+    def run_forward(model, x, k):
+        if a.mask is None:
+            return forward(model, x, k)
+        with torch.autocast("cuda", dtype=torch.bfloat16):
+            return masked_forward(model, x, k, a.mask)
+
+    def run_sequential(model, x):
+        if a.mask is None:
+            return sequential(model, x)
+        cache_holder = []
+        def capture_cache(module, args, out):
+            cache_holder[:] = [out.past_key_values]
+        hook = model.gpt_neox.register_forward_hook(capture_cache)
+        try:
+            loss, n = masked_sequential(model, x, a.mask)
+        finally:
+            hook.remove()
+        # Count actual tensors: rotary keys and values can have different dtypes.
+        cache_bytes = sum(t.numel()*t.element_size()
+                          for layer in cache_holder[0] for t in layer)
+        return loss, n, cache_bytes
     torch.manual_seed(42)
     model = load_model(a.mode, a.checkpoint).eval()
     data = chunks(a.split)
     # Untimed warm-up, then synchronize around the whole validation pass.
-    forward(model, data[0:1].cuda(), 3)
+    run_forward(model, data[0:1].cuda(), 3)
     torch.cuda.synchronize()
     torch.cuda.reset_peak_memory_stats()
     start = time.perf_counter()
     total, count = 0., 0
     for x in data:
         x = x.unsqueeze(0).cuda()
-        out = forward(model, x, 3)
+        out = run_forward(model, x, 3)
         # Float32 CE from the official thought-position/vanilla logits.
         total += F.cross_entropy(out.logits[:,:-1].float().reshape(-1,model.config.vocab_size),
                                  x[:,1:].reshape(-1), reduction="sum").item()
@@ -58,12 +82,12 @@ def main():
                   seconds=elapsed,tokens_s=count/elapsed,peak_memory_bytes=torch.cuda.max_memory_allocated())
     # 8 fixed validation sequences: true sequential cached inference, same code path.
     with torch.autocast("cuda", dtype=torch.bfloat16):
-        sequential(model, data[:1,:16].cuda())
+        run_sequential(model, data[:1,:16].cuda())
         torch.cuda.synchronize()
         t = time.perf_counter()
         nll, n, cache_bytes = 0., 0, 0
         for x in data[:8,:128]:
-            loss, num, cache_bytes = sequential(model,x.unsqueeze(0).cuda())
+            loss, num, cache_bytes = run_sequential(model,x.unsqueeze(0).cuda())
             nll += loss
             n += num
         torch.cuda.synchronize()
@@ -75,7 +99,11 @@ def main():
     transformer = layers*(8*d*d+4*d*ff)
     result["inference_flops_per_token_estimate"] = factor*transformer + 2*d*vocab + 4*layers*d*factor*factor*128
     result["flops_convention"] = "2 FLOPs/MAC; cached context mean 128 real tokens; transformer dense + causal QK/AV + one vocab head; excludes norms/softmax"
-    path = Path(a.checkpoint).parents[1] / "evaluation.json"
+    if a.mask is not None:
+        result.update(mask=a.mask, forward_path="manual official backbone/interleave/extraction",
+                      diagnostic=a.mask == "D0", batch=1, precision="bf16 autocast; FP32 CE")
+    filename = "evaluation-D0.json" if a.mask == "D0" else "evaluation.json"
+    path = Path(a.checkpoint).parents[1] / filename
     path.write_text(json.dumps(result,indent=2))
     print(json.dumps(result,indent=2))
 if __name__ == "__main__":

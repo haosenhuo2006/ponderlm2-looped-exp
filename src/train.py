@@ -11,12 +11,16 @@ from pathlib import Path
 import torch
 from .data import chunks, order
 from .ponder import load_model, forward
+from .masked import forward as masked_forward
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True)
+    p.add_argument("--mask", choices=["D1", "D2"])
     a = p.parse_args()
     c = json.loads(Path(a.config).read_text())
+    if a.mask is not None:
+        c["mask"] = a.mask
     torch.manual_seed(c["seed"])
     rng = random.Random(c["seed"])
     dest = Path(c["run_dir"])
@@ -52,7 +56,11 @@ def main():
             loss_sum = 0.
             for micro in range(c["grad_accum"]):
                 x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
-                loss = forward(model, x, k).loss
+                if c.get("mask"):
+                    with torch.autocast("cuda", dtype=torch.bfloat16):
+                        loss = masked_forward(model, x, k, c["mask"]).loss
+                else:
+                    loss = forward(model, x, k).loss
                 if not torch.isfinite(loss):
                     raise RuntimeError("nonfinite loss")
                 (loss / c["grad_accum"]).backward()
