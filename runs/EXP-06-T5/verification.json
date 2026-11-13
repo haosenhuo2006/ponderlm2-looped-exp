@@ -1,0 +1,13 @@
+{
+  "steps": 600,
+  "K_counts": {
+    "2": 306,
+    "3": 294
+  },
+  "K_matches_T1": true,
+  "finite_losses_and_gradients": true,
+  "averaged_logged_CE_matches": true,
+  "protected_files_unchanged": 186,
+  "training_sources_unchanged": true,
+  "final_nll_manual_official_difference": 0.0
+}

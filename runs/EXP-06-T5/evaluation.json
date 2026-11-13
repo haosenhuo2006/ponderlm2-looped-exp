@@ -1,0 +1,19 @@
+{
+  "mode": "ponder",
+  "checkpoint": "runs/EXP-06-T5/checkpoints/step-600",
+  "split": "validation",
+  "nll": 5.835645400468433,
+  "ppl": 342.28557404731754,
+  "predicted_tokens": 249135,
+  "chunks": 977,
+  "seq": 256,
+  "jacobi_iterations": 3,
+  "seconds": 28.432380058999115,
+  "tokens_s": 8762.36880215543,
+  "peak_memory_bytes": 651446272,
+  "sequential_nll_8x128": 5.759782037691939,
+  "sequential_tokens_s": 88.6497634038898,
+  "kv_cache_bytes_127_tokens": 4681728,
+  "inference_flops_per_token_estimate": 133300224,
+  "flops_convention": "2 FLOPs/MAC; cached context mean 128 real tokens; transformer dense + causal QK/AV + one vocab head; excludes norms/softmax"
+}

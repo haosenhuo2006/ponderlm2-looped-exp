@@ -57,11 +57,21 @@ def main():
             k = rng.choice([2,3]) if c["mode"] == "ponder" else 0
             optimizer.zero_grad(set_to_none=True)
             loss_sum = 0.
+            round_sums = [0.] * k
+            final_sum = 0.
             for micro in range(c["grad_accum"]):
                 x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
                 if c.get("loop"):
                     with torch.autocast("cuda", dtype=torch.bfloat16):
                         loss = looped.forward(model, x, labels=x).loss
+                elif c.get("intermediate_supervision"):
+                    with torch.autocast("cuda", dtype=torch.bfloat16):
+                        output = masked_forward(model, x, k, "D0", intermediate_supervision=True)
+                        loss = output.loss
+                    for j, component in enumerate(output.round_losses):
+                        round_sums[j] += component.detach().item()
+                    final_sum += output.final_loss.detach().item()
+                    del output
                 elif c.get("mask"):
                     with torch.autocast("cuda", dtype=torch.bfloat16):
                         loss = masked_forward(model, x, k, c["mask"]).loss
@@ -78,6 +88,9 @@ def main():
                        tokens=step*c["seq"]*c["grad_accum"], tokens_s=c["seq"]*c["grad_accum"]/(time.perf_counter()-t),
                        grad_norm=float(norm), peak_memory_bytes=torch.cuda.max_memory_allocated(),
                        elapsed_s=time.perf_counter()-start)
+            if c.get("intermediate_supervision"):
+                row.update(round_ce=[v/c["grad_accum"] for v in round_sums],
+                           final_prediction_ce=final_sum/c["grad_accum"])
             log.write(json.dumps(row)+"\n")
             print(json.dumps(row), flush=True)
             if step % 200 == 0 or step == c["steps"]:

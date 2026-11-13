@@ -1,0 +1,19 @@
+{
+  "checkpoint": "runs/EXP-06-T5/checkpoints/step-600",
+  "split": "validation",
+  "chunks": 977,
+  "seq": 256,
+  "batch": 1,
+  "predicted_tokens": 249135,
+  "K": 3,
+  "round_nll": [
+    5.841570468096959,
+    5.8414331820520875,
+    5.836916475634602
+  ],
+  "final_prediction_nll": 5.835645400468433,
+  "seconds": 35.19652054300241,
+  "official_final_max_abs_logit_difference": 0.0,
+  "round_definition": "kth interleaved refinement thought logits; excludes token-only initialization and separate final prediction",
+  "precision": "bf16 autocast; FP32 CE"
+}
