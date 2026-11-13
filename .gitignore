@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Checkpoints and large data (never commit)
+*.pt
+*.bin
+*.safetensors
+runs/*/checkpoints/
+data/
+*.parquet
+*.arrow
+
+# Logs / caches
+*.log
+.wandb/
+wandb/
+.huggingface/
+.cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
