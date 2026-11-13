@@ -12,6 +12,7 @@ import torch
 from .data import chunks, order
 from .ponder import load_model, forward
 from .masked import forward as masked_forward
+from . import looped
 
 def main():
     p = argparse.ArgumentParser()
@@ -27,6 +28,8 @@ def main():
     dest.mkdir(parents=True, exist_ok=True)
     (dest / "config.json").write_text(json.dumps(c, indent=2))
     model = load_model(c["mode"])
+    if c.get("loop"):
+        looped.configure(model, **c["loop"])
     data = chunks(seq=c["seq"])
     indices = order(len(data), c["steps"] * c["grad_accum"], c["seed"])
     optimizer = torch.optim.AdamW(model.parameters(), lr=c["lr"], betas=tuple(c["betas"]), weight_decay=c["weight_decay"])
@@ -56,7 +59,10 @@ def main():
             loss_sum = 0.
             for micro in range(c["grad_accum"]):
                 x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
-                if c.get("mask"):
+                if c.get("loop"):
+                    with torch.autocast("cuda", dtype=torch.bfloat16):
+                        loss = looped.forward(model, x, labels=x).loss
+                elif c.get("mask"):
                     with torch.autocast("cuda", dtype=torch.bfloat16):
                         loss = masked_forward(model, x, k, c["mask"]).loss
                 else:
