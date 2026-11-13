@@ -1,0 +1,23 @@
+{
+  "git_hash": "039fc7e87c9e74aab4f8eff0ca11ca683febf185",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "parameters": 70426624,
+  "start_unix": 1794586895.493965,
+  "python": "3.12.3",
+  "versions": {
+    "transformers": "4.46.1",
+    "numpy": "1.26.4",
+    "pyarrow": "18.1.0",
+    "tokenizers": "0.20.3"
+  },
+  "gpu_total_bytes": 8585216000,
+  "source_sha256": {
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/data.py": "98e1b53d593112b06922797386dbb6235dd685c3436f68d4d887c59b7cc45d75",
+    "src/evaluate.py": "bae778515399ca55b5457f59c11b92b5b76c12b5a760d6b35b93168fd328557f",
+    "src/jacobi_check.py": "39184cc203ca13f7d3451ec0d9022562841d811d24417b4ef695ff1592dae573",
+    "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+    "src/train.py": "1841f71ac1f7350eac697faf24c04e80981bcd11c0fe58f987d93a5f01a86e67"
+  }
+}

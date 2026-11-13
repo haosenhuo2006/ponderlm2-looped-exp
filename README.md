@@ -40,3 +40,27 @@ after EXP-01/EXP-02.
 Every report records the method, commands, config, git hash, seed,
 hardware, wall time, and limitations. Failed runs are reported as
 failures — no invented numbers, no claiming an unrun experiment as done.
+
+## EXP-01 harness
+
+Use the independent environment documented in [ENV.md](ENV.md) and
+[requirements-exp01.txt](requirements-exp01.txt). The official source remains
+an ignored, unmodified clone under vendor/PonderLM-2/.
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m src.train --config configs/exp01_t0.json
+.venv/bin/python -m src.train --config configs/exp01_t1.json
+.venv/bin/python -m src.evaluate --checkpoint runs/EXP-01-T1/checkpoints/step-600 --mode ponder --split validation
+.venv/bin/python -m src.jacobi_check --checkpoint runs/EXP-01-T1/checkpoints/step-600
+```
+
+Run GPU jobs sequentially. scripts/run_exp01.sh executes the bounded train/eval
+pipeline on the experiment WSL machine. Data downloads/cache and large model
+checkpoints stay local; JSONL logs, metrics and checkpoint indices are tracked.
+The shared saved chunk order fixes the 600-step token budget; use fresh run
+directories and a separate index filename when designing a different budget.
+The training entry point overwrites its JSONL log and does not implement resume.
+
+See [the EXP-01 report](reports/EXP-01-baseline-reproduction.md) for results,
+the S3 mirror fallback, precision details and evaluation conventions.
