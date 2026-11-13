@@ -1,0 +1,17 @@
+Interpreter: /home/lenovo_jason/GPT2_Latent_Reasoning/.venv/bin/python
+importlib.import_module(name), getattr(module, "__version__", "importable"):
+torch 2.11.0+cu130
+transformers 5.18.0
+accelerate ModuleNotFoundError No module named 'accelerate'
+flash_attn ModuleNotFoundError No module named 'flash_attn'
+deepspeed ModuleNotFoundError No module named 'deepspeed'
+wandb ModuleNotFoundError No module named 'wandb'
+llamafactory ModuleNotFoundError No module named 'llamafactory'
+datasets 5.1.0
+peft ModuleNotFoundError No module named 'peft'
+trl ModuleNotFoundError No module named 'trl'
+tokenizers 0.23.2
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU; torch total_memory=8585216000 bytes
+/usr/lib/wsl/lib/nvidia-smi baseline: 1534 MiB used, 8188 MiB total.
+Note: nvidia-smi is absent from PATH (command -v returned status 1);
+absolute WSL driver path above works.

@@ -1,0 +1,8 @@
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:07<00:00,  3.66s/it]Fetching 2 files: 100%|██████████| 2/2 [00:07<00:00,  3.66s/it]
+{"download_seconds": 8.79004006699688, "files": {"model.safetensors": 166029852, "config.json": 567}}
+{"load_seconds": 0.4997214020040701, "parameters": 70426624, "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU", "total_bytes": 8585216000}
+{"batch": 1, "seq": 64, "seconds": 2.486951812999905, "peak_allocated_bytes": 296641024, "peak_reserved_bytes": 318767104, "loss": 16.5, "logits": [1, 64, 50304], "finite": true}
+{"batch": 1, "seq": 256, "seconds": 0.08752215799904661, "peak_allocated_bytes": 488667136, "peak_reserved_bytes": 507510784, "loss": 17.5, "logits": [1, 256, 50304], "finite": true}
+{"batch": 1, "seq": 512, "seconds": 0.10102365299826488, "peak_allocated_bytes": 748568576, "peak_reserved_bytes": 769654784, "loss": 21.75, "logits": [1, 512, 50304], "finite": true}
+{"batch": 2, "seq": 256, "seconds": 0.07324013600009494, "peak_allocated_bytes": 798761984, "peak_reserved_bytes": 822083584, "loss": 18.625, "logits": [2, 256, 50304], "finite": true}
+{"batch": 2, "seq": 512, "seconds": 0.07507447800162481, "peak_allocated_bytes": 1356901376, "peak_reserved_bytes": 1369440256, "loss": 24.125, "logits": [2, 512, 50304], "finite": true}

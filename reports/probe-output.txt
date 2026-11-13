@@ -1,0 +1,10 @@
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:04<00:04,  4.59s/it]Fetching 2 files: 100%|██████████| 2/2 [04:18<00:00, 129.38s/it]Fetching 2 files: 100%|██████████| 2/2 [04:18<00:00, 129.38s/it]
+{"download_seconds": 274.24235361700266, "files": {"model.safetensors": 166029852, "config.json": 567}}
+{"load_seconds": 0.5476703399981488, "parameters": 70426624, "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU", "total_bytes": 8585216000}
+{"batch": 1, "seq": 64, "seconds": 2.4850856269986252, "peak_allocated_bytes": 296641024, "peak_reserved_bytes": 318767104, "loss": 16.5, "logits": [1, 64, 50304], "finite": true}
+{"batch": 1, "seq": 256, "seconds": 0.09568707300059032, "peak_allocated_bytes": 488667136, "peak_reserved_bytes": 507510784, "loss": 17.5, "logits": [1, 256, 50304], "finite": true}
+{"batch": 1, "seq": 512, "seconds": 0.08936465300212149, "peak_allocated_bytes": 748568576, "peak_reserved_bytes": 769654784, "loss": 21.75, "logits": [1, 512, 50304], "finite": true}
+{"batch": 2, "seq": 256, "seconds": 0.08987706400512252, "peak_allocated_bytes": 798761984, "peak_reserved_bytes": 822083584, "loss": 18.625, "logits": [2, 256, 50304], "finite": true}
+{"batch": 2, "seq": 512, "seconds": 0.08720803500182228, "peak_allocated_bytes": 1356901376, "peak_reserved_bytes": 1369440256, "loss": 24.125, "logits": [2, 512, 50304], "finite": true}

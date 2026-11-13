@@ -1,0 +1,17 @@
+# Read before mutations:
+cat EXPERIMENT_PLAN.md
+# Assistant VM: read official README.md, requirements.txt, setup.py,
+# scripts/quickstart_ponderlm2_pythia_70m.sh and modeling_gpt_neox.py.
+# Every WSL command runs via export TUNNEL_PROXY="${HTTPS_PROXY%:*}:3130";
+# ~/workspace/bin/tssh wsl '<command>' (heredoc input for file writes).
+git clone --depth 1 https://github.com/LUMIA-Group/PonderLM-2 vendor/PonderLM-2
+git -C vendor/PonderLM-2 rev-parse HEAD
+/home/lenovo_jason/.local/bin/uv venv --python /usr/bin/python3 .venv
+/home/lenovo_jason/.local/bin/uv pip install --python .venv/bin/python torch==2.11.0 --index-url https://download.pytorch.org/whl/cu130
+/home/lenovo_jason/.local/bin/uv pip install --python .venv/bin/python transformers==4.46.1 numpy==1.26.4
+# Planned smoke invocation (actual outcome recorded in report):
+timeout 300 .venv/bin/python scripts/probe_official.py
+
+HF_HUB_DISABLE_XET=1 HF_HUB_DOWNLOAD_TIMEOUT=30 timeout 240 .venv/bin/python scripts/probe_official.py
+HF_HUB_OFFLINE=1 timeout 60 .venv/bin/python scripts/probe_official.py
+# Checkpoint revision was pinned in the script before the isolated rerun.

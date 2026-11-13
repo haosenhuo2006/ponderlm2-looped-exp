@@ -25,3 +25,6 @@ wandb/
 .vscode/
 .idea/
 .DS_Store
+
+# Upstream stays a local shallow clone; provenance is tracked in VENDOR.md.
+/vendor/PonderLM-2/

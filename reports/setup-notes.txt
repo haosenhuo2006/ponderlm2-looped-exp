@@ -1,0 +1,9 @@
+The first cu130 install was deliberately terminated after ~11 minutes of slow downloads (exit 143), before any smoke test.
+Tried: uv pip install --python .venv/bin/python --offline --dry-run torch==2.11.0
+Exact result:
+  × No solution found when resolving dependencies:
+  ╰─▶ Because torch==2.11.0 needs to be downloaded from a registry and you
+      require torch==2.11.0, we can conclude that your requirements are
+      unsatisfiable.
+      hint: Packages were unavailable because the network was disabled.
+No default-index offline cache was usable. Resumed the original cu130 install, reusing completed cu130 downloads.
