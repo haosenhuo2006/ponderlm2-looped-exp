@@ -1,0 +1,21 @@
+{
+  "python": "3.12.3",
+  "transformers": "4.46.1",
+  "numpy": "1.26.4",
+  "pyarrow": "18.1.0",
+  "sha256": {
+    "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+    "src/data.py": "98e1b53d593112b06922797386dbb6235dd685c3436f68d4d887c59b7cc45d75",
+    "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+    "src/train.py": "1841f71ac1f7350eac697faf24c04e80981bcd11c0fe58f987d93a5f01a86e67",
+    "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+    "src/evaluate.py": "bae778515399ca55b5457f59c11b92b5b76c12b5a760d6b35b93168fd328557f",
+    "configs/exp01_t1.json": "cf8fee9a5a039f06b826888d588260b3af663c66413df181942c5365a2ee19b0",
+    "runs/data-validation.json": "9799cb7abf30b04426efb92dcba5fd6db69d69514cbd112ec6ea792f0e9e9601",
+    "runs/EXP-01-T1/checkpoints/step-600/model.safetensors": "cfe6fe0e256e8c646766dd5fd0655ac17a38e253a9c3ee197424c5cd214c9f32",
+    "tests/test_masks.py": "30a6fb014bc15baca50f62f6a90ab1e9fbb85f762b4f7e36fef6be05cf165cb6"
+  },
+  "checkpoint_digest_verified_after": true
+}

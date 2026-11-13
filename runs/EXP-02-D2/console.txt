@@ -1,0 +1,40 @@
+D2 0 chunks
+D2 100 chunks
+D2 200 chunks
+D2 300 chunks
+D2 400 chunks
+D2 500 chunks
+D2 600 chunks
+D2 700 chunks
+D2 800 chunks
+D2 900 chunks
+We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+{
+  "condition": "D2",
+  "checkpoint": "runs/EXP-01-T1/checkpoints/step-600",
+  "split": "validation",
+  "nll": 7.268222038487542,
+  "ppl": 1433.99859084901,
+  "predicted_tokens": 249135,
+  "chunks": 977,
+  "seq": 256,
+  "batch": 1,
+  "seed": 42,
+  "jacobi_iterations": 3,
+  "schedule": "token-only initialization + 3 refinements + final thought-logit pass",
+  "forward_path": "manual official backbone/interleave/extraction",
+  "precision": "bf16 autocast; FP32 CE",
+  "seconds": 26.83441430300445,
+  "tokens_s": 9284.160152960976,
+  "peak_memory_bytes": 540694016,
+  "top1_agreement": 0.3463824833925382,
+  "top1_change_rate": 0.6536175166074618,
+  "sequential_nll_8x128": 7.158117670195686,
+  "sequential_seconds": 8.616864686002373,
+  "sequential_tokens_s": 117.90831549791383,
+  "official_d0_max_abs_logit_difference": null,
+  "git_base": "d22e073bbeb6f6c2dd176ac1679e61e3ce6e37ee",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_total_bytes": 8585216000
+}

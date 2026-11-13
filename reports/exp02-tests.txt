@@ -1,0 +1,14 @@
+test_attention_effect (test_masks.ActualForward.test_attention_effect) ... ok
+test_finite_losses_and_parity (test_masks.ActualForward.test_finite_losses_and_parity) ... We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+ok
+test_patterns (test_masks.MaskShape.test_patterns) ... ok
+test_both_configs (test_masks_smoke.TrainingSmoke.test_both_configs) ... t0 0 16.671627044677734
+t0 1 16.011905670166016
+t1 0 16.97222137451172
+t1 1 16.94097137451172
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 5.300s
+
+OK
