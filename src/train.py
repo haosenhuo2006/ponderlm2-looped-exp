@@ -13,6 +13,7 @@ from .data import chunks, order
 from .ponder import load_model, forward
 from .masked import forward as masked_forward
 from . import looped
+from .per_round import update_batch
 
 def main():
     p = argparse.ArgumentParser()
@@ -22,6 +23,8 @@ def main():
     c = json.loads(Path(a.config).read_text())
     if a.mask is not None:
         c["mask"] = a.mask
+    if c.get("per_round_optimizer_update") and (not c.get("intermediate_supervision") or c["mode"] != "ponder" or c.get("mask") or c.get("loop")):
+        raise ValueError("per-round updates require unmasked ponder intermediate supervision")
     torch.manual_seed(c["seed"])
     rng = random.Random(c["seed"])
     dest = Path(c["run_dir"])
@@ -31,7 +34,7 @@ def main():
     if c.get("loop"):
         looped.configure(model, **c["loop"])
     data = chunks(seq=c["seq"])
-    indices = order(len(data), c["steps"] * c["grad_accum"], c["seed"])
+    indices = order(len(data), (max(600,c["steps"]) if c.get("per_round_optimizer_update") else c["steps"]) * c["grad_accum"], c["seed"])
     optimizer = torch.optim.AdamW(model.parameters(), lr=c["lr"], betas=tuple(c["betas"]), weight_decay=c["weight_decay"])
     model.train()
     torch.cuda.reset_peak_memory_stats()
@@ -45,6 +48,7 @@ def main():
                     source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()
                                    for p in sorted(Path("src").glob("*.py"))})
     (dest / "metadata.json").write_text(json.dumps(metadata, indent=2))
+    sum_updates = 0
     with (dest / "train.jsonl").open("w", buffering=1) as log:
         for step in range(1, c["steps"]+1):
             if time.perf_counter()-start > 3600:
@@ -55,34 +59,44 @@ def main():
             for group in optimizer.param_groups:
                 group["lr"] = lr
             k = rng.choice([2,3]) if c["mode"] == "ponder" else 0
-            optimizer.zero_grad(set_to_none=True)
-            loss_sum = 0.
-            round_sums = [0.] * k
-            final_sum = 0.
-            for micro in range(c["grad_accum"]):
-                x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
-                if c.get("loop"):
-                    with torch.autocast("cuda", dtype=torch.bfloat16):
-                        loss = looped.forward(model, x, labels=x).loss
-                elif c.get("intermediate_supervision"):
-                    with torch.autocast("cuda", dtype=torch.bfloat16):
-                        output = masked_forward(model, x, k, "D0", intermediate_supervision=True)
-                        loss = output.loss
-                    for j, component in enumerate(output.round_losses):
-                        round_sums[j] += component.detach().item()
-                    final_sum += output.final_loss.detach().item()
-                    del output
-                elif c.get("mask"):
-                    with torch.autocast("cuda", dtype=torch.bfloat16):
-                        loss = masked_forward(model, x, k, c["mask"]).loss
-                else:
-                    loss = forward(model, x, k).loss
-                if not torch.isfinite(loss):
-                    raise RuntimeError("nonfinite loss")
-                (loss / c["grad_accum"]).backward()
-                loss_sum += loss.item()
-            norm = torch.nn.utils.clip_grad_norm_(model.parameters(), c["clip"], error_if_nonfinite=True)
-            optimizer.step()
+            if c.get("per_round_optimizer_update"):
+                batches = [data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
+                           for micro in range(c["grad_accum"])]
+                result = update_batch(model,batches,k,optimizer,c["clip"],start+3600)
+                loss_sum = result["loss"]*c["grad_accum"]
+                norm = result["grad_norm"]
+                round_sums = [v*c["grad_accum"] for v in result["round_ce"]]
+                final_sum = result["final_prediction_ce"]*c["grad_accum"]
+                del batches
+            else:
+                optimizer.zero_grad(set_to_none=True)
+                loss_sum = 0.
+                round_sums = [0.] * k
+                final_sum = 0.
+                for micro in range(c["grad_accum"]):
+                    x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
+                    if c.get("loop"):
+                        with torch.autocast("cuda", dtype=torch.bfloat16):
+                            loss = looped.forward(model, x, labels=x).loss
+                    elif c.get("intermediate_supervision"):
+                        with torch.autocast("cuda", dtype=torch.bfloat16):
+                            output = masked_forward(model, x, k, "D0", intermediate_supervision=True)
+                            loss = output.loss
+                        for j, component in enumerate(output.round_losses):
+                            round_sums[j] += component.detach().item()
+                        final_sum += output.final_loss.detach().item()
+                        del output
+                    elif c.get("mask"):
+                        with torch.autocast("cuda", dtype=torch.bfloat16):
+                            loss = masked_forward(model, x, k, c["mask"]).loss
+                    else:
+                        loss = forward(model, x, k).loss
+                    if not torch.isfinite(loss):
+                        raise RuntimeError("nonfinite loss")
+                    (loss / c["grad_accum"]).backward()
+                    loss_sum += loss.item()
+                norm = torch.nn.utils.clip_grad_norm_(model.parameters(), c["clip"], error_if_nonfinite=True)
+                optimizer.step()
             torch.cuda.synchronize()
             row = dict(step=step, loss=loss_sum/c["grad_accum"], K=k, lr=lr,
                        tokens=step*c["seq"]*c["grad_accum"], tokens_s=c["seq"]*c["grad_accum"]/(time.perf_counter()-t),
@@ -91,6 +105,9 @@ def main():
             if c.get("intermediate_supervision"):
                 row.update(round_ce=[v/c["grad_accum"] for v in round_sums],
                            final_prediction_ce=final_sum/c["grad_accum"])
+            if c.get("per_round_optimizer_update"):
+                row.update(round_grad_norm=result["round_grad_norm"], optimizer_updates=k, cumulative_optimizer_updates=sum_updates+k)
+                sum_updates += k
             log.write(json.dumps(row)+"\n")
             print(json.dumps(row), flush=True)
             if step % 200 == 0 or step == c["steps"]:

@@ -1,0 +1,10 @@
+{
+  "steps": 600,
+  "K_counts": {
+    "2": 306,
+    "3": 294
+  },
+  "optimizer_updates": 1494,
+  "finite": true,
+  "final_nll_difference": 0.0
+}

@@ -1,0 +1,35 @@
+test_600_step_schedule (test_intermediate.IntermediateSupervision.test_600_step_schedule) ... ok
+test_mean_and_final_prediction_parity (test_intermediate.IntermediateSupervision.test_mean_and_final_prediction_parity) ... ok
+test_round_two_perturbation_attribution (test_intermediate.IntermediateSupervision.test_round_two_perturbation_attribution) ... ok
+test_two_optimizer_steps (test_intermediate.IntermediateSupervision.test_two_optimizer_steps) ... ok
+test_causal_prefix (test_looped.LoopedTests.test_causal_prefix) ... ok
+test_flops_table (test_looped.LoopedTests.test_flops_table) ... ok
+test_shared_weights_and_r1_parity (test_looped.LoopedTests.test_shared_weights_and_r1_parity) ... ok
+test_two_optimizer_steps (test_looped.LoopedTests.test_two_optimizer_steps) ... loop smoke 0 22.987598419189453
+loop smoke 1 21.48611068725586
+ok
+test_k_schedule (test_masked_training.MaskedTraining.test_k_schedule) ... ok
+test_manual_d0_training_parity (test_masked_training.MaskedTraining.test_manual_d0_training_parity) ... ok
+test_optimizer_and_all_pass_gradients (test_masked_training.MaskedTraining.test_optimizer_and_all_pass_gradients) ... D1 0 16.584325790405273
+D1 1 16.003969192504883
+D2 0 17.503969192504883
+D2 1 17.21825408935547
+ok
+test_training_loss_direct_mask_effect (test_masked_training.MaskedTraining.test_training_loss_direct_mask_effect) ... ok
+test_attention_effect (test_masks.ActualForward.test_attention_effect) ... ok
+test_finite_losses_and_parity (test_masks.ActualForward.test_finite_losses_and_parity) ... We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+ok
+test_patterns (test_masks.MaskShape.test_patterns) ... ok
+test_both_configs (test_masks_smoke.TrainingSmoke.test_both_configs) ... t0 0 16.671627044677734
+t0 1 16.011905670166016
+t1 0 16.97222137451172
+t1 1 16.94097137451172
+ok
+test_attribution_and_detach (test_per_round_update.PerRoundUpdate.test_attribution_and_detach) ... ok
+test_schedule (test_per_round_update.PerRoundUpdate.test_schedule) ... ok
+test_updates_and_first_change (test_per_round_update.PerRoundUpdate.test_updates_and_first_change) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 11.554s
+
+OK

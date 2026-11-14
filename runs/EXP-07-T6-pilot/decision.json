@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "decision": "continue",
+  "finite": true,
+  "no_divergence": true,
+  "no_oom": true,
+  "gradient_median": 14.56775188446045,
+  "baseline_gradient_median": 36.390968322753906,
+  "gradient_ratio": 0.40031229054577755,
+  "max_gradient": 70.69580841064453,
+  "last20_mean_ce": 7.0698159699638685,
+  "last20_final_ce": 6.953854252398014,
+  "baseline_last20": [
+    8.470191133022308,
+    8.31709795743227
+  ],
+  "wall_s": 174.5651409830025
+}
