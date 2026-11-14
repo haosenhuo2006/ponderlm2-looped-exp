@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "arc": {
+      "samples": 570,
+      "max_tokens": 106
+    },
+    "lambada": {
+      "samples": 500,
+      "single_token_count": 229,
+      "multi_token_count": 271,
+      "max_tokens": 158
+    }
+  },
+  "datasets_installed": false
+}

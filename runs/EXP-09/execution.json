@@ -1,0 +1,20 @@
+{
+  "started_at": "2026-11-14T06:44:25.782054+00:00",
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_version": "2.11.0+cu130",
+  "git_hash": "fd84a4f03e32db625493025fbba8a02d523f587a",
+  "git_status": " M EXPERIMENT_PLAN.md\n?? configs/exp09_downstream.json\n?? runs/EXP-09/\n?? scripts/run_exp09.sh\n?? scripts/summarize_exp09.py\n?? src/downstream.py\n?? tests/test_downstream.py\n",
+  "source_sha256": {
+    "src/downstream.py": "5235cda40b7f80239dad1cd32bdaa6cce6ecade4f4e2a4433d35a71f3afc861a",
+    "scripts/summarize_exp09.py": "a1225178f53a349835bc20ae48be19d2d5872aa26d2152f22754b6a9f1bdc142",
+    "scripts/run_exp09.sh": "1130f45e440162c205753710187cea036d8edb1e70141caf633d3bfba9b0194f",
+    "configs/exp09_downstream.json": "59f3f21f61b582112c00e631d54c984f5f84497cdd5a4a4c318f6f4fc470bf43",
+    "tests/test_downstream.py": "8d8cedd75f0ca9567a60d5daf9ba98e22118006a8199136d59b2b657d176f37c"
+  },
+  "protocol_hash": "ced2301f31f7d176295eb6ba4a3c875f1409a52a2a04e2cc70ead83dbf49602a",
+  "command": "nohup bash scripts/run_exp09.sh > runs/EXP-09/pipeline.log 2>&1 &",
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "tests_log": "runs/EXP-09/logs/tests.log"
+}

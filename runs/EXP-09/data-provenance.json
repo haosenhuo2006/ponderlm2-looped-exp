@@ -1,0 +1,28 @@
+{
+  "official_arc_probe": {
+    "url": "https://ai2-public-datasets.s3.amazonaws.com/arc/ARC-V1-Feb2018-2.zip",
+    "failure": "HTTP 404 during feasibility probe; authorized HF fallback"
+  },
+  "tasks": {
+    "arc": {
+      "samples": 570,
+      "url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Easy/validation-00000-of-00001.parquet",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "sha256": "ed890ff1e4cef7a7140d3a30dcea3ed2c9d467c6458f447ad9ef0176d8dcbb74",
+      "status": "ready",
+      "count": 570,
+      "selected_sha256": "86cf60991f22840a3bd78df89c29ca99e5978350ec0ce0a98d95b667f297c113",
+      "selection": "all validation in source order"
+    },
+    "lambada": {
+      "samples": 500,
+      "url": "https://huggingface.co/datasets/cimec/lambada/resolve/5953bd97664b64b95754f299b2309ecfbfbe81b9/plain_text/test-00000-of-00001.parquet",
+      "revision": "5953bd97664b64b95754f299b2309ecfbfbe81b9",
+      "sha256": "9ec8a3b32099a8bb590515352e09a9fc790e044162c6d1af35c26efd810860e9",
+      "status": "ready",
+      "count": 500,
+      "selected_sha256": "ed39d04cb5f8872e737268b33a75747f81f793a4698d4753317410dcb532f122",
+      "selection": "first 500 standard test rows in source order"
+    }
+  }
+}

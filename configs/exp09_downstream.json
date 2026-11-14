@@ -1,0 +1,42 @@
+{
+  "seed": 42,
+  "jacobi_iterations": 3,
+  "prompt": "{question} Answer: {answer}",
+  "tasks": {
+    "arc": {
+      "samples": 570,
+      "url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Easy/validation-00000-of-00001.parquet",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "sha256": "ed890ff1e4cef7a7140d3a30dcea3ed2c9d467c6458f447ad9ef0176d8dcbb74"
+    },
+    "lambada": {
+      "samples": 500,
+      "url": "https://huggingface.co/datasets/cimec/lambada/resolve/5953bd97664b64b95754f299b2309ecfbfbe81b9/plain_text/test-00000-of-00001.parquet",
+      "revision": "5953bd97664b64b95754f299b2309ecfbfbe81b9",
+      "sha256": "9ec8a3b32099a8bb590515352e09a9fc790e044162c6d1af35c26efd810860e9"
+    }
+  },
+  "checkpoints": {
+    "T0": {
+      "path": "runs/EXP-01-T0/checkpoints/step-600",
+      "mode": "vanilla"
+    },
+    "T1": {
+      "path": "runs/EXP-01-T1/checkpoints/step-600",
+      "mode": "ponder"
+    },
+    "T2": {
+      "path": "runs/EXP-03-T2/checkpoints/step-600",
+      "mode": "ponder",
+      "mask": "D1"
+    },
+    "T4": {
+      "path": "runs/EXP-05-T4/checkpoints/step-600",
+      "mode": "looped"
+    },
+    "T5": {
+      "path": "runs/EXP-06-T5/checkpoints/step-600",
+      "mode": "ponder"
+    }
+  }
+}

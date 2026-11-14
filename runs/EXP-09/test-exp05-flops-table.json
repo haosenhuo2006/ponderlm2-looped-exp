@@ -1,0 +1,216 @@
+{
+  "t0_flops": 90832896,
+  "t1_flops": 133300224,
+  "convention": "2 FLOPs/MAC; cached context mean 128 real tokens; transformer dense + causal QK/AV + one vocab head; excludes norms/softmax",
+  "candidates": [
+    {
+      "block_size": 1,
+      "layers": [
+        5
+      ],
+      "repetitions": 2,
+      "layer_calls": 7,
+      "flops_per_token": 97386496,
+      "ratio_vs_t1": 0.7305801376597837,
+      "relative_error": 0.2694198623402163
+    },
+    {
+      "block_size": 1,
+      "layers": [
+        5
+      ],
+      "repetitions": 3,
+      "layer_calls": 8,
+      "flops_per_token": 103940096,
+      "ratio_vs_t1": 0.7797443461160275,
+      "relative_error": 0.2202556538839725
+    },
+    {
+      "block_size": 1,
+      "layers": [
+        5
+      ],
+      "repetitions": 4,
+      "layer_calls": 9,
+      "flops_per_token": 110493696,
+      "ratio_vs_t1": 0.8289085545722714,
+      "relative_error": 0.17109144542772858
+    },
+    {
+      "block_size": 2,
+      "layers": [
+        4,
+        5
+      ],
+      "repetitions": 2,
+      "layer_calls": 8,
+      "flops_per_token": 103940096,
+      "ratio_vs_t1": 0.7797443461160275,
+      "relative_error": 0.2202556538839725
+    },
+    {
+      "block_size": 2,
+      "layers": [
+        4,
+        5
+      ],
+      "repetitions": 3,
+      "layer_calls": 10,
+      "flops_per_token": 117047296,
+      "ratio_vs_t1": 0.8780727630285152,
+      "relative_error": 0.12192723697148478
+    },
+    {
+      "block_size": 2,
+      "layers": [
+        4,
+        5
+      ],
+      "repetitions": 4,
+      "layer_calls": 12,
+      "flops_per_token": 130154496,
+      "ratio_vs_t1": 0.976401179941003,
+      "relative_error": 0.02359882005899705
+    },
+    {
+      "block_size": 3,
+      "layers": [
+        3,
+        4,
+        5
+      ],
+      "repetitions": 2,
+      "layer_calls": 9,
+      "flops_per_token": 110493696,
+      "ratio_vs_t1": 0.8289085545722714,
+      "relative_error": 0.17109144542772858
+    },
+    {
+      "block_size": 3,
+      "layers": [
+        3,
+        4,
+        5
+      ],
+      "repetitions": 3,
+      "layer_calls": 12,
+      "flops_per_token": 130154496,
+      "ratio_vs_t1": 0.976401179941003,
+      "relative_error": 0.02359882005899705
+    },
+    {
+      "block_size": 3,
+      "layers": [
+        3,
+        4,
+        5
+      ],
+      "repetitions": 4,
+      "layer_calls": 15,
+      "flops_per_token": 149815296,
+      "ratio_vs_t1": 1.1238938053097345,
+      "relative_error": 0.12389380530973448
+    },
+    {
+      "block_size": 4,
+      "layers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 2,
+      "layer_calls": 10,
+      "flops_per_token": 117047296,
+      "ratio_vs_t1": 0.8780727630285152,
+      "relative_error": 0.12192723697148478
+    },
+    {
+      "block_size": 4,
+      "layers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 3,
+      "layer_calls": 14,
+      "flops_per_token": 143261696,
+      "ratio_vs_t1": 1.0747295968534907,
+      "relative_error": 0.07472959685349068
+    },
+    {
+      "block_size": 4,
+      "layers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 4,
+      "layer_calls": 18,
+      "flops_per_token": 169476096,
+      "ratio_vs_t1": 1.2713864306784661,
+      "relative_error": 0.27138643067846613
+    },
+    {
+      "block_size": 5,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 2,
+      "layer_calls": 11,
+      "flops_per_token": 123600896,
+      "ratio_vs_t1": 0.9272369714847591,
+      "relative_error": 0.07276302851524086
+    },
+    {
+      "block_size": 5,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 3,
+      "layer_calls": 16,
+      "flops_per_token": 156368896,
+      "ratio_vs_t1": 1.1730580137659783,
+      "relative_error": 0.1730580137659783
+    },
+    {
+      "block_size": 5,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repetitions": 4,
+      "layer_calls": 21,
+      "flops_per_token": 189136896,
+      "ratio_vs_t1": 1.4188790560471976,
+      "relative_error": 0.41887905604719755
+    }
+  ],
+  "selected": {
+    "block_size": 3,
+    "layers": [
+      3,
+      4,
+      5
+    ],
+    "repetitions": 3,
+    "layer_calls": 12,
+    "flops_per_token": 130154496,
+    "ratio_vs_t1": 0.976401179941003,
+    "relative_error": 0.02359882005899705
+  },
+  "tie_break": "minimum error, then smaller R, then smaller block"
+}
