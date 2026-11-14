@@ -199,3 +199,8 @@ seed42 step-600 T0/T1/T2/T4/T5；ARC-Easy validation 全量570题；标准LAMBAD
 无新训练。基于 EXP-01 至 EXP-09 的分析报告。
 结论：最可能为 H1（优化不足：相同 token/步数预算下 thought 机制没训够）+ H2（序列内插 thought 的分布偏移与容量竞争）的组合；H3（Jacobi 不收敛）基本排除为主因。T6 的 5.19 混杂监督方式、更新次数（1494 vs 600）与轮间 detach，不得单归因于更新时机。后续优先：计算预算匹配的 T0 vs T1、隔离 T6 更新次数混杂、延长训练。
 详见 reports/EXP-10-why-T1-loses.md。
+
+### EXP-11 规模放大可行性测算
+
+仅测算，未跑新训练。Pythia-160M ponder 外推约 63 分钟、约 3.5GB，可行，但须先把官方定制 modeling 接线到 160M；Pythia-410M 按现有方式不可行（vanilla 单步已占 7880 MiB）；70M 步数翻倍最便宜（1200 步约 30 分钟、2400 步约 60 分钟，显存不变）。底座选择待皓森决定。
+详见 reports/EXP-11-scale-up-feasibility.md。
