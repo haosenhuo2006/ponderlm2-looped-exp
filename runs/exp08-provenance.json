@@ -1,0 +1,402 @@
+[
+  {
+    "model": "T0",
+    "seed": 43,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794632433.838161,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "81f9d99c4af9d7511a86c458bceb00f612093fd7a440a086c65ebcf0d0d6d1cd",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T0",
+    "seed": 44,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794634920.1463823,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "16be144751a83d8a94471f7fec0f20e94b6b7e42b1aefd6014a0defc8e89af95",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T1",
+    "seed": 43,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794632681.278965,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "81f9d99c4af9d7511a86c458bceb00f612093fd7a440a086c65ebcf0d0d6d1cd",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T1",
+    "seed": 44,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794635191.6347885,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "16be144751a83d8a94471f7fec0f20e94b6b7e42b1aefd6014a0defc8e89af95",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T2",
+    "seed": 43,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794633562.0872724,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "81f9d99c4af9d7511a86c458bceb00f612093fd7a440a086c65ebcf0d0d6d1cd",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T2",
+    "seed": 44,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794636102.2673433,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "16be144751a83d8a94471f7fec0f20e94b6b7e42b1aefd6014a0defc8e89af95",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T4",
+    "seed": 43,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794634489.9606524,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "81f9d99c4af9d7511a86c458bceb00f612093fd7a440a086c65ebcf0d0d6d1cd",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  },
+  {
+    "model": "T4",
+    "seed": 44,
+    "metadata": {
+      "git_hash": "2bfeabd90408e132b8942ba1933d43f61d0ef10a",
+      "torch": "2.11.0+cu130",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "parameters": 70426624,
+      "start_unix": 1794637131.5197604,
+      "python": "3.12.3",
+      "versions": {
+        "transformers": "4.46.1",
+        "numpy": "1.26.4",
+        "pyarrow": "18.1.0",
+        "tokenizers": "0.20.3"
+      },
+      "gpu_total_bytes": 8585216000,
+      "source_sha256": {
+        "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/data.py": "499c8aa0a154ebcd5ca904576979af59626ffa850f8224c412b8221ca893f022",
+        "src/diagnose.py": "207a95e68aadd7161e3bb8d2084e3c7364f51f5ecff4067fba31a2b8613dbe2a",
+        "src/evaluate.py": "b472cb0d420caf645ec30ee24fa43bc861828f9af10c7992480a72c22257fde7",
+        "src/evaluate_looped.py": "96c4f47aea26f5413013fe41c97f2e0145fe215cd4562cbfb50454c36a89d634",
+        "src/evaluate_rounds.py": "7df50d8289d8392055e2d27e90349b496449ff8a65ef848b81f6025aa8c854c7",
+        "src/jacobi_check.py": "2587590185c057cb4b6a315abaa44f3989d6e868d19327b3f6624925ce6fcfd8",
+        "src/looped.py": "381f0e1be24e55cb3d0f3143794b4a3b27193553c46accad624da5e452407bff",
+        "src/masked.py": "f2ef7ba59cb743af55b4701327374e22550af6366d5564abbc5b1f5f6d93ab65",
+        "src/masks.py": "7e34f7e91f5dfa90279e899d90845a22cb5b02f5e7ee15f698300e8e21e06043",
+        "src/per_round.py": "3e73e04d211092ba05e4c9f8cf5ceb16d3064a48e40b46db406b518fc6b5ba90",
+        "src/ponder.py": "db52f7002c33faaff4c7ba466901e7e985c06930598dc7c939a9ae2b55e0a98a",
+        "src/train.py": "b142d5b0e560fc7b75975a046a015fe6bcebed6c4b44f0dd1ed1459a0296a2c1"
+      }
+    },
+    "order_sha256": "16be144751a83d8a94471f7fec0f20e94b6b7e42b1aefd6014a0defc8e89af95",
+    "data": {
+      "split": "train",
+      "tokens": 2409267,
+      "seq": 256,
+      "chunks": 9411,
+      "dropped_tail_tokens": 51,
+      "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+      "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+      "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
+      "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
+      "tokenizer": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+      "special_tokens": false,
+      "row_join": "empty rows -> newline; nonempty rows verbatim"
+    }
+  }
+]

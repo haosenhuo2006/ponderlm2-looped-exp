@@ -1,0 +1,12 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "4.46.1",
+    "datasets": "not installed",
+    "numpy": "1.26.4",
+    "pyarrow": "18.1.0",
+    "tokenizers": "0.20.3"
+  }
+}

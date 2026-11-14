@@ -1,0 +1,1007 @@
+{
+  "runs/EXP-01-T0/train.jsonl": {
+    "size": 135147,
+    "mtime_ns": 1794586876722541720,
+    "sha256": "68b88cda75823336c0055d351f3798297cb810da8427e7a0348764e4753e7454"
+  },
+  "runs/EXP-01-T0/evaluate.log": {
+    "size": 933,
+    "mtime_ns": 1794586892609670442,
+    "sha256": "70dc73adb566f5894a6d0605b90a1f779ba4e291a8fe7a6a21a91e725f1ffa11"
+  },
+  "runs/EXP-01-T0/evaluation.json": {
+    "size": 676,
+    "mtime_ns": 1794586892606849293,
+    "sha256": "ab8433680ede1dab58fd18a07124284ea8c85906061efd4296e12411f47ac32a"
+  },
+  "runs/EXP-01-T0/metadata.json": {
+    "size": 943,
+    "mtime_ns": 1794586645321489985,
+    "sha256": "d24fa8213320773688b779ef1c95d6bbf4e183d6020a1823c5e8a552501fd1aa"
+  },
+  "runs/EXP-01-T0/train.log": {
+    "size": 135147,
+    "mtime_ns": 1794586876722541720,
+    "sha256": "68b88cda75823336c0055d351f3798297cb810da8427e7a0348764e4753e7454"
+  },
+  "runs/EXP-01-T0/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794586877486186221,
+    "sha256": "a7c4d6692c13966510eb73f0d927e92816266745a8953941979d590ebe7c16b7"
+  },
+  "runs/EXP-01-T0/complete.json": {
+    "size": 44,
+    "mtime_ns": 1794586877490527102,
+    "sha256": "8b19ef10b08225d98a4ab68cb74aa31e042fff2c4d017c67d274256c2badf6e4"
+  },
+  "runs/EXP-01-T0/config.json": {
+    "size": 658,
+    "mtime_ns": 1794586643652300077,
+    "sha256": "901d2848e396fdb34050ea8d480bce4801aabc7cf46a1fce32fddbfb5fb985ad"
+  },
+  "runs/EXP-01-T0/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794586876727222338,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T0/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794586876949117561,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-600/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794586877486186221,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-600/config.json": {
+    "size": 974,
+    "mtime_ns": 1794586876726754967,
+    "sha256": "ed5c880ae2b76943349f13593ad28c4e1136104df57aabe461b6c7ee5731aaa9"
+  },
+  "runs/EXP-01-T0/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794586722973601410,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T0/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794586723269509259,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-200/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794586723865255248,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-200/config.json": {
+    "size": 974,
+    "mtime_ns": 1794586722973016952,
+    "sha256": "ed5c880ae2b76943349f13593ad28c4e1136104df57aabe461b6c7ee5731aaa9"
+  },
+  "runs/EXP-01-T0/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794586796526154987,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T0/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794586796762678351,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-400/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794586797288062725,
+    "sha256": null
+  },
+  "runs/EXP-01-T0/checkpoints/step-400/config.json": {
+    "size": 974,
+    "mtime_ns": 1794586796525631899,
+    "sha256": "ed5c880ae2b76943349f13593ad28c4e1136104df57aabe461b6c7ee5731aaa9"
+  },
+  "runs/EXP-07-T6/train.jsonl": {
+    "size": 275149,
+    "mtime_ns": 1794631905965511120,
+    "sha256": "7ce535e657982c7ede03d7c32047279246cc59298af44b7a907e1f7bcb405f36"
+  },
+  "runs/EXP-07-T6/rounds-T1.log": {
+    "size": 667,
+    "mtime_ns": 1794632027191501985,
+    "sha256": "ae5f231b1534a77805895d7ee28dec00a50c5e8e68117e27cfd23ad90a77286b"
+  },
+  "runs/EXP-07-T6/rounds-T1.json": {
+    "size": 559,
+    "mtime_ns": 1794632027188375705,
+    "sha256": "1deb007bd3ff2ffbd6694b2696360dc61bb3599bc3bd88f471c412f3a244e9e8"
+  },
+  "runs/EXP-07-T6/jacobi_summary.json": {
+    "size": 667,
+    "mtime_ns": 1794632042787319179,
+    "sha256": "132ebd4f914332c4017ae7250a7945f77f539acff8c679afe45f1a9559287f65"
+  },
+  "runs/EXP-07-T6/jacobi_convergence.csv": {
+    "size": 2795,
+    "mtime_ns": 1794632042787076322,
+    "sha256": "6b99c8f2032d26323c9af4bc0ac52aa2da49042a7eb0fce934f0e9672a251128"
+  },
+  "runs/EXP-07-T6/rounds-T6.log": {
+    "size": 665,
+    "mtime_ns": 1794631991330229818,
+    "sha256": "9e147fe1054ebf40b79282d2153c0fb30dca7bda37eec7289f36a8c1f7f16870"
+  },
+  "runs/EXP-07-T6/evaluate.log": {
+    "size": 929,
+    "mtime_ns": 1794631950387972746,
+    "sha256": "93b8b6e93cfcae7e256a58910482aa907803949da6d33fc2fe498bd1cf8837ed"
+  },
+  "runs/EXP-07-T6/evaluation.json": {
+    "size": 672,
+    "mtime_ns": 1794631950387659926,
+    "sha256": "89a7105db76ba2c8dd0f10be36117a2351641cf747c1b188cb4cc06255fd86ce"
+  },
+  "runs/EXP-07-T6/metadata.json": {
+    "size": 1588,
+    "mtime_ns": 1794630830976295180,
+    "sha256": "9045ab2ae56d9cb99e0231f285b079afb400adb7fcb63253966bb7645e2c23d6"
+  },
+  "runs/EXP-07-T6/train.log": {
+    "size": 275149,
+    "mtime_ns": 1794631905965511120,
+    "sha256": "7ce535e657982c7ede03d7c32047279246cc59298af44b7a907e1f7bcb405f36"
+  },
+  "runs/EXP-07-T6/verification.json": {
+    "size": 144,
+    "mtime_ns": 1794632157803619820,
+    "sha256": "728a148330efc5bdcb6ddbc13e677c2bb4878f75d5cefd80d6024200dde50774"
+  },
+  "runs/EXP-07-T6/rounds-T6.json": {
+    "size": 557,
+    "mtime_ns": 1794631991330229818,
+    "sha256": "48df8800dc16d8914a869b9a23b4b93004e78ea74e02d08aabfd44080d6744af"
+  },
+  "runs/EXP-07-T6/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794631907130417544,
+    "sha256": "ce4b6ee07a2ae60806dd40a38232f36e4d8a87b16e527f85bd16b1e8acf7652e"
+  },
+  "runs/EXP-07-T6/complete.json": {
+    "size": 44,
+    "mtime_ns": 1794631907134342752,
+    "sha256": "b9e101d143cec6555ba5bc6e71f837d40b1873c45b98833ee7c29c4414ee77d0"
+  },
+  "runs/EXP-07-T6/jacobi.log": {
+    "size": 924,
+    "mtime_ns": 1794632042791743696,
+    "sha256": "f9a56cc35c659c8187085e38e365f336ac8b2dcf445e850f5572216f79fbc130"
+  },
+  "runs/EXP-07-T6/config.json": {
+    "size": 730,
+    "mtime_ns": 1794630829606621140,
+    "sha256": "9974046370ac7ddc8b9249f869bdf4dc47e2016c29b1f34243c64c2e7684ddd0"
+  },
+  "runs/EXP-07-T6/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794631905971441671,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-07-T6/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794631906362347374,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-600/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794631907130417544,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-600/config.json": {
+    "size": 972,
+    "mtime_ns": 1794631905970783701,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-07-T6/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794631166839093092,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-07-T6/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794631167217857146,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-200/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794631167878118520,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-200/config.json": {
+    "size": 972,
+    "mtime_ns": 1794631166838353396,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-07-T6/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794631529631387991,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-07-T6/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794631530146413177,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-400/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794631530927747564,
+    "sha256": null
+  },
+  "runs/EXP-07-T6/checkpoints/step-400/config.json": {
+    "size": 972,
+    "mtime_ns": 1794631529630695658,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-06-T5/train.jsonl": {
+    "size": 197120,
+    "mtime_ns": 1794592922861304137,
+    "sha256": "eff6974614a620771a693c2d624451df2c237dc24e2c01fc31369b7da174d9dd"
+  },
+  "runs/EXP-06-T5/rounds-T1.log": {
+    "size": 667,
+    "mtime_ns": 1794593038316070793,
+    "sha256": "35ef2bc0feeef4a3704c64062b8c3c9ee8b449b95cfd4cb2c74ce3b079c45b33"
+  },
+  "runs/EXP-06-T5/rounds-T1.json": {
+    "size": 559,
+    "mtime_ns": 1794593038316070793,
+    "sha256": "b53fb5da024e241f5835417dac50cdacbf01347cd098babe09379ae73610ad50"
+  },
+  "runs/EXP-06-T5/rounds-T5.json": {
+    "size": 560,
+    "mtime_ns": 1794593001367549030,
+    "sha256": "38aa5337fb5c94906217e89bc380e35e16991c51f6a5fb09e721938a0a61c9dd"
+  },
+  "runs/EXP-06-T5/provenance.json": {
+    "size": 24367,
+    "mtime_ns": 1794592195366658906,
+    "sha256": "f5e76b59499e97a8b2d3384e641c8d02fe3904632d973b25305b0b55d8fc5b62"
+  },
+  "runs/EXP-06-T5/rounds-T5.log": {
+    "size": 668,
+    "mtime_ns": 1794593001369134031,
+    "sha256": "932d44b920449e4c19f20a6834d0d4371ef188d5c73052bc4b4a86bec90c00aa"
+  },
+  "runs/EXP-06-T5/evaluate.log": {
+    "size": 930,
+    "mtime_ns": 1794592965296478095,
+    "sha256": "ef8e1fdad3df224d0ee8385218ee75acff97b5992629639856b6232b1c2a5942"
+  },
+  "runs/EXP-06-T5/evaluation.json": {
+    "size": 673,
+    "mtime_ns": 1794592965296478095,
+    "sha256": "d8cbeebc1f8034cd2324e0f6969bcea8f8ab54f85ad1b502a4deca5862d786d8"
+  },
+  "runs/EXP-06-T5/metadata.json": {
+    "size": 1496,
+    "mtime_ns": 1794592197924337117,
+    "sha256": "5b6c967921c7e2ef5b6e30cc2cbcf125330dbe2d3fcc763ee8119482c62dcee2"
+  },
+  "runs/EXP-06-T5/train.log": {
+    "size": 197120,
+    "mtime_ns": 1794592922861304137,
+    "sha256": "eff6974614a620771a693c2d624451df2c237dc24e2c01fc31369b7da174d9dd"
+  },
+  "runs/EXP-06-T5/verification.json": {
+    "size": 289,
+    "mtime_ns": 1794593070176022798,
+    "sha256": "b4c47d15e15c29aa1457d210858107f73c78679402832200f3011faa168a29dc"
+  },
+  "runs/EXP-06-T5/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794592923694482103,
+    "sha256": "7618e039470637be01c43dd88179f29a54c904835332c9b98924fcd4557d01ba"
+  },
+  "runs/EXP-06-T5/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794592923702469224,
+    "sha256": "9c4d130d97f927837a764826bad42517b60484c4851188fff46f0e25d1352259"
+  },
+  "runs/EXP-06-T5/config.json": {
+    "size": 692,
+    "mtime_ns": 1794592196615786517,
+    "sha256": "a44a2d68580e855918ac3023486ba250119cd4fcb14395e79dceafcd88c28276"
+  },
+  "runs/EXP-06-T5/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794592922867112845,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-06-T5/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794592923158568638,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-600/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794592923694482103,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-600/config.json": {
+    "size": 972,
+    "mtime_ns": 1794592922866500753,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-06-T5/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794592433125269057,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-06-T5/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794592433537621890,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-200/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794592434234893929,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-200/config.json": {
+    "size": 972,
+    "mtime_ns": 1794592433124627757,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-06-T5/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794592674371772466,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-06-T5/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794592674753941078,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-400/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794592675388267999,
+    "sha256": null
+  },
+  "runs/EXP-06-T5/checkpoints/step-400/config.json": {
+    "size": 972,
+    "mtime_ns": 1794592674371149977,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-05-T4/train.jsonl": {
+    "size": 134813,
+    "mtime_ns": 1794591801802496322,
+    "sha256": "b447f20b51da4c12a9eaf6acf06ac4f1f4124808d9534786818c0b5c02332b07"
+  },
+  "runs/EXP-05-T4/evaluate.log": {
+    "size": 1327,
+    "mtime_ns": 1794591822554413987,
+    "sha256": "c688f4a184b784828eda9a87a1bf62c5fd98558f748bfabcc7512df1436b4f58"
+  },
+  "runs/EXP-05-T4/evaluation.json": {
+    "size": 1327,
+    "mtime_ns": 1794591822554413987,
+    "sha256": "c688f4a184b784828eda9a87a1bf62c5fd98558f748bfabcc7512df1436b4f58"
+  },
+  "runs/EXP-05-T4/metadata.json": {
+    "size": 1398,
+    "mtime_ns": 1794591410988561172,
+    "sha256": "e5ad307870a0a87194af5431dd1db796368b5202a51a5120a5f172e03ba297bb"
+  },
+  "runs/EXP-05-T4/train.log": {
+    "size": 134813,
+    "mtime_ns": 1794591801802496322,
+    "sha256": "b447f20b51da4c12a9eaf6acf06ac4f1f4124808d9534786818c0b5c02332b07"
+  },
+  "runs/EXP-05-T4/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794591802910464272,
+    "sha256": "98aa8f7f29a09a2ccf171c89b87384f4af20a06c072fb6052bd09e0b946bed0c"
+  },
+  "runs/EXP-05-T4/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794591802912389017,
+    "sha256": "161b807ebf43f4a917b2c349ce648e01e8d4f116e2870c256e1362b75219adf0"
+  },
+  "runs/EXP-05-T4/config.json": {
+    "size": 717,
+    "mtime_ns": 1794591409684892243,
+    "sha256": "b921a47d7e5bccbdc16fcbee5ec1bd613242f9d42cef62fb091491ba6149464b"
+  },
+  "runs/EXP-05-T4/loss-curve.json": {
+    "size": 1125,
+    "mtime_ns": 1794591851339602767,
+    "sha256": "259800f80f001222824e43f303b05f683068fd29912a32af77698c18bbc4b96c"
+  },
+  "runs/EXP-05-T4/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794591801809818037,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-05-T4/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794591802192803213,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-600/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794591802910464272,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-600/config.json": {
+    "size": 1023,
+    "mtime_ns": 1794591801809201231,
+    "sha256": "ee7fa48b338f2788c3843dad879401f17cba97d9b2b1ad7aefa92b95ae578761"
+  },
+  "runs/EXP-05-T4/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794591543668846421,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-05-T4/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794591544736496731,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-200/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794591545627542274,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-200/config.json": {
+    "size": 1023,
+    "mtime_ns": 1794591543668322420,
+    "sha256": "ee7fa48b338f2788c3843dad879401f17cba97d9b2b1ad7aefa92b95ae578761"
+  },
+  "runs/EXP-05-T4/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794591671375551991,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-05-T4/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794591671691742586,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-400/trainer.pt": {
+    "size": 563485747,
+    "mtime_ns": 1794591672313796137,
+    "sha256": null
+  },
+  "runs/EXP-05-T4/checkpoints/step-400/config.json": {
+    "size": 1023,
+    "mtime_ns": 1794591671374973055,
+    "sha256": "ee7fa48b338f2788c3843dad879401f17cba97d9b2b1ad7aefa92b95ae578761"
+  },
+  "runs/EXP-02-D0/console.txt": {
+    "size": 1363,
+    "mtime_ns": 1794588517724538715,
+    "sha256": "1cd3c142851c6488cb450b67b9a37074ac36db1f3de66713ffd9068269213a6f"
+  },
+  "runs/EXP-02-D0/evaluation.json": {
+    "size": 969,
+    "mtime_ns": 1794588517711827723,
+    "sha256": "fe4608151f8f05a5e2537f3d3ec2e5accffddef278806cc6028e75173fa526e2"
+  },
+  "runs/EXP-02-D0/run.txt": {
+    "size": 969,
+    "mtime_ns": 1794588517724538715,
+    "sha256": "fe4608151f8f05a5e2537f3d3ec2e5accffddef278806cc6028e75173fa526e2"
+  },
+  "runs/EXP-03-T2/train.jsonl": {
+    "size": 135131,
+    "mtime_ns": 1794589892688469758,
+    "sha256": "1b58816696ed13826d2d69f3cf992807331d7d71e261ea22b9fd32a307e9e7bb"
+  },
+  "runs/EXP-03-T2/evaluate-D0.log": {
+    "size": 1092,
+    "mtime_ns": 1794589977328008675,
+    "sha256": "9992b49d700f69946905a65e31c5ef7135bd70e34156a4e70e8b6ea0e45bfbf3"
+  },
+  "runs/EXP-03-T2/evaluate.log": {
+    "size": 1091,
+    "mtime_ns": 1794589938458073177,
+    "sha256": "a6225e053f5881df407913bfc10fc1e07b6b761b5713971063549157757dfa27"
+  },
+  "runs/EXP-03-T2/evaluation.json": {
+    "size": 834,
+    "mtime_ns": 1794589938453966152,
+    "sha256": "5ae5a860abeee827df7db79acd62995e4da92f7e8097b64d4d8c0472e12c921d"
+  },
+  "runs/EXP-03-T2/metadata.json": {
+    "size": 1211,
+    "mtime_ns": 1794589001309949058,
+    "sha256": "951d522af01ef7d27ff5c882786c475beea76e29bad2648df9dd15a7ea8eacd7"
+  },
+  "runs/EXP-03-T2/train.log": {
+    "size": 135131,
+    "mtime_ns": 1794589892688469758,
+    "sha256": "1b58816696ed13826d2d69f3cf992807331d7d71e261ea22b9fd32a307e9e7bb"
+  },
+  "runs/EXP-03-T2/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794589893692420085,
+    "sha256": "c035bb41568f1353d3794597374bd366f874f43051e659012c52a2cb9d17e2d2"
+  },
+  "runs/EXP-03-T2/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794589893699128509,
+    "sha256": "6bf22b6d35b51a2e3c99d97079288010c7dc16de02706961962138c80d0c19aa"
+  },
+  "runs/EXP-03-T2/evaluation-D0.json": {
+    "size": 835,
+    "mtime_ns": 1794589977322825833,
+    "sha256": "e7c0a4fc1d7117047821ecdeec004f029edd4a1a85bf94a4a0e7bb8a51b272bc"
+  },
+  "runs/EXP-03-T2/config.json": {
+    "size": 672,
+    "mtime_ns": 1794588999950441398,
+    "sha256": "c9de0741de74fe8a09b858fc9158acc1fcfccdaf7d88034e43f15eee9a4d468f"
+  },
+  "runs/EXP-03-T2/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794589892695052393,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-03-T2/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794589893108532657,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-600/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794589893692420085,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-600/config.json": {
+    "size": 972,
+    "mtime_ns": 1794589892694415471,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-03-T2/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794589292486477516,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-03-T2/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794589292936766307,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-200/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794589293532279607,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-200/config.json": {
+    "size": 972,
+    "mtime_ns": 1794589292486074434,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-03-T2/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794589591617328981,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-03-T2/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794589592123315308,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-400/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794589593005613258,
+    "sha256": null
+  },
+  "runs/EXP-03-T2/checkpoints/step-400/config.json": {
+    "size": 972,
+    "mtime_ns": 1794589591616678354,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-04-T3/train.jsonl": {
+    "size": 135223,
+    "mtime_ns": 1794590881305069475,
+    "sha256": "c5b2c91059eac3f5b5551ca72abe8688a6ee822a61ed5b628ed8c211eb1891aa"
+  },
+  "runs/EXP-04-T3/evaluate-D0.log": {
+    "size": 1095,
+    "mtime_ns": 1794590962792577286,
+    "sha256": "9d85d36d6d97e230c7465347ad4044ec20f4ca35a72e1de45814cef68b6b014c"
+  },
+  "runs/EXP-04-T3/evaluate.log": {
+    "size": 1093,
+    "mtime_ns": 1794590929242443657,
+    "sha256": "fd75c1056ae79ff71df3ed4d4b2a9a407fdbf9aff0333706cb59d0b7cde2c255"
+  },
+  "runs/EXP-04-T3/evaluation.json": {
+    "size": 836,
+    "mtime_ns": 1794590929238257233,
+    "sha256": "410a592c2263cfe66c2790fb9a3d5458af064d58845558dba392e5c53bfbeed8"
+  },
+  "runs/EXP-04-T3/metadata.json": {
+    "size": 1210,
+    "mtime_ns": 1794589980202767247,
+    "sha256": "8a5d5eeb1cd9c9ed6f9db163df4236a4c9bc60da62e852e944fcc052b1073fb2"
+  },
+  "runs/EXP-04-T3/train.log": {
+    "size": 135223,
+    "mtime_ns": 1794590881305069475,
+    "sha256": "c5b2c91059eac3f5b5551ca72abe8688a6ee822a61ed5b628ed8c211eb1891aa"
+  },
+  "runs/EXP-04-T3/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794590882253839255,
+    "sha256": "65fc1687e7546090992ac570dd07f1e819b0342428d73e988e421270efe50481"
+  },
+  "runs/EXP-04-T3/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794590882261369978,
+    "sha256": "793713128ff5890680aeb4909d450ce06d44e60bdddee3e4175982d7e80a8ea8"
+  },
+  "runs/EXP-04-T3/evaluation-D0.json": {
+    "size": 838,
+    "mtime_ns": 1794590962792577286,
+    "sha256": "a7f3a7484fe5a71d5f85b6e0918fe6e1ad4cf3ae80dcfcad21616f0391f52b6f"
+  },
+  "runs/EXP-04-T3/config.json": {
+    "size": 672,
+    "mtime_ns": 1794589978816600400,
+    "sha256": "d61416941db4fb6cb56f418f66fb4287e7bf4137af486b0bae5a9282f0bca8e0"
+  },
+  "runs/EXP-04-T3/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794590881310582888,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-04-T3/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794590881632520992,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-600/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794590882253839255,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-600/config.json": {
+    "size": 972,
+    "mtime_ns": 1794590881310021692,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-04-T3/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794590276495767001,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-04-T3/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794590276913853938,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-200/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794590277770830599,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-200/config.json": {
+    "size": 972,
+    "mtime_ns": 1794590276495238653,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-04-T3/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794590577669096928,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-04-T3/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794590578052167233,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-400/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794590578678662661,
+    "sha256": null
+  },
+  "runs/EXP-04-T3/checkpoints/step-400/config.json": {
+    "size": 972,
+    "mtime_ns": 1794590577668505238,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-07-T6-pilot/decision.json": {
+    "size": 458,
+    "mtime_ns": 1794632144501572227,
+    "sha256": "b54e9926129d6c86af21260a3d9e96f46a711b50b2f863eaf218ad4a97e33cf3"
+  },
+  "runs/EXP-07-T6-pilot/train.jsonl": {
+    "size": 45373,
+    "mtime_ns": 1794630826753109777,
+    "sha256": "893328f6aa89d7f68cd2434e70e80a3627f7ac93ff98625fc0a4569b2ce8192c"
+  },
+  "runs/EXP-07-T6-pilot/metadata.json": {
+    "size": 1588,
+    "mtime_ns": 1794630663464985562,
+    "sha256": "c8791e47023164bf0a3c99023851c12461e57ffa8aee2af48cef09ceb81922b7"
+  },
+  "runs/EXP-07-T6-pilot/train.log": {
+    "size": 45373,
+    "mtime_ns": 1794630826753109777,
+    "sha256": "893328f6aa89d7f68cd2434e70e80a3627f7ac93ff98625fc0a4569b2ce8192c"
+  },
+  "runs/EXP-07-T6-pilot/checkpoint-index.jsonl": {
+    "size": 107,
+    "mtime_ns": 1794630827879660351,
+    "sha256": "1612c9a58e09c4ac5df7b8b65bbba7ca9c31e6c73b1f20df4569ff9c7ba4b80b"
+  },
+  "runs/EXP-07-T6-pilot/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794630827879772027,
+    "sha256": "f762e55e5c300d1b1cd9c081b9b5568a1a7bf002ddbe7307bb32d75193a46655"
+  },
+  "runs/EXP-07-T6-pilot/config.json": {
+    "size": 736,
+    "mtime_ns": 1794630662169591091,
+    "sha256": "9d157d7a00e907a21bb7d78b03ad22223c419c1481c8c35058112ce01490d80a"
+  },
+  "runs/EXP-07-T6-pilot/checkpoints/step-100/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794630826760473397,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-07-T6-pilot/checkpoints/step-100/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794630827179806275,
+    "sha256": null
+  },
+  "runs/EXP-07-T6-pilot/checkpoints/step-100/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794630827875321567,
+    "sha256": null
+  },
+  "runs/EXP-07-T6-pilot/checkpoints/step-100/config.json": {
+    "size": 972,
+    "mtime_ns": 1794630826760197035,
+    "sha256": "ff789a7e5af515538a2eeca9e0794fc052c9058f6f370ce8959fe89a0210c568"
+  },
+  "runs/EXP-01-T1/train.jsonl": {
+    "size": 135101,
+    "mtime_ns": 1794587757030533646,
+    "sha256": "2bbfdb966ac3e90c473e920d4e622d219009807b350b53c2c29aff96232d8eb5"
+  },
+  "runs/EXP-01-T1/jacobi-fp32.log": {
+    "size": 958,
+    "mtime_ns": 1794587895936005393,
+    "sha256": "d20a4eaa58f02245428eaf604e88187341dce1914e59be95f113633e5a697f9b"
+  },
+  "runs/EXP-01-T1/jacobi_summary.json": {
+    "size": 672,
+    "mtime_ns": 1794587817127362745,
+    "sha256": "09bc8f6c508c7a23fb71e74f3915dd3bb91b18bb2ae0c77f437cdfc51c0c69fc"
+  },
+  "runs/EXP-01-T1/jacobi_convergence.csv": {
+    "size": 2791,
+    "mtime_ns": 1794587974586974151,
+    "sha256": "b0347b5ac8e237b6c7648d5752f4593260eba9712dcaca37278cf943ff955b15"
+  },
+  "runs/EXP-01-T1/evaluate.log": {
+    "size": 933,
+    "mtime_ns": 1794587807130646821,
+    "sha256": "8e82b971a0d8768c88b446ad71a11d60816c923ca074525992b24c0828a3d6d0"
+  },
+  "runs/EXP-01-T1/evaluation.json": {
+    "size": 676,
+    "mtime_ns": 1794587807130024603,
+    "sha256": "7e10d9d7ada2a61afb19a76dbb5114616c9eca1863345a3b5433700b1e877cbc"
+  },
+  "runs/EXP-01-T1/metadata.json": {
+    "size": 942,
+    "mtime_ns": 1794586895501173099,
+    "sha256": "8b108b8c8398c96300bb631c5c13d2d52c1832d06aaaed454cc0929c4957056b"
+  },
+  "runs/EXP-01-T1/train.log": {
+    "size": 135101,
+    "mtime_ns": 1794587757030533646,
+    "sha256": "2bbfdb966ac3e90c473e920d4e622d219009807b350b53c2c29aff96232d8eb5"
+  },
+  "runs/EXP-01-T1/checkpoint-index.jsonl": {
+    "size": 303,
+    "mtime_ns": 1794587758093728161,
+    "sha256": "b252ce6b6ce75f4b4f1ba63f05d6d2da8b42481e7f302c3b75a9fc3975907849"
+  },
+  "runs/EXP-01-T1/complete.json": {
+    "size": 43,
+    "mtime_ns": 1794587758098442583,
+    "sha256": "ea04509d928e986496ea470afb6ca648fcc586b0ba7d1b2959c9e20b0becda6c"
+  },
+  "runs/EXP-01-T1/jacobi.log": {
+    "size": 929,
+    "mtime_ns": 1794587817127362745,
+    "sha256": "f417a9249491f5a34e7e284ca5f320424d5cb1acf5d7a56a21a8c7a52ced7a0a"
+  },
+  "runs/EXP-01-T1/config.json": {
+    "size": 656,
+    "mtime_ns": 1794586894057316936,
+    "sha256": "cf8fee9a5a039f06b826888d588260b3af663c66413df181942c5365a2ee19b0"
+  },
+  "runs/EXP-01-T1/fp32-diagnostic/jacobi_summary.json": {
+    "size": 701,
+    "mtime_ns": 1794587895933489986,
+    "sha256": "a3739eb9fcbaa7b1df731e24310e2d84c1df45a158bc853525dd85a8bda1c842"
+  },
+  "runs/EXP-01-T1/fp32-diagnostic/jacobi_convergence.csv": {
+    "size": 3035,
+    "mtime_ns": 1794587974587104987,
+    "sha256": "8c1e701f12fa29dd8f7b17436a8d454dddcb9c0b6b7aeec57797131841027d49"
+  },
+  "runs/EXP-01-T1/checkpoints/step-600/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794587757034996783,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T1/checkpoints/step-600/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794587757471780382,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-600/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794587758093728161,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-600/config.json": {
+    "size": 972,
+    "mtime_ns": 1794587757034368505,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-01-T1/checkpoints/step-200/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794587178178999052,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T1/checkpoints/step-200/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794587178598773047,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-200/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794587179291646318,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-200/config.json": {
+    "size": 972,
+    "mtime_ns": 1794587178178254795,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-01-T1/checkpoints/step-400/generation_config.json": {
+    "size": 133,
+    "mtime_ns": 1794587466957602140,
+    "sha256": "ec16491bb64061fb73e79d896329a36299b9e52028cfb25e6896fe32568cd0bc"
+  },
+  "runs/EXP-01-T1/checkpoints/step-400/model.safetensors": {
+    "size": 281715176,
+    "mtime_ns": 1794587467237755200,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-400/trainer.pt": {
+    "size": 563485683,
+    "mtime_ns": 1794587466256825884,
+    "sha256": null
+  },
+  "runs/EXP-01-T1/checkpoints/step-400/config.json": {
+    "size": 972,
+    "mtime_ns": 1794587466957013712,
+    "sha256": "9c098b9c15274ca8ff5e79d536ccb6b57f50b5a205234367000df165431aed96"
+  },
+  "runs/EXP-02-D1/console.txt": {
+    "size": 1392,
+    "mtime_ns": 1794588553762011120,
+    "sha256": "87732a35e9909d6daecf2b092d714a7631249577c86bb880d531377046055292"
+  },
+  "runs/EXP-02-D1/evaluation.json": {
+    "size": 998,
+    "mtime_ns": 1794588553761727602,
+    "sha256": "fbecf31fedafade0f8cd8fc43f7219f3b11b641224a27351834c980fea0dc493"
+  },
+  "runs/EXP-02-D1/run.txt": {
+    "size": 998,
+    "mtime_ns": 1794588553762011120,
+    "sha256": "fbecf31fedafade0f8cd8fc43f7219f3b11b641224a27351834c980fea0dc493"
+  },
+  "runs/EXP-02-D2/console.txt": {
+    "size": 1390,
+    "mtime_ns": 1794588590497927834,
+    "sha256": "c138c80a3e85655bedeed73daeae11a73e23fc2611358e4f770e0d2e327c3dbb"
+  },
+  "runs/EXP-02-D2/evaluation.json": {
+    "size": 996,
+    "mtime_ns": 1794588590497804429,
+    "sha256": "189bf25211915f2d4f795f8d51ef0d1e05b13f799ee9e06a12a65f4246cdd154"
+  },
+  "runs/EXP-02-D2/run.txt": {
+    "size": 996,
+    "mtime_ns": 1794588590497927834,
+    "sha256": "189bf25211915f2d4f795f8d51ef0d1e05b13f799ee9e06a12a65f4246cdd154"
+  },
+  "runs/exp05-pipeline.log": {
+    "size": 0,
+    "mtime_ns": 1794591408221228932,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runs/exp05-provenance.json": {
+    "size": 17365,
+    "mtime_ns": 1794591851338569581,
+    "sha256": "69dc85e66e4e5ccf0a718d60fa686f9fecc885e37262708963392cecae14ab6e"
+  },
+  "runs/exp01-pipeline.log": {
+    "size": 0,
+    "mtime_ns": 1794586642431192324,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runs/data-validation.json": {
+    "size": 726,
+    "mtime_ns": 1794632029092432215,
+    "sha256": "9799cb7abf30b04426efb92dcba5fd6db69d69514cbd112ec6ea792f0e9e9601"
+  },
+  "runs/exp06-pipeline.log": {
+    "size": 0,
+    "mtime_ns": 1794592195369390544,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runs/exp01-order.json": {
+    "size": 56507,
+    "mtime_ns": 1794586644445705794,
+    "sha256": "c9b545c33143c7578441d891625107e290e307d827aef0f9c72c70fcd416b3f0"
+  },
+  "runs/exp05-flops-table.json": {
+    "size": 4498,
+    "mtime_ns": 1794632135200246981,
+    "sha256": "a9169ce9e4d023cc8dbccadb3c6a9279c67ae19b7a558d832034f30067cae168"
+  },
+  "runs/exp0304-pipeline.log": {
+    "size": 0,
+    "mtime_ns": 1794588998630970472,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runs/exp07-pipeline.log": {
+    "size": 838,
+    "mtime_ns": 1794632057780282324,
+    "sha256": "36e5b613fc0eb0091ce1db8739f5c62a2402be36a94e920dbc7b2d0bfc7e0b9d"
+  },
+  "runs/exp02-provenance.json": {
+    "size": 1301,
+    "mtime_ns": 1794588658081489820,
+    "sha256": "390001d38f7c8d3f9868d97a33ca5ea9ae1d0ae0f1f9ada3ad99e5db80e9828b"
+  },
+  "runs/exp05-preserved-before.json": {
+    "size": 7463,
+    "mtime_ns": 1794591349171780551,
+    "sha256": "a76327ab4c691e05207296957fbb057d768e7e5fe16575d40f95d22ce1edc1fc"
+  },
+  "runs/exp01-source-provenance.json": {
+    "size": 570,
+    "mtime_ns": 1794587024989827858,
+    "sha256": "0d4a15cb37312ba0dd4afda020fbb012f0efcbf965ef5c24229112118bfb3a68"
+  },
+  "runs/exp02-summary.json": {
+    "size": 3371,
+    "mtime_ns": 1794588657693533096,
+    "sha256": "a29741eb231a175fd35102a23c56ef224879fd571eb827a2e1a86dda35d785ab"
+  },
+  "runs/exp0304-summary.json": {
+    "size": 4356,
+    "mtime_ns": 1794591044049644149,
+    "sha256": "5a7795a6257062fa081a768a921fca20cb901942b8f86686085d0c21dc6d3151"
+  },
+  "runs/exp0304-provenance.json": {
+    "size": 3651,
+    "mtime_ns": 1794591044040235290,
+    "sha256": "20161ab945afac956dc7f0026bcb647907675b1941d6366579a60431ad1b59d5"
+  },
+  "runs/data-train.json": {
+    "size": 718,
+    "mtime_ns": 1794630830241191085,
+    "sha256": "37e690da5259c8145bdc03fdce242afdd15bf09e7a0a97f091455ca255f0cdb6"
+  }
+}

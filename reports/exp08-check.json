@@ -1,0 +1,18 @@
+{
+  "43": {
+    "K_counts": {
+      "2": 303,
+      "3": 297
+    },
+    "K_sha256": "76320bd8dc44952d58bf0f6becd41e7fb0f8e7078d7d7e0a2869bc4a6caf98c8",
+    "order_sha256": "add4040214ea4326ec486836fb1cc56aaaa919e384bf92f7646ac94e1418fce4"
+  },
+  "44": {
+    "K_counts": {
+      "2": 305,
+      "3": 295
+    },
+    "K_sha256": "62af7beae39082571bfdbd30066c318fb53a25c51fe95a322d21c697946f8f4c",
+    "order_sha256": "1368dde8702ba44bda745769f7670a9cd372223e5999b6b764844c41ee8c57a1"
+  }
+}

@@ -28,3 +28,6 @@ wandb/
 
 # Upstream stays a local shallow clone; provenance is tracked in VENDOR.md.
 /vendor/PonderLM-2/
+
+# EXP-08 pipeline process lock
+runs/exp08.lock

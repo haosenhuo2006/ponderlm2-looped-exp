@@ -1,0 +1,19 @@
+{
+  "mode": "vanilla",
+  "checkpoint": "runs/EXP-08-seed44-T0/checkpoints/step-600",
+  "split": "validation",
+  "nll": 4.918126569492945,
+  "ppl": 136.74618858321517,
+  "predicted_tokens": 249135,
+  "chunks": 977,
+  "seq": 256,
+  "jacobi_iterations": 3,
+  "seconds": 7.980656981002539,
+  "tokens_s": 31217.35473571292,
+  "peak_memory_bytes": 542377472,
+  "sequential_nll_8x128": 4.556206849693629,
+  "sequential_tokens_s": 134.66453758184352,
+  "kv_cache_bytes_127_tokens": 2340864,
+  "inference_flops_per_token_estimate": 90832896,
+  "flops_convention": "2 FLOPs/MAC; cached context mean 128 real tokens; transformer dense + causal QK/AV + one vocab head; excludes norms/softmax"
+}

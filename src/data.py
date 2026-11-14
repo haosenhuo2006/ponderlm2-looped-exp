@@ -1,4 +1,6 @@
 """WikiText-2 raw chunks; immutable split files and shared seeded order."""
+from pathlib import Path
+import os
 import hashlib
 import json
 import subprocess
@@ -46,11 +48,11 @@ def chunks(split="train", seq=256):
                     tokens_sha256=hashlib.sha256(ids.tobytes()).hexdigest(),
                     tokenizer=MODEL,revision=REVISION,special_tokens=False,
                     row_join="empty rows -> newline; nonempty rows verbatim")
-    (ROOT/"runs"/("data-"+split+".json")).write_text(json.dumps(metadata,indent=2))
+    (Path(os.environ.get("EXP08_RUN_DIR", ROOT/"runs"))/("data-"+split+".json")).write_text(json.dumps(metadata,indent=2))
     return torch.from_numpy(ids[:len(ids)//seq*seq].copy()).reshape(-1,seq)
 
 def order(n,count,seed=42):
-    path = ROOT/"runs"/"exp01-order.json"
+    path = Path(os.environ["EXP08_RUN_DIR"])/"data-order.json" if "EXP08_RUN_DIR" in os.environ else ROOT/"runs"/"exp01-order.json"
     path.parent.mkdir(exist_ok=True)
     if path.exists():
         result = json.loads(path.read_text())
