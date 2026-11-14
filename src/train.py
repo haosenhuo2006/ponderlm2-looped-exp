@@ -58,6 +58,7 @@ def main():
     p.add_argument("--mask", choices=["D1", "D2"])
     a = p.parse_args()
     c = json.loads(Path(a.config).read_text())
+    run_budget_s = c.get("run_budget_s", 3600)
     if a.mask is not None:
         c["mask"] = a.mask
     if c.get("per_round_optimizer_update") and (not c.get("intermediate_supervision") or c["mode"] != "ponder" or c.get("mask") or c.get("loop")):
@@ -90,7 +91,7 @@ def main():
     sum_updates = 0
     with (dest / "train.jsonl").open("w", buffering=1) as log:
         for step in range(1, c["steps"]+1):
-            if time.perf_counter()-start > 3600:
+            if time.perf_counter()-start > run_budget_s:
                 raise RuntimeError("60-minute run budget exceeded; refusing to shorten training silently")
             t = time.perf_counter()
             lr = c["lr"] * (step/c["warmup"] if step <= c["warmup"] else
@@ -101,7 +102,7 @@ def main():
             if c.get("per_round_optimizer_update"):
                 batches = [data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
                            for micro in range(c["grad_accum"])]
-                result = update_batch(model,batches,k,optimizer,c["clip"],start+3600)
+                result = update_batch(model,batches,k,optimizer,c["clip"],start+run_budget_s)
                 loss_sum = result["loss"]*c["grad_accum"]
                 norm = result["grad_norm"]
                 round_sums = [v*c["grad_accum"] for v in result["round_ce"]]
@@ -110,7 +111,7 @@ def main():
             elif c.get("split_optimizer_updates"):
                 batches = [data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
                            for micro in range(c["grad_accum"])]
-                result = split_update_batch(model, batches, k, optimizer, c["clip"], start+3600)
+                result = split_update_batch(model, batches, k, optimizer, c["clip"], start+run_budget_s)
                 loss_sum = result["loss"]*c["grad_accum"]
                 norm = result["grad_norm"]
                 del batches

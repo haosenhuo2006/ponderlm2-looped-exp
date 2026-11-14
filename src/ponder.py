@@ -1,11 +1,14 @@
 """Unmodified official model, with explicit experiment flags."""
 import importlib.util
+import os
 from pathlib import Path
 import torch
 from transformers import GPTNeoXConfig
 ROOT = Path(__file__).resolve().parents[1]
-MODEL = "EleutherAI/pythia-70m"
-REVISION = "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+# Default to 70M; EXP-14 selects 160M through environment variables.
+# src/data.py shares these constants for its tokenizer, so it switches too.
+MODEL = os.environ.get("PYTHIA_MODEL", "EleutherAI/pythia-70m")
+REVISION = os.environ.get("PYTHIA_REVISION", "a39f36b100fe8a5377810d56c3f4789b9c53ac42")
 
 def load_model(mode, checkpoint=None):
     spec = importlib.util.spec_from_file_location("official_gpt_neox", ROOT / "vendor/PonderLM-2/src/llamafactory/model/modeling/modeling_gpt_neox.py")
