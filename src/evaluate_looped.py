@@ -27,7 +27,9 @@ def main():
     a = p.parse_args()
     torch.manual_seed(42)
     model = load_model("vanilla", a.checkpoint).eval()
-    looped.configure(model, model.config.loop_block_size, model.config.loop_repetitions)
+    c = model.config
+    looped.configure(model, c.loop_block_size, c.loop_repetitions,
+                     start=getattr(c, "loop_block_start", None))
     data = chunks("validation")
     with torch.autocast("cuda", dtype=torch.bfloat16):
         looped.forward(model, data[:1].cuda())
@@ -59,7 +61,8 @@ def main():
     c = model.config
     result = dict(mode="looped", checkpoint=a.checkpoint, split="validation", seq=256, batch=1,
                   block_size=c.loop_block_size, repetitions=c.loop_repetitions,
-                  layers=list(range(c.num_hidden_layers-c.loop_block_size, c.num_hidden_layers)),
+                  layers=list(range(c.loop_block_start, c.loop_block_start+c.loop_block_size)),
+                  loop_block_start=c.loop_block_start,
                   nll=total/count, ppl=math.exp(total/count), predicted_tokens=count, chunks=len(data),
                   seconds=elapsed, tokens_s=count/elapsed, latency_ms_per_token=1000*elapsed/count,
                   peak_memory_bytes=parallel_peak, sequential_nll_8x128=seq_total/seq_count,

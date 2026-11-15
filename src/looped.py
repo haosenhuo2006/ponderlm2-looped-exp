@@ -29,11 +29,16 @@ def selected():
     return min(candidates(), key=lambda c: (c["relative_error"], c["repetitions"], c["block_size"]))
 
 
-def configure(model, block_size, repetitions):
+def configure(model, block_size, repetitions, start=None):
     if not 1 <= block_size < len(model.gpt_neox.layers) or not 1 <= repetitions <= 4:
         raise ValueError("require a proper top block and R in 1..4")
     if model.config.num_latent_thoughts or model.config.scale_embeds:
         raise ValueError("looped control requires vanilla unscaled real tokens")
+    if start is None:
+        start = len(model.gpt_neox.layers) - block_size
+    if type(start) is not int or not 0 <= start <= len(model.gpt_neox.layers) - block_size:
+        raise ValueError("require integer loop block start within layer bounds")
+    model.config.loop_block_start = start
     model.config.loop_block_size = block_size
     model.config.loop_repetitions = repetitions
     model.config.use_cache = False
@@ -42,8 +47,10 @@ def configure(model, block_size, repetitions):
 
 def layer_schedule(model):
     layers = model.gpt_neox.layers
-    start = len(layers) - model.config.loop_block_size
-    return tuple(layers[:start]) + tuple(layers[start:]) * model.config.loop_repetitions
+    block_size = model.config.loop_block_size
+    start = getattr(model.config, "loop_block_start", len(layers) - block_size)
+    return (tuple(layers[:start]) + tuple(layers[start:start+block_size]) *
+            model.config.loop_repetitions + tuple(layers[start+block_size:]))
 
 
 def forward(model, x, labels=None, last_only=False):

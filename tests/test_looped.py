@@ -43,6 +43,30 @@ class LoopedTests(unittest.TestCase):
         del model, expected, actual
         torch.cuda.empty_cache()
 
+    def test_middle_block_schedule(self):
+        torch.manual_seed(42)
+        model = load_model("vanilla").eval()
+        parameter_ids = [id(p) for p in model.parameters()]
+        layers = model.gpt_neox.layers
+        looped.configure(model, 2, 4, start=2)
+        schedule = looped.layer_schedule(model)
+        self.assertEqual(len(schedule), 12)
+        for actual, index in zip(schedule, [0, 1] + [2, 3] * 4 + [4, 5]):
+            self.assertIs(actual, layers[index])
+        self.assertEqual(parameter_ids, [id(p) for p in model.parameters()])
+        self.assertEqual(sum(p.numel() for p in model.parameters()), 70426624)
+        self.assertEqual(looped.flops(2, 4), 130154496)
+        for invalid in (-1, 5, 2.0, True, "2"):
+            with self.assertRaises(ValueError):
+                looped.configure(model, 2, 4, start=invalid)
+        looped.configure(model, 3, 3)
+        self.assertEqual(model.config.loop_block_start, 3)
+        expected = looped.layer_schedule(model)
+        del model.config.loop_block_start
+        self.assertEqual(looped.layer_schedule(model), expected)
+        del model
+        torch.cuda.empty_cache()
+
     def test_two_optimizer_steps(self):
         torch.manual_seed(42)
         model = looped.configure(load_model("vanilla"),3,3).train()
