@@ -15,6 +15,25 @@ def forward(model, x, iterations=3, condition="D1", labels=None, intermediate_su
     """
     if iterations not in (2, 3):
         raise ValueError("training/evaluation iterations must be 2 or 3")
+    return _forward(model, x, iterations, condition, labels,
+                    intermediate_supervision, return_round_logits)
+
+
+def forward_eval(model, x, iterations, condition="D0", labels=None,
+                 intermediate_supervision=False, return_round_logits=False):
+    """R refinements plus a separate final pass; R=0 uses initialization only.
+
+    Caller controls eval mode, gradients and autocast. With R=0 there are no
+    intermediate losses, so intermediate supervision falls back to final loss.
+    """
+    if isinstance(iterations, bool) or not isinstance(iterations, int) or not 0 <= iterations <= 5:
+        raise ValueError("evaluation iterations must be an integer from 0 to 5")
+    return _forward(model, x, iterations, condition, labels,
+                    intermediate_supervision, return_round_logits)
+
+
+def _forward(model, x, iterations, condition, labels,
+             intermediate_supervision, return_round_logits):
     e = embeddings(model, x)
     pos = torch.arange(x.shape[1], device=x.device)[None].expand(x.shape[0], -1)
     mask = torch.ones_like(pos) if condition == "D0" else MASKS[condition](x.shape[1], 0)
@@ -45,7 +64,7 @@ def forward(model, x, iterations=3, condition="D1", labels=None, intermediate_su
     loss = F.cross_entropy(logits[:, :-1].contiguous().view(-1, logits.shape[-1]),
                            targets[:, 1:].contiguous().view(-1))
     final_loss = loss
-    if intermediate_supervision:
+    if intermediate_supervision and round_losses:
         loss = torch.stack(round_losses).mean()
     return SimpleNamespace(loss=loss, logits=logits, final_loss=final_loss,
                            round_losses=tuple(round_losses),
