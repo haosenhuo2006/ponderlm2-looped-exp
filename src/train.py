@@ -52,6 +52,39 @@ def split_update_batch(model, batches, k, optimizer, clip, deadline=None):
     return dict(loss=total / len(batches), grad_norm=max(norms), optimizer_updates=k)
 
 
+def split_supervised_update_batch(model, batches, k, optimizer, clip, deadline=None):
+    """T8: T5 mean-round supervision and full graphs, with T7 split updates."""
+    if k not in (2, 3):
+        raise ValueError("K must be 2 or 3")
+    groups = split_groups(len(batches), k)
+    total, norms = 0., []
+    round_sums, final_sum = [0.] * k, 0.
+    for group in groups:
+        optimizer.zero_grad(set_to_none=True)
+        for micro in group:
+            if deadline is not None and time.perf_counter() > deadline:
+                raise RuntimeError("60-minute run budget exceeded; refusing to shorten training silently")
+            with torch.autocast("cuda", dtype=torch.bfloat16):
+                output = masked_forward(model, batches[micro], k, "D0", intermediate_supervision=True)
+                loss = output.loss
+            if not torch.isfinite(loss):
+                raise RuntimeError("nonfinite loss")
+            # Full T5 graph, no round detach; retain the full-batch denominator.
+            (loss / len(batches)).backward()
+            total += loss.detach().item()
+            for j, component in enumerate(output.round_losses):
+                round_sums[j] += component.detach().item()
+            final_sum += output.final_loss.detach().item()
+            del output
+        # As in T7, clipping is per group rather than once per data step.
+        norm = torch.nn.utils.clip_grad_norm_(model.parameters(), clip, error_if_nonfinite=True)
+        norms.append(float(norm))
+        optimizer.step()
+    return dict(loss=total / len(batches), grad_norm=max(norms), optimizer_updates=k,
+                round_ce=[v / len(batches) for v in round_sums],
+                final_prediction_ce=final_sum / len(batches))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True)
@@ -63,8 +96,8 @@ def main():
         c["mask"] = a.mask
     if c.get("per_round_optimizer_update") and (not c.get("intermediate_supervision") or c["mode"] != "ponder" or c.get("mask") or c.get("loop")):
         raise ValueError("per-round updates require unmasked ponder intermediate supervision")
-    if c.get("split_optimizer_updates") and (c["mode"] != "ponder" or c.get("mask") or c.get("loop") or c.get("intermediate_supervision") or c.get("per_round_optimizer_update")):
-        raise ValueError("split updates require unmasked ponder without loop, intermediate supervision or per-round updates")
+    if c.get("split_optimizer_updates") and (c["mode"] != "ponder" or c.get("mask") or c.get("loop") or c.get("per_round_optimizer_update")):
+        raise ValueError("split updates require unmasked ponder without loop or per-round updates")
     torch.manual_seed(c["seed"])
     rng = random.Random(c["seed"])
     dest = Path(c["run_dir"])
@@ -111,7 +144,12 @@ def main():
             elif c.get("split_optimizer_updates"):
                 batches = [data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
                            for micro in range(c["grad_accum"])]
-                result = split_update_batch(model, batches, k, optimizer, c["clip"], start+run_budget_s)
+                if c.get("intermediate_supervision"):
+                    result = split_supervised_update_batch(model, batches, k, optimizer, c["clip"], start+run_budget_s)
+                    round_sums = [v*c["grad_accum"] for v in result["round_ce"]]
+                    final_sum = result["final_prediction_ce"]*c["grad_accum"]
+                else:
+                    result = split_update_batch(model, batches, k, optimizer, c["clip"], start+run_budget_s)
                 loss_sum = result["loss"]*c["grad_accum"]
                 norm = result["grad_norm"]
                 del batches

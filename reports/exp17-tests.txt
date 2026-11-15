@@ -1,0 +1,62 @@
+test_actual_checkpoint_entrypoints (test_downstream.DownstreamTests.test_actual_checkpoint_entrypoints) ... downstream real entrypoint T0 12.1875
+downstream real entrypoint T1 12.140625
+downstream real entrypoint T2 12.71875
+downstream real entrypoint T4 10.78125
+downstream real entrypoint T5 12.609375
+ok
+test_mc_argmax_negative_normalized_loss (test_downstream.DownstreamTests.test_mc_argmax_negative_normalized_loss) ... ok
+test_prompt_fixed (test_downstream.DownstreamTests.test_prompt_fixed) ... ok
+test_shifted_last_word_top1 (test_downstream.DownstreamTests.test_shifted_last_word_top1) ... ok
+test_word_boundary_offsets (test_downstream.DownstreamTests.test_word_boundary_offsets) ... ok
+test_600_step_schedule (test_intermediate.IntermediateSupervision.test_600_step_schedule) ... ok
+test_mean_and_final_prediction_parity (test_intermediate.IntermediateSupervision.test_mean_and_final_prediction_parity) ... ok
+test_round_two_perturbation_attribution (test_intermediate.IntermediateSupervision.test_round_two_perturbation_attribution) ... ok
+test_two_optimizer_steps (test_intermediate.IntermediateSupervision.test_two_optimizer_steps) ... ok
+test_all_eval_rounds_and_zero_changes_logits (test_kscan.KScanForward.test_all_eval_rounds_and_zero_changes_logits) ... ok
+test_labels_and_round_outputs (test_kscan.KScanForward.test_labels_and_round_outputs) ... ok
+test_repeatability_after_other_rounds (test_kscan.KScanForward.test_repeatability_after_other_rounds) ... ok
+test_shared_forward_parity_and_training_losses (test_kscan.KScanForward.test_shared_forward_parity_and_training_losses) ... ok
+test_final_ce_sum (test_kscan.KScanHelpers.test_final_ce_sum) ... ok
+test_invalid_eval_rounds (test_kscan.KScanHelpers.test_invalid_eval_rounds) ... ok
+test_rounds_parser (test_kscan.KScanHelpers.test_rounds_parser) ... ok
+test_training_rejects_other_rounds (test_kscan.KScanHelpers.test_training_rejects_other_rounds) ... ok
+test_validation_order (test_kscan.KScanHelpers.test_validation_order) ... ok
+test_causal_prefix (test_looped.LoopedTests.test_causal_prefix) ... ok
+test_flops_table (test_looped.LoopedTests.test_flops_table) ... ok
+test_shared_weights_and_r1_parity (test_looped.LoopedTests.test_shared_weights_and_r1_parity) ... ok
+test_two_optimizer_steps (test_looped.LoopedTests.test_two_optimizer_steps) ... loop smoke 0 22.987598419189453
+loop smoke 1 21.48611068725586
+ok
+test_k_schedule (test_masked_training.MaskedTraining.test_k_schedule) ... ok
+test_manual_d0_training_parity (test_masked_training.MaskedTraining.test_manual_d0_training_parity) ... ok
+test_optimizer_and_all_pass_gradients (test_masked_training.MaskedTraining.test_optimizer_and_all_pass_gradients) ... D1 0 16.584325790405273
+D1 1 16.003969192504883
+D2 0 17.503969192504883
+D2 1 17.21825408935547
+ok
+test_training_loss_direct_mask_effect (test_masked_training.MaskedTraining.test_training_loss_direct_mask_effect) ... ok
+test_attention_effect (test_masks.ActualForward.test_attention_effect) ... ok
+test_finite_losses_and_parity (test_masks.ActualForward.test_finite_losses_and_parity) ... We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+ok
+test_patterns (test_masks.MaskShape.test_patterns) ... ok
+test_both_configs (test_masks_smoke.TrainingSmoke.test_both_configs) ... t0 0 16.671627044677734
+t0 1 16.011905670166016
+t1 0 16.97222137451172
+t1 1 16.94097137451172
+ok
+test_attribution_and_detach (test_per_round_update.PerRoundUpdate.test_attribution_and_detach) ... ok
+test_schedule (test_per_round_update.PerRoundUpdate.test_schedule) ... ok
+test_updates_and_first_change (test_per_round_update.PerRoundUpdate.test_updates_and_first_change) ... ok
+test_override_and_defaults (test_ponder_model_override.ModelOverride.test_override_and_defaults) ... ok
+test_probe_chunk (test_probe_h.ProbeHSmoke.test_probe_chunk) ... ok
+test_600_step_schedule (test_split_supervised_updates.Schedule.test_600_step_schedule) ... ok
+test_gradient_equivalence_and_loss_definition (test_split_supervised_updates.SplitSupervisedUpdates.test_gradient_equivalence_and_loss_definition) ... ok
+test_update_count_and_parameter_change (test_split_supervised_updates.SplitSupervisedUpdates.test_update_count_and_parameter_change) ... ok
+test_partition (test_split_updates.SplitGroups.test_partition) ... ok
+test_gradient_equivalence (test_split_updates.SplitUpdates.test_gradient_equivalence) ... ok
+test_update_count_and_parameter_change (test_split_updates.SplitUpdates.test_update_count_and_parameter_change) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 37.944s
+
+OK
