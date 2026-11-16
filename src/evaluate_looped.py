@@ -71,7 +71,7 @@ def main():
                   sequential_latency_ms_per_token=1000*seq_elapsed/seq_count,
                   sequential_peak_memory_bytes=torch.cuda.max_memory_allocated(),
                   sequential_method="full-context forward per position; last-position vocab head; no KV cache",
-                  inference_flops_per_token_estimate=looped.flops(c.loop_block_size,c.loop_repetitions),
+                  inference_flops_per_token_estimate=looped.flops(c.loop_block_size, c.loop_repetitions, d=c.hidden_size, ff=c.intermediate_size, layers=c.num_hidden_layers),
                   flops_convention=looped.CONVENTION,
                   flops_scope="hypothetical cached sequential arithmetic; measured prefix recomputation costs more",
                   forward_path="thin wrapper calling original official backbone layer modules directly",
