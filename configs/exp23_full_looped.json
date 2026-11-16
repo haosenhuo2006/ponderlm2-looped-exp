@@ -1,0 +1,19 @@
+{
+  "run_dir": "runs/EXP-23-full-looped",
+  "seed": 42,
+  "steps": 8000,
+  "batch": 256,
+  "lr": 0.001,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "weight_decay": 0.01,
+  "warmup": 100,
+  "max_train_digits": 3,
+  "loop": {
+    "block_size": 2,
+    "repetitions": 4,
+    "start": 2
+  }
+}
