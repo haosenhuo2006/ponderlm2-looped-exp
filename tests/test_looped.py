@@ -1,6 +1,7 @@
 import json
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 import torch
 from src.ponder import load_model
 from src import looped
@@ -42,6 +43,20 @@ class LoopedTests(unittest.TestCase):
         self.assertEqual(sum(p.numel() for p in model.parameters()), 70426624)
         del model, expected, actual
         torch.cuda.empty_cache()
+
+    def test_checkpoint_config_schedule(self):
+        for start, expected in ((2, [0, 1] + [2, 3] * 4 + [4, 5]),
+                                (None, [0, 1, 2, 3] + [4, 5] * 4)):
+            with self.subTest(start=start):
+                config = SimpleNamespace(num_latent_thoughts=0, scale_embeds=False,
+                                         loop_block_size=2, loop_repetitions=4)
+                if start is not None:
+                    config.loop_block_start = start
+                model = SimpleNamespace(config=config,
+                                        gpt_neox=SimpleNamespace(layers=list(range(6))))
+                looped.configure(model, config.loop_block_size, config.loop_repetitions,
+                                 start=getattr(config, "loop_block_start", None))
+                self.assertEqual(looped.layer_schedule(model), tuple(expected))
 
     def test_middle_block_schedule(self):
         torch.manual_seed(42)

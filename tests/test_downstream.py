@@ -11,7 +11,7 @@ class DownstreamTests(unittest.TestCase):
         for name, spec in config()["checkpoints"].items():
             model = load_model("vanilla" if spec["mode"] == "looped" else spec["mode"], spec["path"]).eval()
             if spec["mode"] == "looped":
-                looped.configure(model, model.config.loop_block_size, model.config.loop_repetitions)
+                looped.configure(model, model.config.loop_block_size, model.config.loop_repetitions, start=getattr(model.config, "loop_block_start", None))
             x = torch.tensor([[10,20,30,40,50]], device="cuda")
             with torch.no_grad():
                 out = model_forward(model, x, spec)

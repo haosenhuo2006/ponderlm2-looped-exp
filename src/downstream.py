@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import time
@@ -13,8 +14,8 @@ from .ponder import load_model, forward, MODEL, REVISION
 from . import looped, masked
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "runs/EXP-09"
-CONFIG = ROOT / "configs/exp09_downstream.json"
+RUN = Path(os.environ.get("DOWNSTREAM_RUN", ROOT / "runs/EXP-09"))
+CONFIG = Path(os.environ.get("DOWNSTREAM_CONFIG", ROOT / "configs/exp09_downstream.json"))
 
 def save(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -24,8 +25,8 @@ def save(path, obj):
 
 def protocol_hash():
     h = hashlib.sha256()
-    for rel in ("configs/exp09_downstream.json", "src/downstream.py"):
-        h.update((ROOT / rel).read_bytes())
+    for path in (CONFIG.resolve(), ROOT / "src/downstream.py"):
+        h.update(path.read_bytes())
     return h.hexdigest()
 
 def config():
@@ -118,7 +119,7 @@ def evaluate(name, task, limit=None):
     tok = AutoTokenizer.from_pretrained(MODEL, revision=REVISION)
     model = load_model("vanilla" if spec["mode"] == "looped" else spec["mode"], spec["path"]).eval()
     if spec["mode"] == "looped":
-        looped.configure(model, model.config.loop_block_size, model.config.loop_repetitions)
+        looped.configure(model, model.config.loop_block_size, model.config.loop_repetitions, start=getattr(model.config, "loop_block_start", None))
     torch.cuda.synchronize()
     torch.cuda.reset_peak_memory_stats()
     begin = time.perf_counter()
