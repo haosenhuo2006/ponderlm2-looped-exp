@@ -1,0 +1,85 @@
+{
+  "results": {
+    "42": {
+      "seed": 42,
+      "nll": 4.572618549242881,
+      "ppl": 96.79724655932289,
+      "wall_s": 1214.1970332059973,
+      "peak_memory_bytes": 3332982272
+    },
+    "43": {
+      "seed": 43,
+      "nll": 4.612504744688105,
+      "ppl": 100.7361522457785,
+      "wall_s": 1185.454944688001,
+      "peak_memory_bytes": 3332982272
+    },
+    "44": {
+      "seed": 44,
+      "nll": 4.674307344868322,
+      "ppl": 107.15831762177206,
+      "wall_s": 1182.5957254140012,
+      "peak_memory_bytes": 3332982272
+    }
+  },
+  "aggregate": {
+    "nll": {
+      "mean": 4.6198102129331025,
+      "sd": 0.05123651226076178,
+      "n": 3
+    },
+    "ppl": {
+      "mean": 101.56390547562448,
+      "sd": 5.2298976995177195,
+      "n": 3
+    }
+  },
+  "controls": {
+    "T0": {
+      "42": {
+        "nll": 4.865944883162931,
+        "ppl": 129.7935204020395
+      },
+      "43": {
+        "nll": 4.8076471137989,
+        "ppl": 122.44318344730775
+      },
+      "44": {
+        "nll": 4.748705843507599,
+        "ppl": 115.43479712585673
+      }
+    }
+  },
+  "control_aggregates": {
+    "T0": {
+      "nll": {
+        "mean": 4.80743261348981,
+        "sd": 0.05861981416392479,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 122.55716699173466,
+        "sd": 7.180040230862096,
+        "n": 3
+      }
+    }
+  },
+  "paired_differences": {
+    "T0": {
+      "by_seed": {
+        "42": -0.29332633392005025,
+        "43": -0.19514236911079497,
+        "44": -0.07439849863927694
+      },
+      "mean": -0.1876224005567074,
+      "direction_consistent": true,
+      "all_better": true
+    }
+  },
+  "decision": "revival holds at 1200 steps",
+  "caveats": [
+    "WikiText-2 only; 160M tiny-scale; three seeds.",
+    "Training FLOPs approximately 1.5x vanilla; 18 layer calls; inference estimate 339148800 FLOPs/token.",
+    "Same analytical inference cost convention as EXP-01/EXP-19; prefix evaluation recomputes context without KV cache."
+  ]
+}
