@@ -1,0 +1,36 @@
+{
+  "device": "cuda",
+  "microbatch": 1,
+  "seq": 256,
+  "vanilla_flops_per_token": 256624176.0,
+  "vanilla_analytic_per_token": 251854848,
+  "vanilla_absolute_deviation_pct": 1.893681236582756,
+  "expected_train_flops_ratio": 1.67207410203293,
+  "r": {
+    "1": {
+      "measured_flops_per_token": 256625712.0,
+      "analytic_flops_per_token": 251854848,
+      "absolute_deviation_pct": 1.8942911116803351,
+      "measured_ratio_vs_vanilla": 1.0000059854064567,
+      "analytic_ratio_vs_vanilla": 1.0,
+      "ratio_deviation_pct": 0.000598540645668777
+    },
+    "4": {
+      "measured_flops_per_token": 525663792.0,
+      "analytic_flops_per_token": 513736704,
+      "absolute_deviation_pct": 2.321634391145233,
+      "measured_ratio_vs_vanilla": 2.048379853346319,
+      "analytic_ratio_vs_vanilla": 2.0398126463700232,
+      "ratio_deviation_pct": 0.4199996990675414
+    },
+    "12": {
+      "measured_flops_per_token": 1243098672.0,
+      "analytic_flops_per_token": 1212088320,
+      "absolute_deviation_pct": 2.558423465379156,
+      "measured_ratio_vs_vanilla": 4.844043501185952,
+      "analytic_ratio_vs_vanilla": 4.812646370023419,
+      "ratio_deviation_pct": 0.6523880781704072
+    }
+  },
+  "pass_ratio_lt_1pct": true
+}

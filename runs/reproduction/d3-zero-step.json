@@ -1,0 +1,42 @@
+{
+  "mode": "looped2",
+  "split": "validation",
+  "config": {
+    "prelude": [
+      0,
+      1,
+      2
+    ],
+    "core": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "coda": [
+      9,
+      10,
+      11
+    ],
+    "emb_scale": 1.0,
+    "t": 2.0,
+    "s": 2,
+    "sigma": 0.5,
+    "cap": 12,
+    "eval_r": 4
+  },
+  "per_r": [
+    {
+      "r": 4,
+      "nll": 10.022538628184769,
+      "ppl": 22528.54899663514,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "s0_seed": 0
+    }
+  ],
+  "checkpoint": "/home/lenovo_jason/ponderlm2-looped-exp/runs/reproduction/d3-zero-step",
+  "git_hash": "8442e22d7c8ed0bb43300d0393e7ea9d7050391b"
+}
