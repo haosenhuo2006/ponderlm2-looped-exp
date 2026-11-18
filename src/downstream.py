@@ -35,9 +35,29 @@ def config():
 def prompt(question, answer):
     return config()["prompt"].format(question=question, answer=answer)
 
-def select_answer(totals, answer_tokens):
-    scores = [total / n for total, n in zip(totals, answer_tokens)]
-    return max(range(len(scores)), key=lambda i: -scores[i])
+def answer_span_nll(logits, ids, answer_start):
+    """FP32 CE sum for answer targets, including the boundary token."""
+    if not 1 <= answer_start < len(ids):
+        raise ValueError("answer_start must identify an answer token with context")
+    targets = torch.as_tensor(ids[answer_start:], device=logits.device, dtype=torch.long)
+    return torch.nn.functional.cross_entropy(
+        logits[0, answer_start-1:len(ids)-1].float(), targets, reduction="sum").item()
+
+
+def score_options(answer_nlls, answer_bytes, totals=None, answer_tokens=None):
+    """R1 primary; R2 UTF-8 byte normalization; R3/raw diagnostics only."""
+    if not answer_nlls or len(answer_nlls) != len(answer_bytes) or any(b <= 0 for b in answer_bytes):
+        raise ValueError("nonempty options and positive UTF-8 byte counts required")
+    def pick(scores):
+        return min(range(len(scores)), key=scores.__getitem__)
+    result = dict(r1=pick(answer_nlls),
+                  r2=pick([a/b for a, b in zip(answer_nlls, answer_bytes)]))
+    if totals is not None and answer_tokens is not None:
+        if len(totals) != len(answer_nlls) or len(answer_tokens) != len(totals) or any(n <= 0 for n in answer_tokens):
+            raise ValueError("diagnostics require matching totals and positive token counts")
+        result.update(r3=pick([v/n for v, n in zip(totals, answer_tokens)]), raw=pick(totals))
+    return result
+
 
 def last_word_tokens(tok, text):
     text = text.rstrip()
@@ -133,24 +153,33 @@ def evaluate(name, task, limit=None):
     for index, row in enumerate(rows):
         if task == "arc":
             q = row["question"]
-            totals, counts = [], []
+            totals, counts, answer_nlls, byte_counts = [], [], [], []
             for answer in row["choices"]["text"]:
                 prefix = q + " Answer: "
                 enc = tok(prompt(q, answer), add_special_tokens=False, return_offsets_mapping=True)
                 n = sum(end > len(prefix) for _, end in enc["offset_mapping"])
                 assert n > 0
+                k0 = next(i for i, (_, end) in enumerate(enc["offset_mapping"]) if end > len(prefix))
+                assert n == len(enc["input_ids"]) - k0
                 out = run(enc["input_ids"])
                 total = out.loss.float().item() * (len(enc["input_ids"]) - 1)
                 if not torch.isfinite(out.loss):
                     raise ValueError("nonfinite loss")
                 totals.append(total)
                 counts.append(n)
-            pred = select_answer(totals, counts)
-            raw_pred = min(range(len(totals)), key=totals.__getitem__)
+                answer_nlls.append(answer_span_nll(out.logits, enc["input_ids"], k0))
+                byte_counts.append(len(answer.encode("utf-8")))
+            scores = score_options(answer_nlls, byte_counts, totals, counts)
+            pred, raw_pred = scores["r1"], scores["raw"]
             gold = list(row["choices"]["label"]).index(row["answerKey"])
             record = dict(index=index, id=row["id"], correct=pred == gold, prediction=pred, gold=gold,
                 raw_correct=raw_pred == gold, raw_prediction=raw_pred, total_nll=totals,
                 answer_tokens=counts, per_answer_token_nll=[v/n for v,n in zip(totals,counts)])
+            record.update(answer_nll=answer_nlls, answer_bytes=byte_counts,
+                          per_answer_byte_nll=[a/b for a, b in zip(answer_nlls, byte_counts)])
+            for key in ("r1", "r2", "r3"):
+                record[key + "_prediction"] = scores[key]
+                record[key + "_correct"] = scores[key] == gold
         else:
             ids, start, word = last_word_tokens(tok, row["text"])
             out = run(ids)
@@ -172,6 +201,18 @@ def evaluate(name, task, limit=None):
         hardware=torch.cuda.get_device_name(), torch_version=torch.__version__, records=records)
     if task == "arc":
         result["raw_accuracy"] = sum(r["raw_correct"] for r in records)/len(records)
+        result["accuracy_r1"] = result["accuracy"]
+        for key in ("r2", "r3"):
+            result["accuracy_" + key] = sum(r[key + "_correct"] for r in records)/len(records)
+        for key in ("r1", "r3"):
+            result["longest_pick_rate_" + key] = sum(
+                r["answer_tokens"][r[key + "_prediction"]] == max(r["answer_tokens"])
+                for r in records)/len(records)
+        result["scoring"] = {
+            "primary": "R1 answer-span CE sum (argmin A)",
+            "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+            "r3_deprecated": True, "raw_diagnostic": True,
+            "answer_span": "first token with offset end > len(prefix), inclusive"}
     else:
         result["multi_token_count"] = len(records)-len(singles)
         result["multi_token_correct"] = sum(r["correct"] for r in records if r["answer_tokens"] > 1)

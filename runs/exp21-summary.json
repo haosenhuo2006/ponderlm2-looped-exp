@@ -1,0 +1,348 @@
+{
+  "feasibility": {},
+  "experiment": "EXP-21",
+  "generated_at": "2026-11-18T04:27:51.401885+00:00",
+  "complete": true,
+  "config": {
+    "seed": 42,
+    "jacobi_iterations": 3,
+    "prompt": "{question} Answer: {answer}",
+    "tasks": {
+      "arc": {
+        "samples": 570,
+        "url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Easy/validation-00000-of-00001.parquet",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "sha256": "ed890ff1e4cef7a7140d3a30dcea3ed2c9d467c6458f447ad9ef0176d8dcbb74"
+      },
+      "lambada": {
+        "samples": 500,
+        "url": "https://huggingface.co/datasets/cimec/lambada/resolve/5953bd97664b64b95754f299b2309ecfbfbe81b9/plain_text/test-00000-of-00001.parquet",
+        "revision": "5953bd97664b64b95754f299b2309ecfbfbe81b9",
+        "sha256": "9ec8a3b32099a8bb590515352e09a9fc790e044162c6d1af35c26efd810860e9"
+      }
+    },
+    "checkpoints": {
+      "LOOPMID600": {
+        "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+        "mode": "looped"
+      },
+      "LOOPMID1200": {
+        "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+        "mode": "looped"
+      },
+      "T0_1200": {
+        "path": "runs/EXP-12-T0/checkpoints/step-1200",
+        "mode": "vanilla"
+      },
+      "T8_1200": {
+        "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+        "mode": "ponder"
+      }
+    }
+  },
+  "provenance": {
+    "official_arc_probe": {
+      "url": "https://ai2-public-datasets.s3.amazonaws.com/arc/ARC-V1-Feb2018-2.zip",
+      "failure": "HTTP 404 during feasibility probe; authorized HF fallback"
+    },
+    "tasks": {
+      "arc": {
+        "samples": 570,
+        "url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Easy/validation-00000-of-00001.parquet",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "sha256": "ed890ff1e4cef7a7140d3a30dcea3ed2c9d467c6458f447ad9ef0176d8dcbb74",
+        "status": "ready",
+        "count": 570,
+        "selected_sha256": "86cf60991f22840a3bd78df89c29ca99e5978350ec0ce0a98d95b667f297c113",
+        "selection": "all validation in source order"
+      },
+      "lambada": {
+        "samples": 500,
+        "url": "https://huggingface.co/datasets/cimec/lambada/resolve/5953bd97664b64b95754f299b2309ecfbfbe81b9/plain_text/test-00000-of-00001.parquet",
+        "revision": "5953bd97664b64b95754f299b2309ecfbfbe81b9",
+        "sha256": "9ec8a3b32099a8bb590515352e09a9fc790e044162c6d1af35c26efd810860e9",
+        "status": "ready",
+        "count": 500,
+        "selected_sha256": "ed39d04cb5f8872e737268b33a75747f81f793a4698d4753317410dcb532f122",
+        "selection": "first 500 standard test rows in source order"
+      }
+    }
+  },
+  "execution": {
+    "started_at": "2026-11-16T03:01:07.828401+00:00",
+    "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "torch_version": "2.11.0+cu130",
+    "git_hash": "d2b1def25ca9e289ffb95361fcc8f78a2c1f15f2",
+    "git_status": " M src/downstream.py\n M tests/test_downstream.py\n M tests/test_looped.py\n?? configs/exp21_downstream.json\n?? runs/EXP-12-T0/\n?? runs/EXP-12-T1/\n?? runs/EXP-12-T2/\n?? runs/EXP-13-T7/\n?? runs/EXP-14-T0/\n?? runs/EXP-14-T1/\n?? runs/EXP-15-T0/\n?? runs/EXP-15-T1/\n?? runs/EXP-16-T6-pilot/\n?? runs/EXP-16-T6/\n?? runs/EXP-17-T8-pilot/\n?? runs/EXP-17-T8/\n?? runs/EXP-18-T0-1200-s43/\n?? runs/EXP-18-T0-1200-s44/\n?? runs/EXP-18-T8-1200-s42/\n?? runs/EXP-18-T8-1200-s43/\n?? runs/EXP-18-T8-1200-s44/\n?? runs/EXP-19-loopmid-pilot/\n?? runs/EXP-19-loopmid-s42/\n?? runs/EXP-19-loopmid-s43/\n?? runs/EXP-19-loopmid-s44/\n?? runs/EXP-20-loopmid-pilot/\n?? runs/EXP-20-loopmid-s42/\n?? runs/EXP-20-loopmid-s43/\n?? runs/EXP-20-loopmid-s44/\n?? runs/EXP-21/\n?? runs/PROBE-2/\n?? runs/exp12-summary.json\n?? runs/exp12.lock\n?? runs/exp13-summary.json\n?? runs/exp13.lock\n?? runs/exp14-summary.json\n?? runs/exp14-tokenizer-parity.json\n?? runs/exp14.lock\n?? runs/exp15-summary.json\n?? runs/exp15-tokenizer-parity.json\n?? runs/exp15.lock\n?? runs/exp16-summary.json\n?? runs/exp16-watch-result.txt\n?? runs/exp16.lock\n?? runs/exp17-summary.json\n?? runs/exp17-watch-result.txt\n?? runs/exp17.lock\n?? runs/exp18-summary.json\n?? runs/exp18.lock\n?? runs/exp19-summary.json\n?? runs/exp19.lock\n?? runs/exp20-summary.json\n?? runs/exp20.lock\n?? runs/exp21.lock\n?? runs/probe-h-T1.json\n?? runs/probe-h-T2.json\n?? scripts/run_exp21.sh\n?? scripts/summarize_exp21.py\n",
+    "source_sha256": {
+      "src/downstream.py": "6f3a4c2c3d5ae3f56f169bb44d3b0405c5da2c9af6ac3cfe1bbdb677dbbf6e54",
+      "scripts/summarize_exp21.py": "1fc24c7dc7dcf1089ca107a8583548d8eb1b018d819c1ede82517555bf592091",
+      "scripts/run_exp21.sh": "f029d4afde177c929881ffedfe608977e00cf725baf82cdfc284ec1f3662e0aa",
+      "configs/exp21_downstream.json": "59342c588ee858d789b673d126368c9d570fb9c74f518f3f4177530d6439851a",
+      "tests/test_downstream.py": "aed72c5d76de5cb463238801f0f7959300f69cfc9b3181dde1e47cfee0ce2468",
+      "tests/test_looped.py": "e566537ec10b8fdd23ab13c73f7166d29200188a33732fe84bed83650d5d6d64"
+    },
+    "protocol_hash": "6182f40ba01257b9b41c51bc944369b26cd7b69f3eed5163c396ceb0530e93c6",
+    "command": "nohup bash scripts/run_exp21.sh > runs/EXP-21/pipeline.log 2>&1 &",
+    "environment": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "tests_log": "runs/EXP-21/logs/tests.log"
+  },
+  "results": {
+    "LOOPMID600": {
+      "arc": {
+        "checkpoint": "LOOPMID600",
+        "task": "arc",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 570,
+        "correct": 177,
+        "accuracy": 0.3105263157894737,
+        "primary_count": 570,
+        "primary_correct": 177,
+        "primary_accuracy": 0.3105263157894737,
+        "seconds": 36.10636078900097,
+        "peak_memory_bytes": 491300352,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.3087719298245614,
+        "accuracy_r1": 0.3105263157894737,
+        "accuracy_r2": 0.2894736842105263,
+        "accuracy_r3": 0.27017543859649124,
+        "longest_pick_rate_r1": 0.3192982456140351,
+        "longest_pick_rate_r3": 0.9947368421052631,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "lambada": {
+        "checkpoint": "LOOPMID600",
+        "task": "lambada",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 500,
+        "correct": 2,
+        "accuracy": 0.004,
+        "primary_count": 229,
+        "primary_correct": 2,
+        "primary_accuracy": 0.008733624454148471,
+        "seconds": 7.383054865000304,
+        "peak_memory_bytes": 508252672,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "multi_token_count": 271,
+        "multi_token_correct": 0
+      }
+    },
+    "LOOPMID1200": {
+      "arc": {
+        "checkpoint": "LOOPMID1200",
+        "task": "arc",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 570,
+        "correct": 181,
+        "accuracy": 0.3175438596491228,
+        "primary_count": 570,
+        "primary_correct": 181,
+        "primary_accuracy": 0.3175438596491228,
+        "seconds": 42.15199785299956,
+        "peak_memory_bytes": 491300352,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.3175438596491228,
+        "accuracy_r1": 0.3175438596491228,
+        "accuracy_r2": 0.2824561403508772,
+        "accuracy_r3": 0.2631578947368421,
+        "longest_pick_rate_r1": 0.3175438596491228,
+        "longest_pick_rate_r3": 0.9842105263157894,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "lambada": {
+        "checkpoint": "LOOPMID1200",
+        "task": "lambada",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 500,
+        "correct": 4,
+        "accuracy": 0.008,
+        "primary_count": 229,
+        "primary_correct": 3,
+        "primary_accuracy": 0.013100436681222707,
+        "seconds": 11.360609127999851,
+        "peak_memory_bytes": 508252672,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "multi_token_count": 271,
+        "multi_token_correct": 1
+      }
+    },
+    "T0_1200": {
+      "arc": {
+        "checkpoint": "T0_1200",
+        "task": "arc",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 570,
+        "correct": 188,
+        "accuracy": 0.3298245614035088,
+        "primary_count": 570,
+        "primary_correct": 188,
+        "primary_accuracy": 0.3298245614035088,
+        "seconds": 22.968910572000823,
+        "peak_memory_bytes": 491506176,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.32280701754385965,
+        "accuracy_r1": 0.3298245614035088,
+        "accuracy_r2": 0.30701754385964913,
+        "accuracy_r3": 0.2719298245614035,
+        "longest_pick_rate_r1": 0.3298245614035088,
+        "longest_pick_rate_r3": 0.9929824561403509,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "lambada": {
+        "checkpoint": "T0_1200",
+        "task": "lambada",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 500,
+        "correct": 4,
+        "accuracy": 0.008,
+        "primary_count": 229,
+        "primary_correct": 4,
+        "primary_accuracy": 0.017467248908296942,
+        "seconds": 5.0316030670001055,
+        "peak_memory_bytes": 508560384,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "multi_token_count": 271,
+        "multi_token_correct": 0
+      }
+    },
+    "T8_1200": {
+      "arc": {
+        "checkpoint": "T8_1200",
+        "task": "arc",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 570,
+        "correct": 180,
+        "accuracy": 0.3157894736842105,
+        "primary_count": 570,
+        "primary_correct": 180,
+        "primary_accuracy": 0.3157894736842105,
+        "seconds": 91.7409222239985,
+        "peak_memory_bytes": 596880384,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.3157894736842105,
+        "accuracy_r1": 0.3157894736842105,
+        "accuracy_r2": 0.2754385964912281,
+        "accuracy_r3": 0.2789473684210526,
+        "longest_pick_rate_r1": 0.2719298245614035,
+        "longest_pick_rate_r3": 0.9947368421052631,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "lambada": {
+        "checkpoint": "T8_1200",
+        "task": "lambada",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder"
+        },
+        "protocol_hash": "d8240b87845c79e8b73d8e39d9c9e21980a2f16f5e4e964d3488d41cf1d0d70c",
+        "count": 500,
+        "correct": 3,
+        "accuracy": 0.006,
+        "primary_count": 229,
+        "primary_correct": 3,
+        "primary_accuracy": 0.013100436681222707,
+        "seconds": 19.70072450400039,
+        "peak_memory_bytes": 615721984,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "multi_token_count": 271,
+        "multi_token_correct": 0
+      }
+    }
+  },
+  "wikitext_seed42_nll": {
+    "LOOPMID600": 4.943286857487846,
+    "LOOPMID1200": 4.933984027116636,
+    "T0_1200": 4.742789367863197,
+    "T8_1200": 4.820668799691464
+  },
+  "comparisons": {
+    "arc": {
+      "status": "complete",
+      "loopmid600_minus_t0_1200": -0.019298245614035092,
+      "loopmid1200_minus_t0_1200": -0.012280701754386003,
+      "t8_1200_minus_t0_1200": -0.01403508771929829,
+      "message": "LOOPMID600 对 T0_1200：负（准确率差 -1.9298%）；LOOPMID1200 对 T0_1200：负（准确率差 -1.2281%）；T8_1200 对 T0_1200：负（准确率差 -1.4035%）"
+    },
+    "lambada": {
+      "status": "complete",
+      "loopmid600_minus_t0_1200": -0.008733624454148471,
+      "loopmid1200_minus_t0_1200": -0.004366812227074236,
+      "t8_1200_minus_t0_1200": -0.004366812227074236,
+      "message": "LOOPMID600 对 T0_1200：负（准确率差 -0.8734%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.4367%）；T8_1200 对 T0_1200：负（准确率差 -0.4367%）"
+    }
+  },
+  "disagreement": false,
+  "conclusion": "arc：LOOPMID600 对 T0_1200：负（准确率差 -1.9298%）；LOOPMID1200 对 T0_1200：负（准确率差 -1.2281%）；T8_1200 对 T0_1200：负（准确率差 -1.4035%）。 lambada：LOOPMID600 对 T0_1200：负（准确率差 -0.8734%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.4367%）；T8_1200 对 T0_1200：负（准确率差 -0.4367%）。 ARC 570 题，2pp 以内的差距在噪声范围内。LAMBADA 在 70M 上接近地板，区分度很低，不单独当结论。",
+  "issues": [],
+  "measured_evaluation_seconds": 236.4441830020005
+}

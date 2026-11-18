@@ -1,0 +1,673 @@
+{
+  "experiment": "EXP-26",
+  "generated_at": "2026-11-18T04:33:57.503431+00:00",
+  "complete": false,
+  "config": {
+    "seed": 42,
+    "jacobi_iterations": 3,
+    "prompt": "{question} Answer: {answer}",
+    "tasks": {
+      "hellaswag": {
+        "samples": 2000,
+        "dataset": "Rowan/hellaswag",
+        "split": "validation",
+        "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+        "sha256": "899813071e1e95efafec90f856e1987d2150fa4d020fc005df6962c259f660cd",
+        "selection": "first 2000 validation rows in source order",
+        "url": "https://huggingface.co/datasets/Rowan/hellaswag/resolve/218ec52e09a7e7462a5400043bb9a69a41d06b76/data/validation-00000-of-00001.parquet"
+      },
+      "piqa": {
+        "samples": 1838,
+        "dataset": "ybisk/piqa",
+        "split": "validation",
+        "url": "https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip",
+        "revision": "2e8ac2dffd59bac8c3c6714948f4c551a0848bb0",
+        "sha256": "54d32a04f59a7e354396f321723c8d7ec35cc6b08506563d8d1ffcc15ce98ddd",
+        "selection": "all 1838 validation rows (dev.jsonl + dev-labels.lst) in source order"
+      },
+      "sciq": {
+        "samples": 1000,
+        "dataset": "allenai/sciq",
+        "split": "validation",
+        "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+        "sha256": "455dd9f1d725cd3ecbce369799a2fbbdbbfecf51ab84a86d56ba3370dc847b8a",
+        "selection": "all 1000 validation rows in source order",
+        "support": "excluded from prompt (ARC practice)",
+        "url": "https://huggingface.co/datasets/allenai/sciq/resolve/2c94ad3e1aafab77146f384e23536f97a4849815/data/validation-00000-of-00001.parquet"
+      },
+      "pile": {
+        "blocks": 500,
+        "block_tokens": 256,
+        "dataset": "EleutherAI/pile",
+        "split": "validation",
+        "url": "https://huggingface.co/api/datasets/mit-han-lab/pile-val-backup/parquet/default/validation/0.parquet",
+        "revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+        "mirror_dataset": "mit-han-lab/pile-val-backup",
+        "mirror_revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+        "shard_index": 0,
+        "sha256": "1a829b612e3723f4035852cf95aad1418a0cc5d291111b64c0fa7777a48f62d4",
+        "selection": "first 500 full 256-token blocks from validation shard 0 in storage order",
+        "note": "Canonical https://the-eye.eu/public/AI/pile/val.jsonl.zst unavailable: curl exit 60 (certificate expired 2026-03-21); -k range probe returned 404; HF discussions report removal. Backup documents original validation provenance. Only shard 0: 128000 tokens needed; row count exceeds 128000. No train split or additional shards."
+      }
+    },
+    "checkpoints": {
+      "T0_600": {
+        "path": "runs/EXP-01-T0/checkpoints/step-600",
+        "mode": "vanilla",
+        "model": "EleutherAI/pythia-70m",
+        "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+      },
+      "T0_1200": {
+        "path": "runs/EXP-12-T0/checkpoints/step-1200",
+        "mode": "vanilla",
+        "model": "EleutherAI/pythia-70m",
+        "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+      },
+      "T8_1200": {
+        "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+        "mode": "ponder",
+        "model": "EleutherAI/pythia-70m",
+        "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+      },
+      "LOOPMID600": {
+        "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+        "mode": "looped",
+        "model": "EleutherAI/pythia-70m",
+        "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+      },
+      "LOOPMID1200": {
+        "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+        "mode": "looped",
+        "model": "EleutherAI/pythia-70m",
+        "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+      },
+      "T0_160M_600": {
+        "path": "runs/EXP-14-T0/checkpoints/step-600",
+        "mode": "vanilla",
+        "model": "EleutherAI/pythia-160M",
+        "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+      },
+      "LOOPMID160_600": {
+        "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+        "mode": "looped",
+        "model": "EleutherAI/pythia-160M",
+        "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+      }
+    }
+  },
+  "provenance": {
+    "tasks": {
+      "hellaswag": {
+        "samples": 2000,
+        "dataset": "Rowan/hellaswag",
+        "split": "validation",
+        "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+        "sha256": "899813071e1e95efafec90f856e1987d2150fa4d020fc005df6962c259f660cd",
+        "selection": "first 2000 validation rows in source order",
+        "url": "https://huggingface.co/datasets/Rowan/hellaswag/resolve/218ec52e09a7e7462a5400043bb9a69a41d06b76/data/validation-00000-of-00001.parquet",
+        "status": "ready",
+        "count": 2000,
+        "selected_sha256": "b444c7531cf97d6e767ba934760bbff60c6c339bc1fb7b952a4dc808ca7714f8"
+      },
+      "piqa": {
+        "samples": 1838,
+        "dataset": "ybisk/piqa",
+        "split": "validation",
+        "url": "https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip",
+        "revision": "2e8ac2dffd59bac8c3c6714948f4c551a0848bb0",
+        "sha256": "54d32a04f59a7e354396f321723c8d7ec35cc6b08506563d8d1ffcc15ce98ddd",
+        "selection": "all 1838 validation rows (dev.jsonl + dev-labels.lst) in source order",
+        "status": "ready",
+        "count": 1838,
+        "selected_sha256": "587028d65d7f057a4c61d7d61804a85c54d82cf30e349371bd3795bad9e0e9cd"
+      },
+      "sciq": {
+        "samples": 1000,
+        "dataset": "allenai/sciq",
+        "split": "validation",
+        "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+        "sha256": "455dd9f1d725cd3ecbce369799a2fbbdbbfecf51ab84a86d56ba3370dc847b8a",
+        "selection": "all 1000 validation rows in source order",
+        "support": "excluded from prompt (ARC practice)",
+        "url": "https://huggingface.co/datasets/allenai/sciq/resolve/2c94ad3e1aafab77146f384e23536f97a4849815/data/validation-00000-of-00001.parquet",
+        "status": "ready",
+        "count": 1000,
+        "selected_sha256": "c572bf01a91e3175dfa8b94f49b8556814da0dd2eba5d00ae388d689b13cd380",
+        "support_excluded": true
+      },
+      "pile": {
+        "blocks": 500,
+        "block_tokens": 256,
+        "dataset": "EleutherAI/pile",
+        "split": "validation",
+        "url": "https://huggingface.co/api/datasets/mit-han-lab/pile-val-backup/parquet/default/validation/0.parquet",
+        "revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+        "mirror_dataset": "mit-han-lab/pile-val-backup",
+        "mirror_revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+        "shard_index": 0,
+        "sha256": "1a829b612e3723f4035852cf95aad1418a0cc5d291111b64c0fa7777a48f62d4",
+        "selection": "first 500 full 256-token blocks from validation shard 0 in storage order",
+        "note": "Canonical https://the-eye.eu/public/AI/pile/val.jsonl.zst unavailable: curl exit 60 (certificate expired 2026-03-21); -k range probe returned 404; HF discussions report removal. Backup documents original validation provenance. Only shard 0: 128000 tokens needed; row count exceeds 128000. No train split or additional shards.",
+        "status": "ready",
+        "count": 500,
+        "selected_sha256": null,
+        "row_count": 79825,
+        "pile_set_counts_first_1000": {
+          "OpenWebText2": 141,
+          "PubMed Abstracts": 130,
+          "Github": 99,
+          "StackExchange": 115,
+          "Enron Emails": 6,
+          "FreeLaw": 24,
+          "USPTO Backgrounds": 54,
+          "Pile-CC": 279,
+          "Wikipedia (en)": 82,
+          "Books3": 1,
+          "PubMed Central": 27,
+          "HackerNews": 5,
+          "Gutenberg (PG-19)": 1,
+          "DM Mathematics": 12,
+          "NIH ExPorter": 9,
+          "ArXiv": 11,
+          "BookCorpus2": 1,
+          "OpenSubtitles": 1,
+          "YoutubeSubtitles": 1,
+          "Ubuntu IRC": 1
+        },
+        "canonical_url_dead": "https://the-eye.eu/public/AI/pile/val.jsonl.zst: curl exit 60; certificate issued 2025-12-21, expired 2026-03-21; -k range probe returned 404; HF discussion reports removal. Use mit-han-lab/pile-val-backup validation."
+      }
+    }
+  },
+  "execution": {
+    "started_at": "2026-11-17T13:31:56.155302+00:00",
+    "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "torch_version": "2.11.0+cu130",
+    "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+    "git_status": "?? configs/exp26.json\n?? runs/EXP-12-T0/\n?? runs/EXP-12-T1/\n?? runs/EXP-12-T2/\n?? runs/EXP-13-T7/\n?? runs/EXP-14-T0/\n?? runs/EXP-14-T1/\n?? runs/EXP-15-T0/\n?? runs/EXP-15-T1/\n?? runs/EXP-16-T6-pilot/\n?? runs/EXP-16-T6/\n?? runs/EXP-17-T8-pilot/\n?? runs/EXP-17-T8/\n?? runs/EXP-18-T0-1200-s43/\n?? runs/EXP-18-T0-1200-s44/\n?? runs/EXP-18-T8-1200-s42/\n?? runs/EXP-18-T8-1200-s43/\n?? runs/EXP-18-T8-1200-s44/\n?? runs/EXP-19-loopmid-pilot/\n?? runs/EXP-19-loopmid-s42/\n?? runs/EXP-19-loopmid-s43/\n?? runs/EXP-19-loopmid-s44/\n?? runs/EXP-20-loopmid-pilot/\n?? runs/EXP-20-loopmid-s42/\n?? runs/EXP-20-loopmid-s43/\n?? runs/EXP-20-loopmid-s44/\n?? runs/EXP-21/\n?? runs/EXP-22-T0-s43/\n?? runs/EXP-22-T0-s44/\n?? runs/EXP-22-loopmid160-pilot/\n?? runs/EXP-22-loopmid160-s42/\n?? runs/EXP-22-loopmid160-s43/\n?? runs/EXP-22-loopmid160-s44/\n?? runs/EXP-23-full-looped-eval.out\n?? runs/EXP-23-full-looped-train.out\n?? runs/EXP-23-full-looped/\n?? runs/EXP-23-full-vanilla-eval.out\n?? runs/EXP-23-full-vanilla-train.out\n?? runs/EXP-23-full-vanilla/\n?? runs/EXP-23-pilot-looped/\n?? runs/EXP-23-pilot-vanilla/\n?? runs/EXP-23-pilot.done\n?? runs/EXP-25-T0-s43/\n?? runs/EXP-25-T0-s44/\n?? runs/EXP-25-loopmid160-pilot/\n?? runs/EXP-25-loopmid160-s42/\n?? runs/EXP-25-loopmid160-s43/\n?? runs/EXP-25-loopmid160-s44/\n?? runs/EXP-26/\n?? runs/PROBE-2/\n?? runs/diag_full.py\n?? runs/exp12-summary.json\n?? runs/exp12.lock\n?? runs/exp13-summary.json\n?? runs/exp13.lock\n?? runs/exp14-summary.json\n?? runs/exp14-tokenizer-parity.json\n?? runs/exp14.lock\n?? runs/exp15-summary.json\n?? runs/exp15-tokenizer-parity.json\n?? runs/exp15.lock\n?? runs/exp16-summary.json\n?? runs/exp16-watch-result.txt\n?? runs/exp16.lock\n?? runs/exp17-summary.json\n?? runs/exp17-watch-result.txt\n?? runs/exp17.lock\n?? runs/exp18-summary.json\n?? runs/exp18.lock\n?? runs/exp19-summary.json\n?? runs/exp19.lock\n?? runs/exp20-summary.json\n?? runs/exp20.lock\n?? runs/exp21-summary.json\n?? runs/exp21.lock\n?? runs/exp22-summary.json\n?? runs/exp22.lock\n?? runs/exp23_full_run.sh\n?? runs/exp25.lock\n?? runs/exp26.lock\n?? runs/probe-h-T1.json\n?? runs/probe-h-T2.json\n?? scripts/check_exp25.py\n?? scripts/run_exp25.sh\n?? scripts/run_exp26.sh\n?? scripts/summarize_exp25.py\n?? scripts/summarize_exp26.py\n?? src/evalsets26.py\n?? tests/test_evalsets26.py\n",
+    "source_sha256": {
+      "src/evalsets26.py": "92abfd1ba1d320adab586856cb6874c0c8d6aa4e7ec386c963f72450f10193d2",
+      "scripts/summarize_exp26.py": "876d800e9462b73ad2c957bbd4d3443cbaa92cdbf39b1030fe7e40e6f259b567",
+      "scripts/run_exp26.sh": "5babe560d4c9955be908d6cdb902579383bcacedb5d4cdf6d0cf99b2c2a095aa",
+      "configs/exp26.json": "9ab8b83563f5cd30e599a5f85ba7335b180d8a67058ed38d57eb6997b9a9d6d8",
+      "tests/test_evalsets26.py": "cc8837861d8f7e2eb551c8024b802066140ab8b326797805ebc07c51388cf062"
+    },
+    "protocol_hash": "d56c9b0552ae8b1f362e40bfe464d12a99a29f2705935d2b91b4c1fbca4420cd",
+    "command": "bash scripts/run_exp26.sh sciq",
+    "environment": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "tests_log": "runs/EXP-26/logs/tests.log"
+  },
+  "results": {
+    "hellaswag": {},
+    "piqa": {},
+    "sciq": {
+      "T0_600": {
+        "checkpoint": "T0_600",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-01-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 429,
+        "accuracy": 0.429,
+        "primary_count": 1000,
+        "primary_correct": 429,
+        "primary_accuracy": 0.429,
+        "seconds": 44.02648488700106,
+        "peak_memory_bytes": 470444544,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.426,
+        "accuracy_r1": 0.429,
+        "accuracy_r2": 0.361,
+        "accuracy_r3": 0.403,
+        "longest_pick_rate_r1": 0.477,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_1200": {
+        "checkpoint": "T0_1200",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 423,
+        "accuracy": 0.423,
+        "primary_count": 1000,
+        "primary_correct": 423,
+        "primary_accuracy": 0.423,
+        "seconds": 44.315212127999985,
+        "peak_memory_bytes": 470444544,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.421,
+        "accuracy_r1": 0.423,
+        "accuracy_r2": 0.363,
+        "accuracy_r3": 0.409,
+        "longest_pick_rate_r1": 0.47,
+        "longest_pick_rate_r3": 1.0,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T8_1200": {
+        "checkpoint": "T8_1200",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 314,
+        "accuracy": 0.314,
+        "primary_count": 1000,
+        "primary_correct": 314,
+        "primary_accuracy": 0.314,
+        "seconds": 177.02830948100018,
+        "peak_memory_bytes": 575882240,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.315,
+        "accuracy_r1": 0.314,
+        "accuracy_r2": 0.339,
+        "accuracy_r3": 0.327,
+        "longest_pick_rate_r1": 0.442,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID600": {
+        "checkpoint": "LOOPMID600",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 420,
+        "accuracy": 0.42,
+        "primary_count": 1000,
+        "primary_correct": 420,
+        "primary_accuracy": 0.42,
+        "seconds": 68.23498655200092,
+        "peak_memory_bytes": 470315520,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.416,
+        "accuracy_r1": 0.42,
+        "accuracy_r2": 0.354,
+        "accuracy_r3": 0.39,
+        "longest_pick_rate_r1": 0.466,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID1200": {
+        "checkpoint": "LOOPMID1200",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 428,
+        "accuracy": 0.428,
+        "primary_count": 1000,
+        "primary_correct": 428,
+        "primary_accuracy": 0.428,
+        "seconds": 79.82352131900006,
+        "peak_memory_bytes": 470315520,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.426,
+        "accuracy_r1": 0.428,
+        "accuracy_r2": 0.352,
+        "accuracy_r3": 0.411,
+        "longest_pick_rate_r1": 0.466,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_160M_600": {
+        "checkpoint": "T0_160M_600",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-14-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 436,
+        "accuracy": 0.436,
+        "primary_count": 1000,
+        "primary_correct": 436,
+        "primary_accuracy": 0.436,
+        "seconds": 90.4841806000004,
+        "peak_memory_bytes": 1033908736,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.435,
+        "accuracy_r1": 0.436,
+        "accuracy_r2": 0.366,
+        "accuracy_r3": 0.392,
+        "longest_pick_rate_r1": 0.449,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID160_600": {
+        "checkpoint": "LOOPMID160_600",
+        "task": "sciq",
+        "config": {
+          "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1000,
+        "correct": 416,
+        "accuracy": 0.416,
+        "primary_count": 1000,
+        "primary_correct": 416,
+        "primary_accuracy": 0.416,
+        "seconds": 96.71489268699952,
+        "peak_memory_bytes": 1033712128,
+        "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.414,
+        "accuracy_r1": 0.416,
+        "accuracy_r2": 0.351,
+        "accuracy_r3": 0.39,
+        "longest_pick_rate_r1": 0.444,
+        "longest_pick_rate_r3": 0.999,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      }
+    },
+    "pile": {}
+  },
+  "comparisons": {
+    "hellaswag": {
+      "LOOPMID600_minus_T0_600": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "T8_1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID160_600_minus_T0_160M_600": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      }
+    },
+    "piqa": {
+      "LOOPMID600_minus_T0_600": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "T8_1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID160_600_minus_T0_160M_600": {
+        "metric": "accuracy",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      }
+    },
+    "sciq": {
+      "LOOPMID600_minus_T0_600": {
+        "metric": "accuracy",
+        "delta": -0.009000000000000008,
+        "message": "accuracy 差值越高越好（正值为改善）"
+      },
+      "LOOPMID1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": 0.0050000000000000044,
+        "message": "accuracy 差值越高越好（正值为改善）"
+      },
+      "T8_1200_minus_T0_1200": {
+        "metric": "accuracy",
+        "delta": -0.10899999999999999,
+        "message": "accuracy 差值越高越好（正值为改善）"
+      },
+      "LOOPMID160_600_minus_T0_160M_600": {
+        "metric": "accuracy",
+        "delta": -0.020000000000000018,
+        "message": "accuracy 差值越高越好（正值为改善）"
+      }
+    },
+    "pile": {
+      "LOOPMID600_minus_T0_600": {
+        "metric": "mean_nll",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID1200_minus_T0_1200": {
+        "metric": "mean_nll",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "T8_1200_minus_T0_1200": {
+        "metric": "mean_nll",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      },
+      "LOOPMID160_600_minus_T0_160M_600": {
+        "metric": "mean_nll",
+        "delta": null,
+        "message": "数据不完整，不能判断"
+      }
+    }
+  },
+  "conclusion": "数据不完整，不能判断；已完成且通过校验的结果与对照差值见报告。",
+  "issues": [
+    {
+      "checkpoint": "T0_600",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_1200",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T8_1200",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID600",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID1200",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_160M_600",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID160_600",
+      "task": "hellaswag",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_600",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_1200",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T8_1200",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID600",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID1200",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_160M_600",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID160_600",
+      "task": "piqa",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_600",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_1200",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T8_1200",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID600",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID1200",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "T0_160M_600",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    },
+    {
+      "checkpoint": "LOOPMID160_600",
+      "task": "pile",
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "log_tail": "日志不存在"
+    }
+  ],
+  "measured_evaluation_seconds": 600.6275876540021
+}

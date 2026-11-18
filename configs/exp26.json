@@ -1,0 +1,93 @@
+{
+  "seed": 42,
+  "jacobi_iterations": 3,
+  "prompt": "{question} Answer: {answer}",
+  "tasks": {
+    "hellaswag": {
+      "samples": 2000,
+      "dataset": "Rowan/hellaswag",
+      "split": "validation",
+      "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+      "sha256": "899813071e1e95efafec90f856e1987d2150fa4d020fc005df6962c259f660cd",
+      "selection": "first 2000 validation rows in source order",
+      "url": "https://huggingface.co/datasets/Rowan/hellaswag/resolve/218ec52e09a7e7462a5400043bb9a69a41d06b76/data/validation-00000-of-00001.parquet"
+    },
+    "piqa": {
+      "samples": 1838,
+      "dataset": "ybisk/piqa",
+      "split": "validation",
+      "url": "https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip",
+      "revision": "2e8ac2dffd59bac8c3c6714948f4c551a0848bb0",
+      "sha256": "54d32a04f59a7e354396f321723c8d7ec35cc6b08506563d8d1ffcc15ce98ddd",
+      "selection": "all 1838 validation rows (dev.jsonl + dev-labels.lst) in source order"
+    },
+    "sciq": {
+      "samples": 1000,
+      "dataset": "allenai/sciq",
+      "split": "validation",
+      "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+      "sha256": "455dd9f1d725cd3ecbce369799a2fbbdbbfecf51ab84a86d56ba3370dc847b8a",
+      "selection": "all 1000 validation rows in source order",
+      "support": "excluded from prompt (ARC practice)",
+      "url": "https://huggingface.co/datasets/allenai/sciq/resolve/2c94ad3e1aafab77146f384e23536f97a4849815/data/validation-00000-of-00001.parquet"
+    },
+    "pile": {
+      "blocks": 500,
+      "block_tokens": 256,
+      "dataset": "EleutherAI/pile",
+      "split": "validation",
+      "url": "https://huggingface.co/api/datasets/mit-han-lab/pile-val-backup/parquet/default/validation/0.parquet",
+      "revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+      "mirror_dataset": "mit-han-lab/pile-val-backup",
+      "mirror_revision": "2f5e46ae6a69cf0dce4b12f78241c408936ca0e4",
+      "shard_index": 0,
+      "sha256": "1a829b612e3723f4035852cf95aad1418a0cc5d291111b64c0fa7777a48f62d4",
+      "selection": "first 500 full 256-token blocks from validation shard 0 in storage order",
+      "note": "Canonical https://the-eye.eu/public/AI/pile/val.jsonl.zst unavailable: curl exit 60 (certificate expired 2026-03-21); -k range probe returned 404; HF discussions report removal. Backup documents original validation provenance. Only shard 0: 128000 tokens needed; row count exceeds 128000. No train split or additional shards."
+    }
+  },
+  "checkpoints": {
+    "T0_600": {
+      "path": "runs/EXP-01-T0/checkpoints/step-600",
+      "mode": "vanilla",
+      "model": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+    },
+    "T0_1200": {
+      "path": "runs/EXP-12-T0/checkpoints/step-1200",
+      "mode": "vanilla",
+      "model": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+    },
+    "T8_1200": {
+      "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+      "mode": "ponder",
+      "model": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+    },
+    "LOOPMID600": {
+      "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+      "mode": "looped",
+      "model": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+    },
+    "LOOPMID1200": {
+      "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+      "mode": "looped",
+      "model": "EleutherAI/pythia-70m",
+      "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+    },
+    "T0_160M_600": {
+      "path": "runs/EXP-14-T0/checkpoints/step-600",
+      "mode": "vanilla",
+      "model": "EleutherAI/pythia-160M",
+      "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+    },
+    "LOOPMID160_600": {
+      "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+      "mode": "looped",
+      "model": "EleutherAI/pythia-160M",
+      "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+    }
+  }
+}

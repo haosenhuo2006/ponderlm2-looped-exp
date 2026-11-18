@@ -1,0 +1,43 @@
+{
+  "model": "EleutherAI/pythia-160M",
+  "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+  "loop": {
+    "block_size": 6,
+    "repetitions": 2,
+    "start": 3
+  },
+  "git_hash": "5cfbc93d040b49474c2f727fdc408fe3724f48ac",
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_version": "2.11.0+cu130",
+  "seed": 42,
+  "batch": 1,
+  "seq": 256,
+  "jacobi_iterations": 3,
+  "precision": "bf16 autocast; FP32 CE",
+  "variants": [
+    {
+      "mode": "vanilla",
+      "nll": 4.373314818931707,
+      "ppl": 79.30608177327224,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 20.163445533999038
+    },
+    {
+      "mode": "looped",
+      "nll": 5.384052138759483,
+      "ppl": 217.9034639421939,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 22.607147406000877
+    },
+    {
+      "mode": "thought",
+      "nll": 12.555295270855911,
+      "ppl": 283592.96601763286,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 69.87490425100077
+    }
+  ]
+}

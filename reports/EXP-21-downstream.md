@@ -20,35 +20,35 @@ EXP-09 的官方 ARC S3 探测返回 HTTP 404，使用 HF 同数据集固定 rev
 
 命令：`nohup bash scripts/run_exp21.sh > runs/EXP-21/pipeline.log 2>&1 &`；配置：configs/exp21_downstream.json。逐 checkpoint、逐任务串行运行，各项日志位于 runs/EXP-21/logs/；完成后执行 scripts/summarize_exp21.py。已完整完成且协议指纹匹配的启动前首项结果可复用，仍记录原始耗时。
 执行信息：`{"started_at": "2026-11-16T03:01:07.828401+00:00", "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU", "torch_version": "2.11.0+cu130", "git_hash": "d2b1def25ca9e289ffb95361fcc8f78a2c1f15f2", "git_status": " M src/downstream.py\n M tests/test_downstream.py\n M tests/test_looped.py\n?? configs/exp21_downstream.json\n?? runs/EXP-12-T0/\n?? runs/EXP-12-T1/\n?? runs/EXP-12-T2/\n?? runs/EXP-13-T7/\n?? runs/EXP-14-T0/\n?? runs/EXP-14-T1/\n?? runs/EXP-15-T0/\n?? runs/EXP-15-T1/\n?? runs/EXP-16-T6-pilot/\n?? runs/EXP-16-T6/\n?? runs/EXP-17-T8-pilot/\n?? runs/EXP-17-T8/\n?? runs/EXP-18-T0-1200-s43/\n?? runs/EXP-18-T0-1200-s44/\n?? runs/EXP-18-T8-1200-s42/\n?? runs/EXP-18-T8-1200-s43/\n?? runs/EXP-18-T8-1200-s44/\n?? runs/EXP-19-loopmid-pilot/\n?? runs/EXP-19-loopmid-s42/\n?? runs/EXP-19-loopmid-s43/\n?? runs/EXP-19-loopmid-s44/\n?? runs/EXP-20-loopmid-pilot/\n?? runs/EXP-20-loopmid-s42/\n?? runs/EXP-20-loopmid-s43/\n?? runs/EXP-20-loopmid-s44/\n?? runs/EXP-21/\n?? runs/PROBE-2/\n?? runs/exp12-summary.json\n?? runs/exp12.lock\n?? runs/exp13-summary.json\n?? runs/exp13.lock\n?? runs/exp14-summary.json\n?? runs/exp14-tokenizer-parity.json\n?? runs/exp14.lock\n?? runs/exp15-summary.json\n?? runs/exp15-tokenizer-parity.json\n?? runs/exp15.lock\n?? runs/exp16-summary.json\n?? runs/exp16-watch-result.txt\n?? runs/exp16.lock\n?? runs/exp17-summary.json\n?? runs/exp17-watch-result.txt\n?? runs/exp17.lock\n?? runs/exp18-summary.json\n?? runs/exp18.lock\n?? runs/exp19-summary.json\n?? runs/exp19.lock\n?? runs/exp20-summary.json\n?? runs/exp20.lock\n?? runs/exp21.lock\n?? runs/probe-h-T1.json\n?? runs/probe-h-T2.json\n?? scripts/run_exp21.sh\n?? scripts/summarize_exp21.py\n", "source_sha256": {"src/downstream.py": "6f3a4c2c3d5ae3f56f169bb44d3b0405c5da2c9af6ac3cfe1bbdb677dbbf6e54", "scripts/summarize_exp21.py": "1fc24c7dc7dcf1089ca107a8583548d8eb1b018d819c1ede82517555bf592091", "scripts/run_exp21.sh": "f029d4afde177c929881ffedfe608977e00cf725baf82cdfc284ec1f3662e0aa", "configs/exp21_downstream.json": "59342c588ee858d789b673d126368c9d570fb9c74f518f3f4177530d6439851a", "tests/test_downstream.py": "aed72c5d76de5cb463238801f0f7959300f69cfc9b3181dde1e47cfee0ce2468", "tests/test_looped.py": "e566537ec10b8fdd23ab13c73f7166d29200188a33732fe84bed83650d5d6d64"}, "protocol_hash": "6182f40ba01257b9b41c51bc944369b26cd7b69f3eed5163c396ceb0530e93c6", "command": "nohup bash scripts/run_exp21.sh > runs/EXP-21/pipeline.log 2>&1 &", "environment": {"CUBLAS_WORKSPACE_CONFIG": ":4096:8"}, "tests_log": "runs/EXP-21/logs/tests.log"}`。
-逐项实测评测耗时合计 266.280 秒（不含下载、加载权重和测试）。CPU/GPU 异步在计时边界同步；峰值为 PyTorch allocated bytes。训练评测不并行。所有结果写入 EXP-21 新目录，旧 checkpoint/结果只读。
+逐项实测评测耗时合计 236.444 秒（不含下载、加载权重和测试）。CPU/GPU 异步在计时边界同步；峰值为 PyTorch allocated bytes。训练评测不并行。所有结果写入 EXP-21 新目录，旧 checkpoint/结果只读。
 
 ## 3 结果
 
-arc：LOOPMID600 对 T0_1200：负（准确率差 -0.1754%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.8772%）；T8_1200 对 T0_1200：胜（准确率差 +0.7018%）。 lambada：LOOPMID600 对 T0_1200：负（准确率差 -0.8734%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.4367%）；T8_1200 对 T0_1200：负（准确率差 -0.4367%）。 ARC 570 题，2pp 以内的差距在噪声范围内。LAMBADA 在 70M 上接近地板，区分度很低，不单独当结论。
+arc：LOOPMID600 对 T0_1200：负（准确率差 -1.9298%）；LOOPMID1200 对 T0_1200：负（准确率差 -1.2281%）；T8_1200 对 T0_1200：负（准确率差 -1.4035%）。 lambada：LOOPMID600 对 T0_1200：负（准确率差 -0.8734%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.4367%）；T8_1200 对 T0_1200：负（准确率差 -0.4367%）。 ARC 570 题，2pp 以内的差距在噪声范围内。LAMBADA 在 70M 上接近地板，区分度很低，不单独当结论。
 
 对照列为同一 seed42 checkpoint 的 WikiText-2 validation NLL，非三种子均值。准确率越高越好，NLL 越低越好。
 
 | checkpoint | WikiText-2 NLL | ARC 归一化准确率 | ARC raw 准确率 | LAMBADA 单 token 主指标 | LAMBADA 含多 token |
 |---|---:|---:|---:|---:|---:|
-| LOOPMID600 | 4.943286857487846 | 27.0175% | 30.8772% | 0.8734% | 0.4000% |
-| LOOPMID1200 | 4.933984027116636 | 26.3158% | 31.7544% | 1.3100% | 0.8000% |
-| T0_1200 | 4.742789367863197 | 27.1930% | 32.2807% | 1.7467% | 0.8000% |
-| T8_1200 | 4.820668799691464 | 27.8947% | 31.5789% | 1.3100% | 0.6000% |
+| LOOPMID600 | 4.943286857487846 | 31.0526% | 30.8772% | 0.8734% | 0.4000% |
+| LOOPMID1200 | 4.933984027116636 | 31.7544% | 31.7544% | 1.3100% | 0.8000% |
+| T0_1200 | 4.742789367863197 | 32.9825% | 32.2807% | 1.7467% | 0.8000% |
+| T8_1200 | 4.820668799691464 | 31.5789% | 31.5789% | 1.3100% | 0.6000% |
 
-**arc：LOOPMID600 对 T0_1200：负（准确率差 -0.1754%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.8772%）；T8_1200 对 T0_1200：胜（准确率差 +0.7018%）。**
+**arc：LOOPMID600 对 T0_1200：负（准确率差 -1.9298%）；LOOPMID1200 对 T0_1200：负（准确率差 -1.2281%）；T8_1200 对 T0_1200：负（准确率差 -1.4035%）。**
 
 **lambada：LOOPMID600 对 T0_1200：负（准确率差 -0.8734%）；LOOPMID1200 对 T0_1200：负（准确率差 -0.4367%）；T8_1200 对 T0_1200：负（准确率差 -0.4367%）。**
 
 | checkpoint/task | 主指标正确/样本 | 全部正确/样本 | 多 token 正确/样本 | 实测秒 | 峰值 allocated bytes |
 |---|---:|---:|---:|---:|---:|
-| LOOPMID600/arc | 154/570 | 154/570 | —/— | 39.749 | 491300352 |
-| LOOPMID600/lambada | 2/229 | 2/500 | 0/271 | 7.645 | 508252672 |
-| LOOPMID1200/arc | 150/570 | 150/570 | —/— | 41.361 | 491300352 |
-| LOOPMID1200/lambada | 3/229 | 4/500 | 1/271 | 7.958 | 508252672 |
-| T0_1200/arc | 155/570 | 155/570 | —/— | 26.162 | 491506176 |
-| T0_1200/lambada | 4/229 | 4/500 | 0/271 | 5.519 | 508560384 |
-| T8_1200/arc | 159/570 | 159/570 | —/— | 116.756 | 596880384 |
-| T8_1200/lambada | 3/229 | 3/500 | 0/271 | 21.131 | 615721984 |
+| LOOPMID600/arc | 177/570 | 177/570 | —/— | 36.106 | 491300352 |
+| LOOPMID600/lambada | 2/229 | 2/500 | 0/271 | 7.383 | 508252672 |
+| LOOPMID1200/arc | 181/570 | 181/570 | —/— | 42.152 | 491300352 |
+| LOOPMID1200/lambada | 3/229 | 4/500 | 1/271 | 11.361 | 508252672 |
+| T0_1200/arc | 188/570 | 188/570 | —/— | 22.969 | 491506176 |
+| T0_1200/lambada | 4/229 | 4/500 | 0/271 | 5.032 | 508560384 |
+| T8_1200/arc | 180/570 | 180/570 | —/— | 91.741 | 596880384 |
+| T8_1200/lambada | 3/229 | 3/500 | 0/271 | 19.701 | 615721984 |
 
 完整逐题 raw NLL、分母、预测、gold 与末词 token 结果保存在 runs/EXP-21/results/；汇总数字来源与 runs/exp21-summary.json 一致。
 

@@ -1,6 +1,6 @@
 import unittest
 import torch
-from src.downstream import select_answer, prompt, word_correct, last_word_tokens
+from src.downstream import score_options, prompt, word_correct, last_word_tokens
 
 class DownstreamTests(unittest.TestCase):
     @unittest.skipUnless(torch.cuda.is_available(), "GPU model integration")
@@ -24,9 +24,9 @@ class DownstreamTests(unittest.TestCase):
             torch.cuda.empty_cache()
 
     def test_mc_argmax_negative_normalized_loss(self):
-        # Raw total chooses A; normalized score must choose B.
-        self.assertEqual(select_answer([4., 6., 12.], [1, 3, 2]), 1)
-        self.assertEqual(select_answer([2., 2.], [1, 1]), 0)
+        scores = score_options([2., 2.5], [1, 4], [12., 12.5], [1, 4])
+        self.assertEqual(scores, dict(r1=0, r2=1, r3=1, raw=0))
+        self.assertEqual(score_options([2., 2.], [1, 1])["r1"], 0)
 
     def test_prompt_fixed(self):
         expected = "Why blue? Answer: scattering"

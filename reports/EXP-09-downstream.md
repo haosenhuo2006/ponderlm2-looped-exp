@@ -19,7 +19,7 @@ T0：src.ponder.forward 的标准 vanilla forward（labels=x）；T1/T5：同入
 
 命令：`nohup bash scripts/run_exp09.sh > runs/EXP-09/pipeline.log 2>&1 &`；配置：configs/exp09_downstream.json。逐 checkpoint、逐任务串行运行，各项日志位于 runs/EXP-09/logs/；完成后执行 scripts/summarize_exp09.py。已完整完成且协议指纹匹配的启动前首项结果可复用，仍记录原始耗时。
 执行信息：`{"started_at": "2026-11-14T06:44:25.782054+00:00", "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU", "torch_version": "2.11.0+cu130", "git_hash": "fd84a4f03e32db625493025fbba8a02d523f587a", "git_status": " M EXPERIMENT_PLAN.md\n?? configs/exp09_downstream.json\n?? runs/EXP-09/\n?? scripts/run_exp09.sh\n?? scripts/summarize_exp09.py\n?? src/downstream.py\n?? tests/test_downstream.py\n", "source_sha256": {"src/downstream.py": "5235cda40b7f80239dad1cd32bdaa6cce6ecade4f4e2a4433d35a71f3afc861a", "scripts/summarize_exp09.py": "a1225178f53a349835bc20ae48be19d2d5872aa26d2152f22754b6a9f1bdc142", "scripts/run_exp09.sh": "1130f45e440162c205753710187cea036d8edb1e70141caf633d3bfba9b0194f", "configs/exp09_downstream.json": "59f3f21f61b582112c00e631d54c984f5f84497cdd5a4a4c318f6f4fc470bf43", "tests/test_downstream.py": "8d8cedd75f0ca9567a60d5daf9ba98e22118006a8199136d59b2b657d176f37c"}, "protocol_hash": "ced2301f31f7d176295eb6ba4a3c875f1409a52a2a04e2cc70ead83dbf49602a", "command": "nohup bash scripts/run_exp09.sh > runs/EXP-09/pipeline.log 2>&1 &", "environment": {"CUBLAS_WORKSPACE_CONFIG": ":4096:8"}, "tests_log": "runs/EXP-09/logs/tests.log"}`。
-逐项实测评测耗时合计 502.519 秒（不含下载、加载权重和测试）。CPU/GPU 异步在计时边界同步；峰值为 PyTorch allocated bytes。训练评测不并行。所有结果写入 EXP-09 新目录，旧 checkpoint/结果只读。
+逐项实测评测耗时合计 453.285 秒（不含下载、加载权重和测试）。CPU/GPU 异步在计时边界同步；峰值为 PyTorch allocated bytes。训练评测不并行。所有结果写入 EXP-09 新目录，旧 checkpoint/结果只读。
 
 ## 3 结果
 
@@ -29,28 +29,28 @@ T0：src.ponder.forward 的标准 vanilla forward（labels=x）；T1/T5：同入
 
 | checkpoint | WikiText-2 NLL | ARC 归一化准确率 | ARC raw 准确率 | LAMBADA 单 token 主指标 | LAMBADA 含多 token |
 |---|---:|---:|---:|---:|---:|
-| T0 | 4.927076670631949 | 26.6667% | 33.1579% | 3.9301% | 2.0000% |
-| T1 | 6.0069609707008125 | 24.9123% | 31.2281% | 0.0000% | 0.0000% |
-| T2 | 5.810691901694708 | 25.7895% | 34.0351% | 0.0000% | 0.0000% |
-| T4 | 5.485511056242881 | 25.4386% | 33.1579% | 0.4367% | 0.2000% |
-| T5 | 5.835645400468433 | 25.0877% | 31.4035% | 0.4367% | 0.2000% |
+| T0 | 4.927076670631949 | 33.1579% | 33.1579% | 3.9301% | 2.0000% |
+| T1 | 6.0069609707008125 | 31.7544% | 31.2281% | 0.0000% | 0.0000% |
+| T2 | 5.810691901694708 | 34.0351% | 34.0351% | 0.0000% | 0.0000% |
+| T4 | 5.485511056242881 | 32.9825% | 33.1579% | 0.4367% | 0.2000% |
+| T5 | 5.835645400468433 | 31.5789% | 31.4035% | 0.4367% | 0.2000% |
 
-**arc：T1 对 T0：负（准确率差 -1.7544%）；T2 对 T1：胜（+0.8772%）。**
+**arc：T1 对 T0：负（准确率差 -1.4035%）；T2 对 T1：胜（+2.2807%）。**
 
 **lambada：T1 对 T0：负（准确率差 -3.9301%）；T2 对 T1：平（+0.0000%）。**
 
 | checkpoint/task | 主指标正确/样本 | 全部正确/样本 | 多 token 正确/样本 | 实测秒 | 峰值 allocated bytes |
 |---|---:|---:|---:|---:|---:|
-| T0/arc | 152/570 | 152/570 | —/— | 25.925 | 491506176 |
-| T0/lambada | 9/229 | 10/500 | 1/271 | 5.763 | 508560384 |
-| T1/arc | 142/570 | 142/570 | —/— | 115.507 | 596880384 |
-| T1/lambada | 0/229 | 0/500 | 0/271 | 21.592 | 615721984 |
-| T2/arc | 147/570 | 147/570 | —/— | 120.119 | 491937280 |
-| T2/lambada | 0/229 | 0/500 | 0/271 | 24.040 | 509202944 |
-| T4/arc | 145/570 | 145/570 | —/— | 41.309 | 491300352 |
-| T4/lambada | 1/229 | 1/500 | 0/271 | 10.255 | 508252672 |
-| T5/arc | 143/570 | 143/570 | —/— | 114.156 | 596880384 |
-| T5/lambada | 1/229 | 1/500 | 0/271 | 23.853 | 615721984 |
+| T0/arc | 189/570 | 189/570 | —/— | 24.298 | 491506176 |
+| T0/lambada | 9/229 | 10/500 | 1/271 | 7.728 | 508560384 |
+| T1/arc | 181/570 | 181/570 | —/— | 112.876 | 596880384 |
+| T1/lambada | 0/229 | 0/500 | 0/271 | 18.925 | 615721984 |
+| T2/arc | 194/570 | 194/570 | —/— | 97.036 | 491937280 |
+| T2/lambada | 0/229 | 0/500 | 0/271 | 19.451 | 509202944 |
+| T4/arc | 188/570 | 188/570 | —/— | 39.625 | 491300352 |
+| T4/lambada | 1/229 | 1/500 | 0/271 | 10.780 | 508252672 |
+| T5/arc | 180/570 | 180/570 | —/— | 99.234 | 596880384 |
+| T5/lambada | 1/229 | 1/500 | 0/271 | 23.331 | 615721984 |
 
 完整逐题 raw NLL、分母、预测、gold 与末词 token 结果保存在 runs/EXP-09/results/；汇总数字来源与 runs/exp09-summary.json 一致。
 
