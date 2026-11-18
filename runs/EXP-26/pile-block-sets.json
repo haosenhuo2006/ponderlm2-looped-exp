@@ -1,0 +1,2048 @@
+{
+  "tokenizer": {
+    "model": "EleutherAI/pythia-70m",
+    "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+  },
+  "blocks": 500,
+  "block_tokens": 256,
+  "docs_consumed": 25,
+  "tokens_consumed": 128000,
+  "leftover_tokens": 18115,
+  "pile_set_counts": {
+    "OpenWebText2": 5,
+    "PubMed Abstracts": 7,
+    "Github": 4,
+    "StackExchange": 3,
+    "Enron Emails": 1,
+    "FreeLaw": 1,
+    "USPTO Backgrounds": 1,
+    "Pile-CC": 1,
+    "Wikipedia (en)": 1,
+    "Books3": 1
+  },
+  "block_counts": {
+    "OpenWebText2": 26,
+    "PubMed Abstracts": 8,
+    "StackExchange": 6,
+    "Enron Emails": 1,
+    "Github": 4,
+    "FreeLaw": 14,
+    "USPTO Backgrounds": 2,
+    "Pile-CC": 1,
+    "Wikipedia (en)": 2,
+    "Books3": 436
+  },
+  "block_sets": [
+    {
+      "index": 0,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 1,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 2,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 3,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 4,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 5,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 6,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 7,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 8,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 9,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 10,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 11,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 12,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 13,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 14,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 15,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 16,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 17,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 18,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 19,
+      "pile_set_name": "StackExchange"
+    },
+    {
+      "index": 20,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 21,
+      "pile_set_name": "Enron Emails"
+    },
+    {
+      "index": 22,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 23,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 24,
+      "pile_set_name": "Github"
+    },
+    {
+      "index": 25,
+      "pile_set_name": "Github"
+    },
+    {
+      "index": 26,
+      "pile_set_name": "Github"
+    },
+    {
+      "index": 27,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 28,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 29,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 30,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 31,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 32,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 33,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 34,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 35,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 36,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 37,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 38,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 39,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 40,
+      "pile_set_name": "Github"
+    },
+    {
+      "index": 41,
+      "pile_set_name": "PubMed Abstracts"
+    },
+    {
+      "index": 42,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 43,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 44,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 45,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 46,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 47,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 48,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 49,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 50,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 51,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 52,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 53,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 54,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 55,
+      "pile_set_name": "FreeLaw"
+    },
+    {
+      "index": 56,
+      "pile_set_name": "USPTO Backgrounds"
+    },
+    {
+      "index": 57,
+      "pile_set_name": "USPTO Backgrounds"
+    },
+    {
+      "index": 58,
+      "pile_set_name": "Pile-CC"
+    },
+    {
+      "index": 59,
+      "pile_set_name": "Wikipedia (en)"
+    },
+    {
+      "index": 60,
+      "pile_set_name": "Wikipedia (en)"
+    },
+    {
+      "index": 61,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 62,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 63,
+      "pile_set_name": "OpenWebText2"
+    },
+    {
+      "index": 64,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 65,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 66,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 67,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 68,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 69,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 70,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 71,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 72,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 73,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 74,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 75,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 76,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 77,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 78,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 79,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 80,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 81,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 82,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 83,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 84,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 85,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 86,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 87,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 88,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 89,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 90,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 91,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 92,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 93,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 94,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 95,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 96,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 97,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 98,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 99,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 100,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 101,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 102,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 103,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 104,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 105,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 106,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 107,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 108,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 109,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 110,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 111,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 112,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 113,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 114,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 115,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 116,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 117,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 118,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 119,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 120,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 121,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 122,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 123,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 124,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 125,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 126,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 127,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 128,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 129,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 130,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 131,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 132,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 133,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 134,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 135,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 136,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 137,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 138,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 139,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 140,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 141,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 142,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 143,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 144,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 145,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 146,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 147,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 148,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 149,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 150,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 151,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 152,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 153,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 154,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 155,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 156,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 157,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 158,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 159,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 160,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 161,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 162,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 163,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 164,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 165,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 166,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 167,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 168,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 169,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 170,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 171,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 172,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 173,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 174,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 175,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 176,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 177,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 178,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 179,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 180,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 181,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 182,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 183,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 184,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 185,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 186,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 187,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 188,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 189,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 190,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 191,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 192,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 193,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 194,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 195,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 196,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 197,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 198,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 199,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 200,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 201,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 202,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 203,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 204,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 205,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 206,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 207,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 208,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 209,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 210,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 211,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 212,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 213,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 214,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 215,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 216,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 217,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 218,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 219,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 220,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 221,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 222,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 223,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 224,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 225,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 226,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 227,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 228,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 229,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 230,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 231,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 232,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 233,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 234,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 235,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 236,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 237,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 238,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 239,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 240,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 241,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 242,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 243,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 244,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 245,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 246,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 247,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 248,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 249,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 250,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 251,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 252,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 253,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 254,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 255,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 256,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 257,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 258,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 259,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 260,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 261,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 262,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 263,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 264,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 265,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 266,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 267,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 268,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 269,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 270,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 271,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 272,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 273,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 274,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 275,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 276,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 277,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 278,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 279,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 280,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 281,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 282,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 283,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 284,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 285,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 286,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 287,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 288,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 289,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 290,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 291,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 292,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 293,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 294,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 295,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 296,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 297,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 298,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 299,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 300,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 301,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 302,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 303,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 304,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 305,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 306,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 307,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 308,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 309,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 310,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 311,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 312,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 313,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 314,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 315,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 316,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 317,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 318,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 319,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 320,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 321,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 322,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 323,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 324,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 325,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 326,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 327,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 328,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 329,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 330,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 331,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 332,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 333,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 334,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 335,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 336,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 337,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 338,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 339,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 340,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 341,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 342,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 343,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 344,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 345,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 346,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 347,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 348,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 349,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 350,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 351,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 352,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 353,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 354,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 355,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 356,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 357,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 358,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 359,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 360,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 361,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 362,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 363,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 364,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 365,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 366,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 367,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 368,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 369,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 370,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 371,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 372,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 373,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 374,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 375,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 376,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 377,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 378,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 379,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 380,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 381,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 382,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 383,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 384,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 385,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 386,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 387,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 388,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 389,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 390,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 391,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 392,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 393,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 394,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 395,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 396,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 397,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 398,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 399,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 400,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 401,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 402,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 403,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 404,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 405,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 406,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 407,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 408,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 409,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 410,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 411,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 412,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 413,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 414,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 415,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 416,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 417,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 418,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 419,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 420,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 421,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 422,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 423,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 424,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 425,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 426,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 427,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 428,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 429,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 430,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 431,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 432,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 433,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 434,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 435,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 436,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 437,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 438,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 439,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 440,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 441,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 442,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 443,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 444,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 445,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 446,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 447,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 448,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 449,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 450,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 451,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 452,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 453,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 454,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 455,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 456,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 457,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 458,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 459,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 460,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 461,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 462,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 463,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 464,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 465,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 466,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 467,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 468,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 469,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 470,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 471,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 472,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 473,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 474,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 475,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 476,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 477,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 478,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 479,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 480,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 481,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 482,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 483,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 484,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 485,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 486,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 487,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 488,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 489,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 490,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 491,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 492,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 493,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 494,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 495,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 496,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 497,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 498,
+      "pile_set_name": "Books3"
+    },
+    {
+      "index": 499,
+      "pile_set_name": "Books3"
+    }
+  ],
+  "verify_first_n": 30,
+  "verify_first_docs_consumed": 15,
+  "verify_first_pile_set_counts": {
+    "OpenWebText2": 4,
+    "PubMed Abstracts": 6,
+    "Github": 2,
+    "StackExchange": 2,
+    "Enron Emails": 1
+  },
+  "verify_first_tokens_consumed": 7680,
+  "verify_first_leftover_tokens": 2344
+}

@@ -1,7 +1,7 @@
 {
   "experiment": "EXP-26",
-  "generated_at": "2026-11-18T04:33:57.503431+00:00",
-  "complete": false,
+  "generated_at": "2026-11-18T08:03:34.794344+00:00",
+  "complete": true,
   "config": {
     "seed": 42,
     "jacobi_iterations": 3,
@@ -196,11 +196,506 @@
     "environment": {
       "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
     },
-    "tests_log": "runs/EXP-26/logs/tests.log"
+    "tests_log": "runs/EXP-26/logs/tests.log",
+    "resumed_at": [
+      "2026-11-18T07:31:48.528940+00:00"
+    ]
   },
   "results": {
-    "hellaswag": {},
-    "piqa": {},
+    "hellaswag": {
+      "T0_600": {
+        "checkpoint": "T0_600",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-01-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 586,
+        "accuracy": 0.293,
+        "primary_count": 2000,
+        "primary_correct": 586,
+        "primary_accuracy": 0.293,
+        "seconds": 82.57086105599956,
+        "peak_memory_bytes": 496101888,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.293,
+        "accuracy_r1": 0.293,
+        "accuracy_r2": 0.2875,
+        "accuracy_r3": 0.22,
+        "longest_pick_rate_r1": 0.019,
+        "longest_pick_rate_r3": 0.933,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_1200": {
+        "checkpoint": "T0_1200",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 579,
+        "accuracy": 0.2895,
+        "primary_count": 2000,
+        "primary_correct": 579,
+        "primary_accuracy": 0.2895,
+        "seconds": 81.61309006900046,
+        "peak_memory_bytes": 496101888,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.289,
+        "accuracy_r1": 0.2895,
+        "accuracy_r2": 0.28,
+        "accuracy_r3": 0.23,
+        "longest_pick_rate_r1": 0.016,
+        "longest_pick_rate_r3": 0.936,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T8_1200": {
+        "checkpoint": "T8_1200",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 554,
+        "accuracy": 0.277,
+        "primary_count": 2000,
+        "primary_correct": 554,
+        "primary_accuracy": 0.277,
+        "seconds": 339.96262312699764,
+        "peak_memory_bytes": 601869312,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.2775,
+        "accuracy_r1": 0.277,
+        "accuracy_r2": 0.2745,
+        "accuracy_r3": 0.225,
+        "longest_pick_rate_r1": 0.0105,
+        "longest_pick_rate_r3": 0.944,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID600": {
+        "checkpoint": "LOOPMID600",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 573,
+        "accuracy": 0.2865,
+        "primary_count": 2000,
+        "primary_correct": 573,
+        "primary_accuracy": 0.2865,
+        "seconds": 131.88065571900006,
+        "peak_memory_bytes": 495865344,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.286,
+        "accuracy_r1": 0.2865,
+        "accuracy_r2": 0.2685,
+        "accuracy_r3": 0.225,
+        "longest_pick_rate_r1": 0.0145,
+        "longest_pick_rate_r3": 0.9395,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID1200": {
+        "checkpoint": "LOOPMID1200",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 584,
+        "accuracy": 0.292,
+        "primary_count": 2000,
+        "primary_correct": 584,
+        "primary_accuracy": 0.292,
+        "seconds": 139.99929371300095,
+        "peak_memory_bytes": 495865344,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.2915,
+        "accuracy_r1": 0.292,
+        "accuracy_r2": 0.2885,
+        "accuracy_r3": 0.2245,
+        "longest_pick_rate_r1": 0.018,
+        "longest_pick_rate_r3": 0.939,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_160M_600": {
+        "checkpoint": "T0_160M_600",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-14-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 577,
+        "accuracy": 0.2885,
+        "primary_count": 2000,
+        "primary_correct": 577,
+        "primary_accuracy": 0.2885,
+        "seconds": 145.94715986299707,
+        "peak_memory_bytes": 1060917760,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.2855,
+        "accuracy_r1": 0.2885,
+        "accuracy_r2": 0.303,
+        "accuracy_r3": 0.2285,
+        "longest_pick_rate_r1": 0.014,
+        "longest_pick_rate_r3": 0.948,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID160_600": {
+        "checkpoint": "LOOPMID160_600",
+        "task": "hellaswag",
+        "config": {
+          "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 2000,
+        "correct": 590,
+        "accuracy": 0.295,
+        "primary_count": 2000,
+        "primary_correct": 590,
+        "primary_accuracy": 0.295,
+        "seconds": 193.1094774609992,
+        "peak_memory_bytes": 1060556288,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.2935,
+        "accuracy_r1": 0.295,
+        "accuracy_r2": 0.2865,
+        "accuracy_r3": 0.2285,
+        "longest_pick_rate_r1": 0.0165,
+        "longest_pick_rate_r3": 0.936,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      }
+    },
+    "piqa": {
+      "T0_600": {
+        "checkpoint": "T0_600",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-01-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 1021,
+        "accuracy": 0.5554951033732318,
+        "primary_count": 1838,
+        "primary_correct": 1021,
+        "primary_accuracy": 0.5554951033732318,
+        "seconds": 42.69443077500182,
+        "peak_memory_bytes": 560073728,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5565832426550599,
+        "accuracy_r1": 0.5554951033732318,
+        "accuracy_r2": 0.5408052230685527,
+        "accuracy_r3": 0.5272034820457019,
+        "longest_pick_rate_r1": 0.5184983677910773,
+        "longest_pick_rate_r3": 0.9173014145810664,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_1200": {
+        "checkpoint": "T0_1200",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 992,
+        "accuracy": 0.5397170837867247,
+        "primary_count": 1838,
+        "primary_correct": 992,
+        "primary_accuracy": 0.5397170837867247,
+        "seconds": 37.8685224280016,
+        "peak_memory_bytes": 560073728,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5413492927094669,
+        "accuracy_r1": 0.5397170837867247,
+        "accuracy_r2": 0.5282916213275299,
+        "accuracy_r3": 0.5239390642002176,
+        "longest_pick_rate_r1": 0.5130576713819369,
+        "longest_pick_rate_r3": 0.8928182807399347,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T8_1200": {
+        "checkpoint": "T8_1200",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 987,
+        "accuracy": 0.5369967355821545,
+        "primary_count": 1838,
+        "primary_correct": 987,
+        "primary_accuracy": 0.5369967355821545,
+        "seconds": 147.09383317899847,
+        "peak_memory_bytes": 668700160,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5380848748639826,
+        "accuracy_r1": 0.5369967355821545,
+        "accuracy_r2": 0.5255712731229597,
+        "accuracy_r3": 0.5076169749727966,
+        "longest_pick_rate_r1": 0.46844396082698586,
+        "longest_pick_rate_r3": 0.9194776931447225,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID600": {
+        "checkpoint": "LOOPMID600",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 997,
+        "accuracy": 0.5424374319912949,
+        "primary_count": 1838,
+        "primary_correct": 997,
+        "primary_accuracy": 0.5424374319912949,
+        "seconds": 67.3933804920016,
+        "peak_memory_bytes": 559610880,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5429815016322089,
+        "accuracy_r1": 0.5424374319912949,
+        "accuracy_r2": 0.5424374319912949,
+        "accuracy_r3": 0.5206746463547334,
+        "longest_pick_rate_r1": 0.49510337323177367,
+        "longest_pick_rate_r3": 0.9085963003264418,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID1200": {
+        "checkpoint": "LOOPMID1200",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 986,
+        "accuracy": 0.5364526659412405,
+        "primary_count": 1838,
+        "primary_correct": 986,
+        "primary_accuracy": 0.5364526659412405,
+        "seconds": 57.35978313600208,
+        "peak_memory_bytes": 559610880,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5369967355821545,
+        "accuracy_r1": 0.5364526659412405,
+        "accuracy_r2": 0.5255712731229597,
+        "accuracy_r3": 0.5163220892274211,
+        "longest_pick_rate_r1": 0.4929270946681175,
+        "longest_pick_rate_r3": 0.9031556039173014,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "T0_160M_600": {
+        "checkpoint": "T0_160M_600",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-14-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 1019,
+        "accuracy": 0.5544069640914037,
+        "primary_count": 1838,
+        "primary_correct": 1019,
+        "primary_accuracy": 0.5544069640914037,
+        "seconds": 58.539879414001916,
+        "peak_memory_bytes": 1124721664,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5538628944504896,
+        "accuracy_r1": 0.5544069640914037,
+        "accuracy_r2": 0.529923830250272,
+        "accuracy_r3": 0.529379760609358,
+        "longest_pick_rate_r1": 0.500544069640914,
+        "longest_pick_rate_r3": 0.9053318824809575,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      },
+      "LOOPMID160_600": {
+        "checkpoint": "LOOPMID160_600",
+        "task": "piqa",
+        "config": {
+          "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 1838,
+        "correct": 1009,
+        "accuracy": 0.5489662676822633,
+        "primary_count": 1838,
+        "primary_correct": 1009,
+        "primary_accuracy": 0.5489662676822633,
+        "seconds": 100.41504350600007,
+        "peak_memory_bytes": 1124015104,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "raw_accuracy": 0.5500544069640914,
+        "accuracy_r1": 0.5489662676822633,
+        "accuracy_r2": 0.5402611534276387,
+        "accuracy_r3": 0.5266594124047879,
+        "longest_pick_rate_r1": 0.4929270946681175,
+        "longest_pick_rate_r3": 0.9080522306855278,
+        "scoring": {
+          "primary": "R1 answer-span CE sum (argmin A)",
+          "secondary": "R2 byte-normalized (argmin A/utf8-bytes)",
+          "r3_deprecated": true,
+          "raw_diagnostic": true,
+          "answer_span": "first token with offset end > len(prefix), inclusive"
+        }
+      }
+    },
     "sciq": {
       "T0_600": {
         "checkpoint": "T0_600",
@@ -448,51 +943,682 @@
         }
       }
     },
-    "pile": {}
+    "pile": {
+      "T0_600": {
+        "checkpoint": "T0_600",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-01-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 6.913516109998454,
+        "peak_memory_bytes": 566494720,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.019712059020996,
+        "ppl": 1118.464519607329,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 895013.287525177,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 6.979606754189238
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.473649776898897
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.41252943447658
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 6.811627209186554
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 8.7227783203125
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 7.816926717758179
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.071901798248291
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 7.381172180175781
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 7.785178184509277
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 9.868457794189453
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.018260411948085,
+          "ppl": 1116.8420817497804
+        }
+      },
+      "T0_1200": {
+        "checkpoint": "T0_1200",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-12-T0/checkpoints/step-1200",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 5.211153709999053,
+        "peak_memory_bytes": 566494720,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 6.924482571601867,
+        "ppl": 1016.8679771077985,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 882871.5278792381,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 6.906245472234324
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.2201960270221415
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.164436885288784
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 6.6022909283638
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 8.567987203598022
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 7.507656574249268
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.151167154312134
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 6.984222650527954
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 7.465395450592041
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 9.097994804382324
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 6.924242651606181,
+          "ppl": 1016.624039411053
+        }
+      },
+      "T8_1200": {
+        "checkpoint": "T8_1200",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-18-T8-1200-s42/checkpoints/step-1200",
+          "mode": "ponder",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 21.816429880000214,
+        "peak_memory_bytes": 676087808,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.398134386062622,
+        "ppl": 1632.9351599068,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 943262.1342229843,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 7.273395900332599
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.965773344039917
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.906845501491001
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 8.080665111541748
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 10.71552324295044
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 11.036911606788635
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.990085601806641
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 7.990507364273071
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 8.819520950317383
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 12.193822860717773
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.395755378118002,
+          "ppl": 1629.055011470344
+        }
+      },
+      "LOOPMID600": {
+        "checkpoint": "LOOPMID600",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-19-loopmid-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 9.794516859001305,
+        "peak_memory_bytes": 565997056,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.304047567367554,
+        "ppl": 1486.3036833721064,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 931266.0648393631,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 7.209935725282092
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.820712272937481
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.692315919058664
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 7.4962645173072815
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 10.537091175715128
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 9.614081382751465
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.5739099979400635
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 8.244231700897217
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 8.273316383361816
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 11.902276992797852
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.30027172747386,
+          "ppl": 1480.702220398953
+        }
+      },
+      "LOOPMID1200": {
+        "checkpoint": "LOOPMID1200",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-20-loopmid-s42/checkpoints/step-1200",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-70m",
+          "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 10.034305757999391,
+        "peak_memory_bytes": 565997056,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.4836672706604,
+        "ppl": 1778.7519944358298,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 954167.577009201,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 7.4047349899187
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 8.030698171028725
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.7542697702135355
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 7.348351359367371
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 10.489795684814453
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 9.317345380783081
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.666057109832764
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 8.819963932037354
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 8.376212120056152
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 11.66802978515625
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.4783006174018585,
+          "ppl": 1769.231618377011
+        }
+      },
+      "T0_160M_600": {
+        "checkpoint": "T0_160M_600",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-14-T0/checkpoints/step-600",
+          "mode": "vanilla",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 9.734416833998694,
+        "peak_memory_bytes": 1132901888,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.035910257339477,
+        "ppl": 1136.729157464184,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 897078.5578107834,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 6.98439710949539
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.441846315677349
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.278034516743252
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 7.106204628944397
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 9.355043252309164
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 8.345776557922363
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.091338157653809
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 7.460053443908691
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 7.8081464767456055
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 10.103569030761719
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.034206871048035,
+          "ppl": 1134.7945167882638
+        }
+      },
+      "LOOPMID160_600": {
+        "checkpoint": "LOOPMID160_600",
+        "task": "pile",
+        "config": {
+          "path": "runs/EXP-22-loopmid160-s42/checkpoints/step-600",
+          "mode": "looped",
+          "model": "EleutherAI/pythia-160M",
+          "revision": "50f5173d932e8e61f858120bcb800b97af589f46"
+        },
+        "protocol_hash": "8c651c62e12fb0fa60284a9efff2407cffac3bbef24824a172efd6c24146fdf6",
+        "count": 500,
+        "correct": null,
+        "accuracy": null,
+        "primary_count": 500,
+        "primary_correct": null,
+        "primary_accuracy": null,
+        "seconds": 13.261138456997287,
+        "peak_memory_bytes": 1132142080,
+        "git_hash": "bc4cffbaf721ee396c0e0a98193cb20552195f29",
+        "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "torch_version": "2.11.0+cu130",
+        "blocks": 500,
+        "block_tokens": 256,
+        "docs_consumed": 25,
+        "tokens_consumed": 128000,
+        "leftover_tokens": 18115,
+        "pile_set_counts": {
+          "OpenWebText2": 5,
+          "PubMed Abstracts": 7,
+          "Github": 4,
+          "StackExchange": 3,
+          "Enron Emails": 1,
+          "FreeLaw": 1,
+          "USPTO Backgrounds": 1,
+          "Pile-CC": 1,
+          "Wikipedia (en)": 1,
+          "Books3": 1
+        },
+        "mean_nll": 7.133393072128296,
+        "ppl": 1253.1216938011682,
+        "predicted_tokens": 127500,
+        "total_nll_sum": 909507.6166963577,
+        "per_set": {
+          "Books3": {
+            "blocks": 436,
+            "mean_nll": 7.049398913295991
+          },
+          "OpenWebText2": {
+            "blocks": 26,
+            "mean_nll": 7.574016956182627
+          },
+          "FreeLaw": {
+            "blocks": 14,
+            "mean_nll": 6.624331917081561
+          },
+          "PubMed Abstracts": {
+            "blocks": 8,
+            "mean_nll": 7.359414875507355
+          },
+          "StackExchange": {
+            "blocks": 6,
+            "mean_nll": 9.940680185953775
+          },
+          "Github": {
+            "blocks": 4,
+            "mean_nll": 9.387534856796265
+          },
+          "USPTO Backgrounds": {
+            "blocks": 2,
+            "mean_nll": 6.603473901748657
+          },
+          "Wikipedia (en)": {
+            "blocks": 2,
+            "mean_nll": 7.6506125926971436
+          },
+          "Enron Emails": {
+            "blocks": 1,
+            "mean_nll": 8.51698112487793
+          },
+          "Pile-CC": {
+            "blocks": 1,
+            "mean_nll": 10.398828506469727
+          }
+        },
+        "no_wiki": {
+          "blocks": 498,
+          "mean_nll": 7.131315885298702,
+          "ppl": 1250.5214274773548
+        }
+      }
+    }
   },
   "comparisons": {
     "hellaswag": {
       "LOOPMID600_minus_T0_600": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.006500000000000006,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "LOOPMID1200_minus_T0_1200": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.0025000000000000022,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "T8_1200_minus_T0_1200": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.012499999999999956,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "LOOPMID160_600_minus_T0_160M_600": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.006500000000000006,
+        "message": "accuracy 差值越高越好（正值为改善）"
       }
     },
     "piqa": {
       "LOOPMID600_minus_T0_600": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.01305767138193692,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "LOOPMID1200_minus_T0_1200": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.0032644178454841466,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "T8_1200_minus_T0_1200": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.002720348204570122,
+        "message": "accuracy 差值越高越好（正值为改善）"
       },
       "LOOPMID160_600_minus_T0_160M_600": {
         "metric": "accuracy",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": -0.005440696409140355,
+        "message": "accuracy 差值越高越好（正值为改善）"
       }
     },
     "sciq": {
@@ -520,154 +1646,47 @@
     "pile": {
       "LOOPMID600_minus_T0_600": {
         "metric": "mean_nll",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.2843355083465573,
+        "message": "NLL 差值越低越好（负值为改善）"
+      },
+      "LOOPMID600_minus_T0_600_no_wiki": {
+        "metric": "mean_nll_no_wiki",
+        "delta": 0.2820113155257751,
+        "message": "去维基版 mean NLL 差值，负值更好（结论口径）"
       },
       "LOOPMID1200_minus_T0_1200": {
         "metric": "mean_nll",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.559184699058533,
+        "message": "NLL 差值越低越好（负值为改善）"
+      },
+      "LOOPMID1200_minus_T0_1200_no_wiki": {
+        "metric": "mean_nll_no_wiki",
+        "delta": 0.5540579657956775,
+        "message": "去维基版 mean NLL 差值，负值更好（结论口径）"
       },
       "T8_1200_minus_T0_1200": {
         "metric": "mean_nll",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.4736518144607542,
+        "message": "NLL 差值越低越好（负值为改善）"
+      },
+      "T8_1200_minus_T0_1200_no_wiki": {
+        "metric": "mean_nll_no_wiki",
+        "delta": 0.4715127265118211,
+        "message": "去维基版 mean NLL 差值，负值更好（结论口径）"
       },
       "LOOPMID160_600_minus_T0_160M_600": {
         "metric": "mean_nll",
-        "delta": null,
-        "message": "数据不完整，不能判断"
+        "delta": 0.09748281478881893,
+        "message": "NLL 差值越低越好（负值为改善）"
+      },
+      "LOOPMID160_600_minus_T0_160M_600_no_wiki": {
+        "metric": "mean_nll_no_wiki",
+        "delta": 0.09710901425066698,
+        "message": "去维基版 mean NLL 差值，负值更好（结论口径）"
       }
     }
   },
-  "conclusion": "数据不完整，不能判断；已完成且通过校验的结果与对照差值见报告。",
-  "issues": [
-    {
-      "checkpoint": "T0_600",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_1200",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T8_1200",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID600",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID1200",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_160M_600",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID160_600",
-      "task": "hellaswag",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_600",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_1200",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T8_1200",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID600",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID1200",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_160M_600",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID160_600",
-      "task": "piqa",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_600",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_1200",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T8_1200",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID600",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID1200",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "T0_160M_600",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    },
-    {
-      "checkpoint": "LOOPMID160_600",
-      "task": "pile",
-      "error": "FileNotFoundError(2, 'No such file or directory')",
-      "log_tail": "日志不存在"
-    }
-  ],
-  "measured_evaluation_seconds": 600.6275876540021
+  "conclusion": "28 项全量结果均通过协议与样本数校验；对照差值见报告，结论仅限本次评测。",
+  "issues": [],
+  "measured_evaluation_seconds": 2303.841099199999
 }
