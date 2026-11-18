@@ -1,0 +1,11 @@
+{
+  "device": "cuda",
+  "microbatch": 1,
+  "seq": 256,
+  "vanilla_flops_per_token": 256624176.0,
+  "looped_flops_per_token": 346302768.0,
+  "measured_ratio": 1.3494549632767256,
+  "analytical_ratio": 1.3466,
+  "deviation_pct": 0.2120127191983956,
+  "within_5pct": true
+}

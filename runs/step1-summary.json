@@ -1,0 +1,136 @@
+{
+  "results": {
+    "42": {
+      "seed": 42,
+      "nll": 4.572618549242881,
+      "ppl": 96.79724655932289,
+      "wall_s": 1214.1970332059973,
+      "peak_memory_bytes": 3332982272
+    },
+    "43": {
+      "seed": 43,
+      "nll": 4.612504744688105,
+      "ppl": 100.7361522457785,
+      "wall_s": 1185.454944688001,
+      "peak_memory_bytes": 3332982272
+    },
+    "44": {
+      "seed": 44,
+      "nll": 4.674307344868322,
+      "ppl": 107.15831762177206,
+      "wall_s": 1182.5957254140012,
+      "peak_memory_bytes": 3332982272
+    }
+  },
+  "controls": {
+    "T0_1616": {
+      "42": {
+        "seed": 42,
+        "nll": 4.605493025154143,
+        "ppl": 100.03228912842235,
+        "wall_s": 1197.762036850001,
+        "peak_memory_bytes": 3335603712,
+        "prefix_evidence": "s42 fallback: runs/EXP-15-T0/data-order.json"
+      },
+      "43": {
+        "seed": 43,
+        "nll": 4.6841475888899815,
+        "ppl": 108.21798676693743,
+        "wall_s": 1185.1855984680005,
+        "peak_memory_bytes": 3335603712,
+        "prefix_evidence": "runs/EXP-25-T0-s43/data-order.json"
+      },
+      "44": {
+        "seed": 44,
+        "nll": 4.642289622141438,
+        "ppl": 103.78169663025578,
+        "wall_s": 1204.788191861,
+        "peak_memory_bytes": 3335603712,
+        "prefix_evidence": "runs/EXP-25-T0-s44/data-order.json"
+      }
+    },
+    "T0_1200": {
+      "42": {
+        "nll": 4.865944883162931,
+        "ppl": 129.7935204020395
+      },
+      "43": {
+        "nll": 4.8076471137989,
+        "ppl": 122.44318344730775
+      },
+      "44": {
+        "nll": 4.748705843507599,
+        "ppl": 115.43479712585673
+      }
+    }
+  },
+  "aggregate": {
+    "nll": {
+      "mean": 4.6198102129331025,
+      "sd": 0.05123651226076178,
+      "n": 3
+    },
+    "ppl": {
+      "mean": 101.56390547562448,
+      "sd": 5.2298976995177195,
+      "n": 3
+    }
+  },
+  "control_aggregates": {
+    "T0_1616": {
+      "nll": {
+        "mean": 4.643976745395188,
+        "sd": 0.039354413828359636,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 104.01065750853851,
+        "sd": 4.097649176068621,
+        "n": 3
+      }
+    },
+    "T0_1200": {
+      "nll": {
+        "mean": 4.80743261348981,
+        "sd": 0.05861981416392479,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 122.55716699173466,
+        "sd": 7.180040230862096,
+        "n": 3
+      }
+    }
+  },
+  "paired_differences": {
+    "by_seed": {
+      "42": -0.032874475911262024,
+      "43": -0.07164284420187617,
+      "44": 0.0320177227268843
+    },
+    "mean": -0.02416653246208463,
+    "sd": 0.05237603930552177,
+    "se": 0.030239320392129412,
+    "ci95": [
+      -0.1542863281094175,
+      0.10595326318524824
+    ],
+    "t_critical": 4.303,
+    "n": 3,
+    "direction_consistent": false,
+    "all_better": false
+  },
+  "t0_1616_minus_1200": -0.16345586809462276,
+  "branch": "b",
+  "decision": "revival is a compute artifact",
+  "operational_threshold_passed": false,
+  "branch_status": "b",
+  "annotation": null,
+  "caveats": [
+    "Three pairs; WikiText-2; within this recipe only; no follow-up authorized.",
+    "Cosine schedule horizon rescheduled to 1616 steps; approximately 2.75 epochs.",
+    "Section 3 strict >0.05 takes precedence over section 4(a) >=0.05.",
+    "Branch c takes precedence over a; very wide interval has no frozen numeric cutoff.",
+    "Profiler is a separate post-hoc annotation; analytical budget ratio 1.3466."
+  ]
+}
