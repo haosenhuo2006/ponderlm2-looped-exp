@@ -62,3 +62,16 @@ WSL/Windows 今晚约 23:00 关机，明天 9:30 恢复；本文件提交推送�
 `d3-zero-step.md`、`smoke-looped2.json`、`STATUS.md`。
 （`runs/reproduction/d3-zero-step/` checkpoint 权重约数百 MB，只留本地，不提交；
 明日协调员可在 WSL 上直接复用该目录重评。）
+
+## s0=0 消融（2026-11-18 晚，D3 拆分；新增）
+
+- 方法：`runs/reproduction/s0_zero_ablation.py`，未改 `src/`（monkeypatch `sample_s0` 返回全零），
+  官方评测器复用。结果 `s0-zero-ablation.json` / `.md`。
+- s0=0：r=1 NLL 9.1932，r=4 NLL 9.6375（随机 s0：r=1 12.0266，r=4 10.0225；底座 4.3733）。
+- 拆分（r=1）：随机 s0 部分 2.83（37%），sandwich 结构部分 4.82（63%）。
+  r=4 时去掉噪声只挽回 0.39，残留 +5.26 几乎全是结构部分。
+- **结论：只改初态救不了 L1**——最好的初态修复在 r=4 仍剩 +5.26 的坑；
+  损伤大头是 sandwich 结构改动（并行→串联 + core 边界多一次 final_layer_norm）。
+  D3 三条路里"改初态设计"单独走不通；要救 L1 得连结构一起重新设计（超出冻结预注册）。
+  从零训臂（L2/A1/Yang）不受影响。
+- 明早 9:30 续跑前，先等用户在 D3 三条路上的裁决（本消融供裁决参考）。
