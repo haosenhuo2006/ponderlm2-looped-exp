@@ -22,11 +22,18 @@ from . import looped
 ROOT = Path(__file__).resolve().parents[1]
 RUN = Path(os.environ.get("EVALSETS26_RUN", ROOT / "runs/EXP-26"))
 CONFIG = Path(os.environ.get("EVALSETS26_CONFIG", ROOT / "configs/exp26.json"))
+# EXP-26 uses no optional attention masking. An absent or null mask means no mask.
+MASK_SEMANTICS = "EXP-26 uses no attention masking; checkpoint spec mask must be absent or None."
 CANONICAL_URL_DEAD = (
     "https://the-eye.eu/public/AI/pile/val.jsonl.zst: curl exit 60; certificate "
     "issued 2025-12-21, expired 2026-03-21; -k range probe returned 404; HF "
     "discussion reports removal. Use mit-han-lab/pile-val-backup validation."
 )
+
+
+def validate_spec_mask(spec):
+    if spec.get("mask") is not None:
+        raise ValueError(f"{MASK_SEMANTICS} Got mask={spec['mask']!r}.")
 
 
 def save(path, obj):
@@ -243,6 +250,7 @@ def evaluate(name, task, limit=None):
         raise ValueError("limit must be positive")
     cfg = config()
     spec = cfg["checkpoints"][name]
+    validate_spec_mask(spec)
     provenance = json.loads((RUN / "data-provenance.json").read_text())["tasks"][task]
     if provenance["status"] != "ready":
         print("SKIP unavailable", task, flush=True)
@@ -338,6 +346,7 @@ def evaluate(name, task, limit=None):
     correct = None if task == "pile" else sum(r["correct"] for r in records)
     accuracy = None if task == "pile" else correct/len(records)
     result = dict(checkpoint=name, task=task, config=spec, protocol_hash=protocol_hash(), count=len(records),
+                  mask=None, mask_semantics=MASK_SEMANTICS,
                   correct=correct, accuracy=accuracy, primary_count=len(records), primary_correct=correct,
                   primary_accuracy=accuracy, seconds=time.perf_counter()-begin,
                   peak_memory_bytes=torch.cuda.max_memory_allocated(),

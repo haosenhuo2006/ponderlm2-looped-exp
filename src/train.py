@@ -12,7 +12,7 @@ import torch
 from .data import chunks, order
 from .ponder import load_model, forward
 from .masked import forward as masked_forward
-from . import looped
+from . import looped, ponder
 from .per_round import update_batch
 
 def split_groups(n, k):
@@ -85,6 +85,24 @@ def split_supervised_update_batch(model, batches, k, optimizer, clip, deadline=N
                 final_prediction_ce=final_sum / len(batches))
 
 
+def build_metadata(model):
+    metadata = dict(git_hash=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
+                    torch=torch.__version__, gpu=torch.cuda.get_device_name(),
+                    parameters=sum(p.numel() for p in model.parameters()), start_unix=time.time(),
+                    python=platform.python_version(),
+                    versions={n:importlib.metadata.version(n) for n in ["transformers","numpy","pyarrow","tokenizers"]},
+                    gpu_total_bytes=torch.cuda.get_device_properties(0).total_memory,
+                    source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()
+                                   for p in sorted(Path("src").glob("*.py"))})
+    try:
+        metadata["model_provenance"] = model.load_provenance
+    except AttributeError:
+        metadata["model_provenance"] = ponder.provenance(None)
+    vendored = ponder.ROOT / ponder.VENDORED_PATH
+    metadata["source_sha256"][ponder.VENDORED_PATH] = hashlib.sha256(vendored.read_bytes()).hexdigest()
+    return metadata
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True)
@@ -112,14 +130,7 @@ def main():
     model.train()
     torch.cuda.reset_peak_memory_stats()
     start = time.perf_counter()
-    metadata = dict(git_hash=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
-                    torch=torch.__version__, gpu=torch.cuda.get_device_name(),
-                    parameters=sum(p.numel() for p in model.parameters()), start_unix=time.time(),
-                    python=platform.python_version(),
-                    versions={n:importlib.metadata.version(n) for n in ["transformers","numpy","pyarrow","tokenizers"]},
-                    gpu_total_bytes=torch.cuda.get_device_properties(0).total_memory,
-                    source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()
-                                   for p in sorted(Path("src").glob("*.py"))})
+    metadata = build_metadata(model)
     (dest / "metadata.json").write_text(json.dumps(metadata, indent=2))
     sum_updates = 0
     with (dest / "train.jsonl").open("w", buffering=1) as log:

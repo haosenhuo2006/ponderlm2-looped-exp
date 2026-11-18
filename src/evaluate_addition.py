@@ -12,6 +12,28 @@ from .ponder import ROOT
 from .train_addition import MODEL, REVISION, VENDORED
 
 
+def resolve_loop(checkpoint_loop, config_loop, override: bool):
+    if checkpoint_loop is not None:
+        fields = {"block_size": "loop_block_size", "repetitions": "loop_repetitions",
+                  "start": "loop_block_start"}
+        missing = [field for key, field in fields.items() if checkpoint_loop.get(key) is None]
+        if missing:
+            raise ValueError(f"Checkpoint is missing loop fields: {', '.join(missing)}")
+        if not override:
+            return checkpoint_loop, "checkpoint", None
+        if not config_loop:
+            raise ValueError("--override-loop requires a nonempty loop section in --config")
+        warning = (
+            "WARNING: --override-loop is replacing the checkpoint loop configuration.\n"
+            f"  Checkpoint loop: {checkpoint_loop}\n"
+            f"  External override: {config_loop}"
+        )
+        return config_loop, "external-config-override", warning
+    if config_loop:
+        return config_loop, "config-fallback", None
+    return dict(block_size=2, repetitions=1, start=2), "default-vanilla", None
+
+
 def evaluate(model, tok, test_set, max_new_tokens=8):
     per_length = {str(length): dict(n=0, correct=0, acc=0.0)
                   for length in range(1, 7)}
@@ -39,6 +61,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--config", required=True)
+    parser.add_argument("--override-loop", action="store_true",
+                        help="replace the checkpoint loop parameters with those in --config")
     parser.add_argument("--output", required=True)
     parser.add_argument("--seed", type=int, default=1234)
     parser.add_argument("--per-length", type=int, default=500)
@@ -52,8 +76,17 @@ def main():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     model = module.GPTNeoXForCausalLM.from_pretrained(checkpoint)
+    checkpoint_loop = dict(block_size=getattr(model.config, "loop_block_size", None),
+                           repetitions=getattr(model.config, "loop_repetitions", None),
+                           start=getattr(model.config, "loop_block_start", None))
+    if all(value is None for value in checkpoint_loop.values()):
+        checkpoint_loop = None
+    effective_loop, loop_source, warning = resolve_loop(
+        checkpoint_loop, config.get("loop"), args.override_loop)
+    if warning is not None:
+        print(warning, flush=True)
     model.config.use_cache = False
-    looped.configure(model, **(config["loop"] or dict(block_size=2, repetitions=1, start=2)))
+    looped.configure(model, **effective_loop)
     model = model.cuda().eval()
     tok = AutoTokenizer.from_pretrained(MODEL, revision=REVISION)
     results = evaluate(model, tok, addition.build_test_set(seed=args.seed,
@@ -67,7 +100,10 @@ def main():
     # Preserve the per_length metrics; record the CLI count under a distinct key.
     results.update(checkpoint=str(checkpoint), config=config, test_seed=args.seed,
                    per_length_count=args.per_length, model=MODEL, revision=REVISION,
-                   git_hash=git_hash)
+                   git_hash=git_hash, loop_source=loop_source,
+                   loop_effective=dict(effective_loop, start=model.config.loop_block_start))
+    if loop_source == "external-config-override":
+        results.update(checkpoint_loop=checkpoint_loop, override_loop=args.override_loop)
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(results, indent=2) + "\n")

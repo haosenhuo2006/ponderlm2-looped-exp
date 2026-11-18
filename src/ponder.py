@@ -1,4 +1,5 @@
 """Unmodified official model, with explicit experiment flags."""
+import hashlib
 import importlib.util
 import os
 from pathlib import Path
@@ -9,9 +10,25 @@ ROOT = Path(__file__).resolve().parents[1]
 # src/data.py shares these constants for its tokenizer, so it switches too.
 MODEL = os.environ.get("PYTHIA_MODEL", "EleutherAI/pythia-70m")
 REVISION = os.environ.get("PYTHIA_REVISION", "a39f36b100fe8a5377810d56c3f4789b9c53ac42")
+VENDORED_PATH = "vendor/PonderLM-2/src/llamafactory/model/modeling/modeling_gpt_neox.py"
+
+def provenance(checkpoint=None):
+    if checkpoint is None:
+        weight_source = f"hub:{MODEL}@{REVISION}"
+    else:
+        weight_source = f"checkpoint:{Path(str(checkpoint)).resolve()}"
+    return dict(
+        model=MODEL,
+        revision=REVISION,
+        weight_source=weight_source,
+        env_model_override="PYTHIA_MODEL" in os.environ,
+        env_revision_override="PYTHIA_REVISION" in os.environ,
+        vendored_path=VENDORED_PATH,
+        vendored_sha256=hashlib.sha256((ROOT / VENDORED_PATH).read_bytes()).hexdigest(),
+    )
 
 def load_model(mode, checkpoint=None):
-    spec = importlib.util.spec_from_file_location("official_gpt_neox", ROOT / "vendor/PonderLM-2/src/llamafactory/model/modeling/modeling_gpt_neox.py")
+    spec = importlib.util.spec_from_file_location("official_gpt_neox", ROOT / VENDORED_PATH)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     source = str(checkpoint) if checkpoint else MODEL
@@ -22,7 +39,9 @@ def load_model(mode, checkpoint=None):
                      interpolation=False, recurrent_model=mode == "ponder", use_cache=False).items():
         setattr(c, k, v)
     # FP32 master weights / optimizer state, bf16 autocast compute.
-    return module.GPTNeoXForCausalLM.from_pretrained(source, config=c, attn_implementation="sdpa", **kw).cuda()
+    model = module.GPTNeoXForCausalLM.from_pretrained(source, config=c, attn_implementation="sdpa", **kw).cuda()
+    model.load_provenance = provenance(checkpoint)
+    return model
 
 def forward(model, x, iterations=3):
     model.config.num_jacobi_iterations = iterations
