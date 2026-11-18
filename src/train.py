@@ -12,7 +12,7 @@ import torch
 from .data import chunks, order
 from .ponder import load_model, forward
 from .masked import forward as masked_forward
-from . import looped, ponder
+from . import looped, looped2, ponder
 from .per_round import update_batch
 
 def split_groups(n, k):
@@ -112,6 +112,15 @@ def main():
     run_budget_s = c.get("run_budget_s", 3600)
     if a.mask is not None:
         c["mask"] = a.mask
+    looped2_options = c.get("looped2")
+    from_scratch = c.get("from_scratch", False)
+    use_looped2 = looped2_options is not None
+    track_looped2 = use_looped2 or from_scratch
+    if track_looped2 and (c["mode"] != "vanilla" or c.get("loop") is not None
+                          or c.get("mask") is not None or c.get("intermediate_supervision")
+                          or c.get("split_optimizer_updates") or c.get("per_round_optimizer_update")):
+        raise ValueError("looped2 and from_scratch require vanilla mode without loop, mask, "
+                         "intermediate supervision or split/per-round updates")
     if c.get("per_round_optimizer_update") and (not c.get("intermediate_supervision") or c["mode"] != "ponder" or c.get("mask") or c.get("loop")):
         raise ValueError("per-round updates require unmasked ponder intermediate supervision")
     if c.get("split_optimizer_updates") and (c["mode"] != "ponder" or c.get("mask") or c.get("loop") or c.get("per_round_optimizer_update")):
@@ -124,14 +133,51 @@ def main():
     model = load_model(c["mode"])
     if c.get("loop"):
         looped.configure(model, **c["loop"])
+    if track_looped2:
+        # D2/D3: register the added norms before reinitializing or making AdamW.
+        model_cfg = model.config
+        h, ff, vocab = model_cfg.hidden_size, model_cfg.intermediate_size, model_cfg.vocab_size
+        emb_scale = math.sqrt(h) if from_scratch else 1.0
+        if use_looped2:
+            cfg = looped2.resolve_config(model_cfg.num_hidden_layers, looped2_options, emb_scale)
+            looped2.apply_config(model, cfg)
+            emb_scale = cfg.emb_scale
+            widths = (len(cfg.prelude), len(cfg.core), len(cfg.coda))
+            l_eff = widths[0] + 4 * widths[1] + widths[2]
+            sampler_gen = torch.Generator().manual_seed(c["seed"])
+            expected_ratio = looped2.expected_flops_ratio(
+                *widths, h, ff, vocab, t=cfg.t, s=cfg.s, sigma=cfg.sigma, cap=cfg.cap)
+        else:
+            emb_scale = c.get("emb_scale", emb_scale)
+            if not math.isfinite(emb_scale):
+                raise ValueError("emb_scale must be finite")
+            model_cfg.looped2_emb_scale = emb_scale
+            l_eff = model_cfg.num_hidden_layers
+            widths = (0, l_eff, 0)
+            sampler_gen = None
+            expected_ratio = 1.0
+        if from_scratch:
+            looped2.reinitialize_from_scratch(model, l_eff)
+        looped2_state = dict(looped2=looped2_options, from_scratch=from_scratch, l_eff=l_eff,
+                             emb_scale=emb_scale, cumulative_flops=0, nkr_counts={},
+                             sampler_rng=sampler_gen.get_state() if sampler_gen is not None else None)
     data = chunks(seq=c["seq"])
     indices = order(len(data), (max(600,c["steps"]) if c.get("per_round_optimizer_update") else c["steps"]) * c["grad_accum"], c["seed"])
+    # A9: retain the config-driven local AdamW and cosine schedule for each arm.
     optimizer = torch.optim.AdamW(model.parameters(), lr=c["lr"], betas=tuple(c["betas"]), weight_decay=c["weight_decay"])
     model.train()
     torch.cuda.reset_peak_memory_stats()
     start = time.perf_counter()
     metadata = build_metadata(model)
-    (dest / "metadata.json").write_text(json.dumps(metadata, indent=2))
+
+    def write_metadata():
+        if track_looped2:
+            metadata.update(looped2_state, expected_flops_ratio=expected_ratio)
+            if sampler_gen is not None:
+                metadata["sampler_rng"] = looped2_state["sampler_rng"].tolist()
+        (dest / "metadata.json").write_text(json.dumps(metadata, indent=2))
+
+    write_metadata()
     sum_updates = 0
     with (dest / "train.jsonl").open("w", buffering=1) as log:
         for step in range(1, c["steps"]+1):
@@ -143,6 +189,9 @@ def main():
             for group in optimizer.param_groups:
                 group["lr"] = lr
             k = rng.choice([2,3]) if c["mode"] == "ponder" else 0
+            if track_looped2:
+                step_nkr = [] if use_looped2 else None
+                step_flops = 0
             if c.get("per_round_optimizer_update"):
                 batches = [data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
                            for micro in range(c["grad_accum"])]
@@ -171,7 +220,26 @@ def main():
                 final_sum = 0.
                 for micro in range(c["grad_accum"]):
                     x = data[indices[(step-1)*c["grad_accum"]+micro]].unsqueeze(0).cuda()
-                    if c.get("loop"):
+                    if track_looped2:
+                        # D2: draw depth and s0 once per microbatch, in that order.
+                        record = {}
+                        with torch.autocast("cuda", dtype=torch.bfloat16):
+                            if use_looped2:
+                                loss = looped2.forward(model, x, labels=x, cfg=cfg,
+                                                       rng=sampler_gen, record=record).loss
+                            else:
+                                loss = looped2.plain_forward(model, x, labels=x, emb_scale=emb_scale).loss
+                        r, grad_rounds = 1, 1
+                        if use_looped2:
+                            nkr = record["nkr"]
+                            _, grad_rounds, r = nkr
+                            step_nkr.append(nkr)
+                            key = ",".join(map(str, nkr))
+                            counts = looped2_state["nkr_counts"]
+                            counts[key] = counts.get(key, 0) + 1
+                        step_flops += x.numel() * looped2.train_flops_per_token(
+                            r, grad_rounds, *widths, h, ff, vocab)
+                    elif c.get("loop"):
                         with torch.autocast("cuda", dtype=torch.bfloat16):
                             loss = looped.forward(model, x, labels=x).loss
                     elif c.get("intermediate_supervision"):
@@ -198,6 +266,13 @@ def main():
                        tokens=step*c["seq"]*c["grad_accum"], tokens_s=c["seq"]*c["grad_accum"]/(time.perf_counter()-t),
                        grad_norm=float(norm), peak_memory_bytes=torch.cuda.max_memory_allocated(),
                        elapsed_s=time.perf_counter()-start)
+            if track_looped2:
+                looped2_state["cumulative_flops"] += step_flops
+                row.update(nkr=step_nkr, flops=step_flops,
+                           cumulative_flops=looped2_state["cumulative_flops"],
+                           nkr_counts=looped2_state["nkr_counts"])
+                if step == 1:
+                    row["emb_scale"] = emb_scale
             if c.get("intermediate_supervision"):
                 row.update(round_ce=[v/c["grad_accum"] for v in round_sums],
                            final_prediction_ce=final_sum/c["grad_accum"])
@@ -212,8 +287,15 @@ def main():
             if step % 200 == 0 or step == c["steps"]:
                 checkpoint = dest / "checkpoints" / ("step-"+str(step))
                 model.save_pretrained(checkpoint)
-                torch.save(dict(optimizer=optimizer.state_dict(), step=step, torch_rng=torch.get_rng_state(),
-                                cuda_rng=torch.cuda.get_rng_state(), python_rng=rng.getstate()), checkpoint / "trainer.pt")
+                trainer = dict(optimizer=optimizer.state_dict(), step=step, torch_rng=torch.get_rng_state(),
+                               cuda_rng=torch.cuda.get_rng_state(), python_rng=rng.getstate())
+                if track_looped2:
+                    if sampler_gen is not None:
+                        looped2_state["sampler_rng"] = sampler_gen.get_state()
+                    trainer.update(looped2_state)
+                torch.save(trainer, checkpoint / "trainer.pt")
+                if track_looped2:
+                    write_metadata()
                 with (dest / "checkpoint-index.jsonl").open("a") as index:
                     index.write(json.dumps(dict(step=step,path=str(checkpoint.resolve())))+"\n")
     (dest / "complete.json").write_text(json.dumps(dict(steps=c["steps"],wall_s=time.perf_counter()-start)))

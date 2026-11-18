@@ -1,0 +1,80 @@
+{
+  "checkpoint": "runs/EXP-25-loopmid160-s42/checkpoints/step-1200",
+  "split": "validation",
+  "seq": 256,
+  "batch": 1,
+  "seed": 42,
+  "n_chunks": 32,
+  "max_round": 8,
+  "loop_block": "layers 3..8 (block_size 6, start 3), round 0 = after prelude",
+  "method": "manual looped forward replicating src/looped.py forward(); bf16 autocast, FP32 metrics; src/diagnose.py, src/probe_h.py and src/jacobi_check.py are ponder/Jacobi tools and cannot run the looped forward, so not reused",
+  "git_hash": "6386c8eed81b6d79b98fd5594f5b6e1588f891f2",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "seconds": 1.914209695001773,
+  "rounds": [
+    {
+      "round": 0,
+      "pairwise_cos": 0.37321764789521694,
+      "norm": 22.684027075767517,
+      "prev_cos": null,
+      "rel_change": null
+    },
+    {
+      "round": 1,
+      "pairwise_cos": 0.6137773282825947,
+      "norm": 49.2188526391983,
+      "prev_cos": 0.6429773513227701,
+      "rel_change": 1.6485884748399258
+    },
+    {
+      "round": 2,
+      "pairwise_cos": 0.5576857924461365,
+      "norm": 59.239569902420044,
+      "prev_cos": 0.9167266022413969,
+      "rel_change": 0.5012919437140226
+    },
+    {
+      "round": 3,
+      "pairwise_cos": 0.5555147770792246,
+      "norm": 70.86836957931519,
+      "prev_cos": 0.9684216510504484,
+      "rel_change": 0.3550550853833556
+    },
+    {
+      "round": 4,
+      "pairwise_cos": 0.5742654781788588,
+      "norm": 83.75138115882874,
+      "prev_cos": 0.9849957134574652,
+      "rel_change": 0.27797933015972376
+    },
+    {
+      "round": 5,
+      "pairwise_cos": 0.5977435782551765,
+      "norm": 97.48007869720459,
+      "prev_cos": 0.9913698583841324,
+      "rel_change": 0.229890629183501
+    },
+    {
+      "round": 6,
+      "pairwise_cos": 0.6203284692019224,
+      "norm": 111.76522278785706,
+      "prev_cos": 0.994465684518218,
+      "rel_change": 0.1951158121228218
+    },
+    {
+      "round": 7,
+      "pairwise_cos": 0.6407000683248043,
+      "norm": 126.46388602256775,
+      "prev_cos": 0.996184591203928,
+      "rel_change": 0.16906730411574244
+    },
+    {
+      "round": 8,
+      "pairwise_cos": 0.6584408115595579,
+      "norm": 141.47334623336792,
+      "prev_cos": 0.9972288571298122,
+      "rel_change": 0.14878967544063926
+    }
+  ]
+}

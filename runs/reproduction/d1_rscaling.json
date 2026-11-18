@@ -1,0 +1,47 @@
+{
+  "checkpoint": "runs/EXP-25-loopmid160-s42/checkpoints/step-1200",
+  "split": "validation",
+  "seq": 256,
+  "batch": 1,
+  "seed": 42,
+  "method": "parallel NLL, same computation as src/evaluate_looped.py (bf16 autocast, FP32 CE); r=8 via direct config override after configure(R=2); src/looped.py untouched",
+  "block_size": 6,
+  "loop_block_start": 3,
+  "git_hash": "6386c8eed81b6d79b98fd5594f5b6e1588f891f2",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "results": [
+    {
+      "r": 1,
+      "nll": 4.952071283339573,
+      "ppl": 141.4676803168574,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 9.084225168000557
+    },
+    {
+      "r": 2,
+      "nll": 4.572618549242881,
+      "ppl": 96.79724655932289,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 14.31115661199874
+    },
+    {
+      "r": 4,
+      "nll": 5.4328771475085045,
+      "ppl": 228.80660967052438,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 17.187582901002315
+    },
+    {
+      "r": 8,
+      "nll": 9.1069020279895,
+      "ppl": 9017.316182046014,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "seconds": 33.4161354780008
+    }
+  ]
+}

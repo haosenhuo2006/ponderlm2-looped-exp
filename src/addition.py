@@ -16,6 +16,11 @@ def sample_operands(rng, max_digits):
     return tuple(_operand(rng, rng.randint(1, max_digits)) for _ in range(2))
 
 
+def sample_operands_strict3(rng):
+    """D4: both operands have exactly three digits."""
+    return _operand(rng, 3), _operand(rng, 3)
+
+
 def format_example(a, b):
     return f"{a}+{b}={a+b}"
 
