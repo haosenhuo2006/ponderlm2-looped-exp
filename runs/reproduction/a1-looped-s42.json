@@ -1,0 +1,25 @@
+{
+  "batch": 256,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "emb_scale": 22.627416997969522,
+  "from_scratch_init": true,
+  "loop": null,
+  "looped2": {
+    "widths": [
+      2,
+      2,
+      2
+    ]
+  },
+  "lr": 0.001,
+  "max_train_digits": 3,
+  "run_dir": "runs/reproduction/a1-looped-s42",
+  "seed": 42,
+  "steps": 8000,
+  "strict_3digit": true,
+  "warmup": 100,
+  "weight_decay": 0.01
+}
