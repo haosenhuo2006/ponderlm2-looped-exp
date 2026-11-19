@@ -8,8 +8,8 @@
   "source_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
   "text_sha256": "57f3eb280cfe78d8cebe3aa76d7416607845416e22464dd9709ccb487f8d7b92",
   "tokens_sha256": "05df02b1e06b374ab5541d77a867728e475a1eafe6485cee69b473e4a2bd9736",
-  "tokenizer": "EleutherAI/pythia-70m",
-  "revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+  "tokenizer": "EleutherAI/pythia-160M",
+  "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
   "special_tokens": false,
   "row_join": "empty rows -> newline; nonempty rows verbatim"
 }

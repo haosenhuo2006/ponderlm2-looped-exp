@@ -75,3 +75,45 @@ WSL/Windows 今晚约 23:00 关机，明天 9:30 恢复；本文件提交推送�
   D3 三条路里"改初态设计"单独走不通；要救 L1 得连结构一起重新设计（超出冻结预注册）。
   从零训臂（L2/A1/Yang）不受影响。
 - 明早 9:30 续跑前，先等用户在 D3 三条路上的裁决（本消融供裁决参考）。
+
+## 2026-11-18 晚：smoke 通过 + Yang timing pilot（D3 已裁决后）
+- smoke（205 步，seed 42，160M looped2）：跑完 283 秒，loss 4.69（零步 10.02），step-200 与 step-205 checkpoint 均落盘，metadata 里 expected_flops_ratio=1.672074（设计 1.6721），峰值显存 3.3GB。训练路径已验证，明早可直接开正式臂。
+- smoke 两次启动失败的教训已写入 TOMORROW-QUEUE.md：须设 PYTHIA_MODEL/PYTHIA_REVISION（train.py 不读 config 的 model 字段，默认 70M）与 EXP08_RUN_DIR（每 run 一个目录，否则撞 exp01-order.json 缓存报 AssertionError）。
+- Yang timing pilot（每任务-模型 200 步，seed 42，7/8 完成）：decision_tree looped 一次超时（120s 上限），已重跑（timeout 300s），结果见 yang-pilot-dt-looped.log。
+  - linear：looped 0.219 s/步，50k 步约 3.04h；standard 0.156 s/步，约 2.17h
+  - sparse：looped 0.193 s/步，约 2.68h；standard 0.173 s/步，约 2.40h
+  - decision_tree：standard 0.469 s/步，20k 步约 2.60h；looped 待补测
+  - relu_2nn：looped 0.266 s/步，20k 步约 1.48h；standard 0.424 s/步，约 2.35h
+  - 已知 7 项两种子合计约 33.4h，再加 decision_tree looped（待补测），是设计估算 3.0h 的 11 倍以上。pilot 不含评测开销，实际只会更慢。
+- 成本上限规则（预注册已定，不须重新批准）：pilot 预计 >3h 时依次 (1) 决策树 20k→10k 步；(2) Yang 全线降为 1 种子；(3) 稀疏 50k→20k 步。三项全执行后单种子仍约 13.5–15h（视 decision_tree looped 补测值），仍超 3h 上限——预注册的削减分支已用尽。Yang 全量装不进明天的 GPU 窗口，明早协调员先跑 A1→L2，Yang 等用户另作裁决（只跑核心任务 / 再降步数 / 暂缓 Yang），不擅自开全量。
+
+## 2026-11-18 晚补：decision_tree looped 补测完成，Yang 预算定稿
+- decision_tree looped：1.273 s/步，20k 步约 7.07h（比 standard 的 2.60h 慢 2.7 倍，是最贵的一组）。Yang pilot 8/8 完成（见 yang-pilot.log 与 yang-pilot-dt-looped.log）。
+- Yang 全量（两种子，满步数）约 47.6h；单种子约 23.8h。设计估算 3.0h，实测约 16 倍。pilot 不含评测开销，实际只会更慢。
+- 预注册三项削减全执行后（决策树 10k 步、单种子、稀疏 20k 步）仍约 15.9h，仍超 3h 上限 5 倍以上。削减分支已用尽，Yang 须用户另作裁决；明早先跑 A1→L2，Yang 不擅自开。
+
+## 2026-11-19 上午：开始执行 A1→L2（用户 09:25 电脑已开）
+- 用户 09:29 最新指示：Yang 无所谓，跑完 A1→L2 就停，不用再跑 Yang 填显卡时间。重点改到写报告：每臂完成时就写一份方法、结果、问题、局限齐全的报告，并把该臂回答的问题写清楚，不要只报数字。A1/L2 结果里若有重要发现，继续设计后续实验（设计与问题写出来汇报），但开跑前必须想好、验证好；新实验未经设计论证和批准不要开。
+- 执行顺序：A1（4 个 run）→ L2（6 个 run），背靠背；L1 冻结；Yang 不跑；条件下游不触发。
+- 评测入口纠正：A1 两臂一律走 src.evaluate_looped2 addition（--eval-r 4；vanilla 走 emb_scale 挂钩的 plain forward）。不要用 src.evaluate_addition.py——它只认旧 loop 配置与 looped.configure，遇到新 looped2 checkpoint 会静默按 vanilla（R=1）评测，且不处理 emb_scale。L2 两臂一律走 src.evaluate_looped2 lm（--eval-r 4；vanilla 从零训走 emb_scale 的 plain forward）。config_from_checkpoint 已核对：只有含 looped2 三段的 checkpoint 才走 looped 分支。
+- 10 个 config 已全部生成并核对（runs/reproduction/a1-*.json、l2-*.json；A1：70M，8000 步，batch 256，lr 1e-3，warmup 100，严格 3 位数，from_scratch_init，emb_scale √512；L2：160M，1200 步，lr 3e-4，warmup 100，from_scratch）。驱动脚本 runs/reproduction/run_a1.py、run_l2.py 已备好并通过语法检查；每 run 训练加评测加提交，失败即停。
+
+## 2026-11-19 10:12 A1 驱动被 SIGTERM 杀掉，s43 训练存活，已恢复（A1 仍在跑）
+- A1 驱动（run_a1.py，后台 exec proc_7b5cbc178940）在 10:12 被 SIGTERM 终止，死在 a1-vanilla-s43 训练中段。原因不明（exec 会话被终止，非训练本身失败；训练 loss/进度此前均正常）。
+- 已完成的两个 s42 run 不受影响，已提交（本地，未推送，待 resume 驱动最后统一 push）：
+  - a1-vanilla-s42：8000 步，终 loss 0.700，评测 3 位数 161/500=0.322，4 位数 0，5-6 位数 0。提交 a87d3b2。
+  - a1-looped-s42：8000 步，终 loss 0.723，评测 3 位数 161/500=0.322（与 vanilla 完全相同），4 位数 0，5-6 位数 0。提交 b8634ef。
+- **s42 关键发现（先报告，不下机制结论）**：两模型 3 位数均只有 0.322，远低于预注册 sanity 门 90%（设计 §7.4）。按冻结规则，4 位数泛化比较判"不可解释"，只报数字。Loss 平台 ~0.70（EXP-23 混训终 loss 0.012），两模型都没把任务学透。**vanilla 也只有 0.322**，所以失败原因不在 looped 架构（vanilla 没有 looped），在训练设置本身（严格 3 位数-only、无课程：EXP-23 混训 1-3 位数达 97%；或新从零训初始化+emb_scale 的影响——两者同时变了，无法区分）。161/500 完全相同提示两模型学到了相同的部分逐位技能（逐位 ~70% 正确率 → 0.7^3 ≈ 0.34 精确匹配）。s43 复制后若仍 ~32%，该发现稳固；届时在 A1 报告里写清，并设计后续实验（只设计、不开跑）。
+- 恢复：a1-vanilla-s43 训练进程在 SSH 会话死后存活为孤儿（PID 3260），健康推进（10:16 已到 step 2300，约 10:28 完成）。已启动 resume 驱动 runs/reproduction/run_a1_resume.py（PID 3599，setsid 脱离会话，只写日志文件、不向 stdout 打印），等 s43 vanilla 的 complete.json → 评测+提交 → 训 s43 looped → 评测+提交 → git push。预计 A1 约 10:53 完成。
+- 教训：长时驱动必须只写日志文件、不向 stdout 打印（stdout 管道断裂会杀死驱动），且用 setsid nohup 脱离 exec 会话启动；否则 exec 会话一旦被终止，驱动随之死、只剩子进程存活。
+
+## 2026-11-19 上午：A1 全部完成，L2 已启动（新协调员接手）
+- A1 四组全部完成（训练+评测+本地提交；推送因 github.com DNS 故障暂未成功，见下）：
+  - a1-vanilla-s42：8000 步，终 loss 0.6999，3 位数 161/500=0.322，4 位数 0，5-6 位数 0。
+  - a1-looped-s42：8000 步，终 loss 0.7230，3 位数 161/500=0.322，4 位数 0，5-6 位数 0。
+  - a1-vanilla-s43：8000 步，终 loss 0.7239，3 位数 133/500=0.266，4 位数 0，5-6 位数 0。
+  - a1-looped-s43：8000 步，终 loss 0.6804，3 位数 139/500=0.278，4 位数 0，5-6 位数 0。
+- s43 复制 s42 的结论：3 位数均远低于 90% sanity 门；4 位数全 0。两种子 3 位数均值：vanilla 0.294，looped 0.300；配对差 s42 为 0，s43 为 +0.012。按冻结规则，4 位数泛化比较判不可解释，只报数字。
+- 推送阻塞：github.com 从 WSL 的 DNS 解析失败（Tailscale MagicDNS 100.100.100.100 返回 Temporary failure），10:50 与 10:55 两次 git push 均 rc=128；经 HTTP 代理的 SSH（nc CONNECT 到 22 端口）也被拒，ssh.github.com:443 直连挂起。4 个 A1 提交（a87d3b2、b8634ef、83915bd、e32efca）暂只在本地，待 DNS 恢复后补推。HTTPS 经代理可通（curl 200），但 SSH 是唯一已配好的推送通道。
+- L2 已启动：驱动 runs/reproduction/run_l2.py（PID 5261，setsid 脱离会话，只写日志），6 个 run 背靠背（vanilla/looped × 42/43/44，各 1200 步，160M 从零训）。run_l2.py 的 log() 已去掉 stdout 打印（只写日志文件），与 resume 驱动一致。预计约 2.5 小时，约 13:30 完成。L1 冻结，Yang 不跑。
+- A1 报告撰写中（L2 训练期间并行写），中文版与英文版完成后提交推送。
