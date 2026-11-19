@@ -117,3 +117,13 @@ WSL/Windows 今晚约 23:00 关机，明天 9:30 恢复；本文件提交推送�
 - 推送阻塞：github.com 从 WSL 的 DNS 解析失败（Tailscale MagicDNS 100.100.100.100 返回 Temporary failure），10:50 与 10:55 两次 git push 均 rc=128；经 HTTP 代理的 SSH（nc CONNECT 到 22 端口）也被拒，ssh.github.com:443 直连挂起。4 个 A1 提交（a87d3b2、b8634ef、83915bd、e32efca）暂只在本地，待 DNS 恢复后补推。HTTPS 经代理可通（curl 200），但 SSH 是唯一已配好的推送通道。
 - L2 已启动：驱动 runs/reproduction/run_l2.py（PID 5261，setsid 脱离会话，只写日志），6 个 run 背靠背（vanilla/looped × 42/43/44，各 1200 步，160M 从零训）。run_l2.py 的 log() 已去掉 stdout 打印（只写日志文件），与 resume 驱动一致。预计约 2.5 小时，约 13:30 完成。L1 冻结，Yang 不跑。
 - A1 报告撰写中（L2 训练期间并行写），中文版与英文版完成后提交推送。
+
+## 2026-11-19 下午：L2 全部完成，判分支 (b)
+
+- 6 组全部完成并评测：vanilla s42 5.2810、looped s42 5.2338、vanilla s43 5.2785、looped s43 5.2353、vanilla s44 5.2709、looped s44 5.2253。
+- 配对差：s42 -0.0472、s43 -0.0432、s44 -0.0456；配对均值 -0.0453，SD 0.0020，SE 0.0012，t=-39.0 (df=2)，p=0.00066，95% 区间 [-0.0503, -0.0403]。
+- 裁决（设计 §7.2）：分支 (b)，looped 未赢。均值 -0.0453 未达 -0.05 阈值（差 0.0047）；方向 3/3 一致。注意：L2 是同 token 数对照（looped FLOPs 约 1.676× vanilla），非等 FLOPs。
+- 执行：vanilla-s44 第一遍死在 1197/1200（电脑重启），resume 驱动 run_l2_resume.py（setsid）重跑；looped-s44 背靠背完成。推送成功（git push rc=0，DNS 已恢复）。
+- 存储：按 2026-11-19 新规矩，每组评测完删中间 checkpoint、只留最终 step-1200（s44 两组各腾出 9.74 GB；watcher trim_l2_s44.py 执行）。
+- 报告：中文 ~/workspace/research_notes/ponderlm2-looped-20261113/l2-zh.md，英文仓库 reports/L2-from-scratch-looped-vs-vanilla.md。marker 已写 runs/reproduction/l2-complete.marker。
+- 后续：先做零成本 R-scaling 诊断（D-L2-4）；补种子（D-L2-1）须授权；L1 冻结、Yang 不跑；不开没过论证关的实验。
