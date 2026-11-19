@@ -1,0 +1,95 @@
+{
+  "config": {
+    "batch": 256,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "emb_scale": 22.627416997969522,
+    "from_scratch_init": true,
+    "loop": null,
+    "looped2": {
+      "widths": [
+        2,
+        2,
+        2
+      ]
+    },
+    "lr": 0.001,
+    "max_train_digits": 3,
+    "run_dir": "runs/reproduction/a1-looped-s43",
+    "seed": 43,
+    "steps": 8000,
+    "strict_3digit": true,
+    "warmup": 100,
+    "weight_decay": 0.01
+  },
+  "effective_config": {
+    "prelude": [
+      0,
+      1
+    ],
+    "core": [
+      2,
+      3
+    ],
+    "coda": [
+      4,
+      5
+    ],
+    "emb_scale": 22.627416997969522,
+    "t": 2.0,
+    "s": 2,
+    "sigma": 0.5,
+    "cap": 12,
+    "eval_r": 4
+  },
+  "test_seed": 1234,
+  "per_length_count": 500,
+  "loop_source": "checkpoint",
+  "per_r": [
+    {
+      "r": 4,
+      "s0_seed": 0,
+      "per_length": {
+        "1": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "2": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "3": {
+          "n": 500,
+          "correct": 139,
+          "acc": 0.278
+        },
+        "4": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "5": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "6": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        }
+      },
+      "id_acc": 0.278,
+      "in_distribution_acc_pooled_1_3": 0.09266666666666666,
+      "ood_4_acc": 0.0,
+      "ood_56_acc": 0.0,
+      "overall_acc": 0.04633333333333333
+    }
+  ],
+  "checkpoint": "/home/lenovo_jason/ponderlm2-looped-exp/runs/reproduction/a1-looped-s43/checkpoints/final",
+  "git_hash": "83915bd12402b0ddbcbbe8b2f5fc19d706a16030"
+}
