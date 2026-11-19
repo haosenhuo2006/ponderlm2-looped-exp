@@ -1,0 +1,15 @@
+{
+  "split": "validation",
+  "tokens": 250139,
+  "seq": 256,
+  "chunks": 977,
+  "dropped_tail_tokens": 27,
+  "source_url": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/validation-00000-of-00001.parquet",
+  "source_sha256": "204929b7ff9d6184953f867dedb860e40aa69c078fc1e54b3baaa8fb28511c4c",
+  "text_sha256": "fbf387067edf87fc0f11e8cc1708be8ff6c944f6eeb98c1e34140c8a95629a00",
+  "tokens_sha256": "634bef28a2ceb2d0f0064d8b5e6dff2359ddb3060a108dcf066796937c258546",
+  "tokenizer": "EleutherAI/pythia-160M",
+  "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+  "special_tokens": false,
+  "row_join": "empty rows -> newline; nonempty rows verbatim"
+}

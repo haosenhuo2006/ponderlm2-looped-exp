@@ -1,0 +1,19 @@
+{
+  "mode": "vanilla",
+  "split": "validation",
+  "config": {
+    "emb_scale": 27.712812921102035
+  },
+  "per_r": [
+    {
+      "r": 1,
+      "nll": 5.270879471976946,
+      "ppl": 194.5870210458316,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "s0_seed": 0
+    }
+  ],
+  "checkpoint": "/home/lenovo_jason/ponderlm2-looped-exp/runs/reproduction/l2-vanilla-s44/checkpoints/step-1200",
+  "git_hash": "7f0531168a86c2e5f9e78b040331c288173a01ff"
+}
