@@ -1,0 +1,31 @@
+{
+  "task": "linear_regression",
+  "seed": 42,
+  "steps": 50000,
+  "batch_size": 64,
+  "lr": 0.0001,
+  "d": 20,
+  "k": 40,
+  "b_n_loops": 20,
+  "T_n_loop_window": 15,
+  "normalization_denominator": 20,
+  "n_eval": 1280,
+  "eval_seed": 1234,
+  "models": {
+    "looped": "1-layer GPT, D=256, 8 heads, 847873 params",
+    "standard": "12-layer GPT, D=256, 8 heads, 9535233 params"
+  },
+  "looped": {
+    "normalized_mse": 0.0071026735007762905,
+    "bootstrap_low": 0.00655137300491333,
+    "bootstrap_high": 0.007649330794811249
+  },
+  "standard": {
+    "normalized_mse": 0.9574185371398926,
+    "bootstrap_low": 0.888221549987793,
+    "bootstrap_high": 1.0236246109008789
+  },
+  "diff_looped_minus_standard": -0.9503158636391162,
+  "ratio_looped_over_standard": 0.007418566933113901,
+  "note": "Single seed (42). Prereg Yang verdict needs 2 seeds for direction consistency; this run alone cannot apply the full verdict rule."
+}

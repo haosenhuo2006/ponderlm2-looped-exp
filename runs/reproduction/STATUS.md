@@ -127,3 +127,25 @@ WSL/Windows 今晚约 23:00 关机，明天 9:30 恢复；本文件提交推送�
 - 存储：按 2026-11-19 新规矩，每组评测完删中间 checkpoint、只留最终 step-1200（s44 两组各腾出 9.74 GB；watcher trim_l2_s44.py 执行）。
 - 报告：中文 ~/workspace/research_notes/ponderlm2-looped-20261113/l2-zh.md，英文仓库 reports/L2-from-scratch-looped-vs-vanilla.md。marker 已写 runs/reproduction/l2-complete.marker。
 - 后续：先做零成本 R-scaling 诊断（D-L2-4）；补种子（D-L2-1）须授权；L1 冻结、Yang 不跑；不开没过论证关的实验。
+
+## 2026-11-19 下午：Yang 线性复现启动（单种子 42）
+
+- 用户 16:43 批准：只跑 Yang 线性任务（linear_regression），单种子 42，looped（1 层）vs 标准（12 层），D=256、8 头，从零训，50k 步 each。只跑 linear，不跑 sparse/decision_tree/relu_2nn，不跑种子 43。
+- 驱动 runs/reproduction/run_yang_linear_s42.py（setsid 脱离会话，只写日志），looped 先跑、标准背靠背。预计 looped 约 3.0h、标准约 2.2h，合计约 5.2h，约 22:00 完成。
+- 冻结口径：线性 d=20、k=40、b=20、T=15，batch 64，Adam lr 1e-4，无 wd、无 clip；评测 1280 条 prompt、eval_seed 1234、最终轮归一化 MSE（分母 20）+ 90% bootstrap CI。
+- train_yang.py 无续跑入口：中途被中断须重跑被中断的那个模型（驱动幂等，已完成模型跳过）。
+- 注意：单种子 42，预注册 Yang 裁决（3.3 节）要求两种子方向一致，单种子无法完整套用裁决规则，只能报单种子数字与 90% 阈值比较。
+
+## 2026-11-19 晚上：Yang 线性恢复为原计划全量；Huginn 加法取消
+
+- 用户 19:35 改主意，覆盖"looped 跑完就停"：Yang 线性按原计划跑完，looped 和标准模型都跑，不要停。looped 跑完后接着跑标准模型，一直到全部完成（训练、评测、汇报）。
+- 恢复执行：驱动在 19:31 按上一条指令被停掉（kill 8881），looped 训练进程（8882）未受影响、继续跑；finish_looped_eval.sh 正在等 looped 跑完做评测。looped 完成后重跑原驱动 run_yang_linear_s42.py（幂等：looped 有最终 checkpoint + eval.json 即跳过，只跑标准），再跑标准 50k 步、评测、写汇总。
+- Huginn 加法实验取消，不做了。设计已完成但不执行，不要为它写代码、不要排队。
+
+## 2026-11-19 晚上：Yang 线性全部完成（单种子 42），looped 大胜
+
+- 线性回归（d=20、k=40、b=20、T=15，50k 步，种子 42）：looped 归一化 MSE 0.0071027（90% CI [0.0065514, 0.0076493]），标准 0.9574185（90% CI [0.8882215, 1.0236246]）。差值 −0.9503159，比值 0.0074186（looped 约为标准的 0.74%，约低 135 倍），CI 完全不重叠。
+- 裁决（预注册 §3.3）：单种子 42 上 looped 远低于 90% 阈值（0.8617），但只跑一个种子、"两种子方向一致"无法检验，不能完整套用裁决规则；补跑种子 43 且方向一致才能正式判赢。
+- 标准模型 0.9574 接近 1.0（约等于只预测均值），50k 步缩减预算下基本没学会；结论是 looped 在该预算下学得远快于标准，不排除标准在 500k 步时追上来（欠训 caveat）。
+- 执行：looped 16:46–19:37（约 2.8h），标准 19:38–21:40（约 2.0h），总 GPU 约 4.9h。中间 checkpoint 已删，每模型只留 model_50000.pt。结果 runs/reproduction/yang-linear-s42.json，报告 runs/reproduction/yang-linear-s42.md，中文简报 yang-linear-zh.md。
+- Huginn 加法实验取消，不执行。
