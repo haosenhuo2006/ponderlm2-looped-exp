@@ -1,0 +1,71 @@
+{
+  "config": {
+    "batch": 256,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "emb_scale": 22.627416997969522,
+    "from_scratch_init": true,
+    "loop": null,
+    "lr": 0.001,
+    "max_train_digits": 3,
+    "run_dir": "runs/reproduction/a1-vanilla-s42",
+    "seed": 42,
+    "steps": 8000,
+    "strict_3digit": true,
+    "warmup": 100,
+    "weight_decay": 0.01
+  },
+  "effective_config": {
+    "emb_scale": 22.627416997969522
+  },
+  "test_seed": 1234,
+  "per_length_count": 500,
+  "loop_source": "checkpoint",
+  "per_r": [
+    {
+      "r": 1,
+      "s0_seed": 0,
+      "per_length": {
+        "1": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "2": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "3": {
+          "n": 500,
+          "correct": 161,
+          "acc": 0.322
+        },
+        "4": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "5": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        },
+        "6": {
+          "n": 500,
+          "correct": 0,
+          "acc": 0.0
+        }
+      },
+      "id_acc": 0.322,
+      "in_distribution_acc_pooled_1_3": 0.10733333333333334,
+      "ood_4_acc": 0.0,
+      "ood_56_acc": 0.0,
+      "overall_acc": 0.05366666666666667
+    }
+  ],
+  "checkpoint": "/home/lenovo_jason/ponderlm2-looped-exp/runs/reproduction/a1-vanilla-s42/checkpoints/final",
+  "git_hash": "b9b17c8005be110c0b8df3ba4afdc1b3e9745bea"
+}
