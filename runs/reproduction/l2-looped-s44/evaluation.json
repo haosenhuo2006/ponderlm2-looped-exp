@@ -1,0 +1,42 @@
+{
+  "mode": "looped2",
+  "split": "validation",
+  "config": {
+    "prelude": [
+      0,
+      1,
+      2
+    ],
+    "core": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "coda": [
+      9,
+      10,
+      11
+    ],
+    "emb_scale": 27.712812921102035,
+    "t": 2.0,
+    "s": 2,
+    "sigma": 0.5,
+    "cap": 12,
+    "eval_r": 4
+  },
+  "per_r": [
+    {
+      "r": 4,
+      "nll": 5.225309218822908,
+      "ppl": 185.91865118492132,
+      "predicted_tokens": 249135,
+      "chunks": 977,
+      "s0_seed": 0
+    }
+  ],
+  "checkpoint": "/home/lenovo_jason/ponderlm2-looped-exp/runs/reproduction/l2-looped-s44/checkpoints/step-1200",
+  "git_hash": "4c253d9a47e8cefb56f2cc109f8935b0320dbff2"
+}

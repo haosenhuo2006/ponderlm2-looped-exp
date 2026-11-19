@@ -1,0 +1,30 @@
+{
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "clip": 1,
+  "dataset": "wikitext-2-raw-v1",
+  "from_scratch": true,
+  "grad_accum": 16,
+  "looped2": {
+    "widths": [
+      3,
+      6,
+      3
+    ]
+  },
+  "lr": 0.0003,
+  "lr_floor": 0.1,
+  "microbatch": 1,
+  "mode": "vanilla",
+  "model": "EleutherAI/pythia-160M",
+  "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+  "run_budget_s": 3600,
+  "run_dir": "runs/reproduction/l2-looped-s44",
+  "seed": 44,
+  "seq": 256,
+  "steps": 1200,
+  "warmup": 100,
+  "weight_decay": 0.01
+}
